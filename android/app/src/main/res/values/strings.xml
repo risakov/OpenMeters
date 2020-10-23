@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">OpenMeters</string>
+
+    <string name="ok">Ок</string>
+    <string name="allow_camera_and_storage">Для использования камеры устройства необходимо дать разрешения</string>
 </resources>
