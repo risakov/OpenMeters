@@ -13,6 +13,16 @@
 		6C2CB0CF254344BF00CB7189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CB0CD254344BF00CB7189 /* Main.storyboard */; };
 		6C2CB0D1254344C100CB7189 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CB0D0254344C100CB7189 /* Assets.xcassets */; };
 		6C2CB0D4254344C100CB7189 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CB0D2254344C100CB7189 /* LaunchScreen.storyboard */; };
+		6C2CB0E125434A6300CB7189 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0E025434A6200CB7189 /* ProfileViewController.swift */; };
+		6C2CB0E525434A7100CB7189 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0E425434A7100CB7189 /* ProfilePresenter.swift */; };
+		6C2CB0E825434C9A00CB7189 /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0E725434C9A00CB7189 /* ProfileConfigurator.swift */; };
+		6C2CB0EB25434CA800CB7189 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0EA25434CA800CB7189 /* ProfileRouter.swift */; };
+		6C2CB0EE25434CB400CB7189 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CB0ED25434CB400CB7189 /* Profile.storyboard */; };
+		6C2CB0F325434CD900CB7189 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0F225434CD900CB7189 /* CameraViewController.swift */; };
+		6C2CB0F725434D2500CB7189 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0F625434D2500CB7189 /* CameraPresenter.swift */; };
+		6C2CB0FA25434D3100CB7189 /* CameraConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0F925434D3100CB7189 /* CameraConfigurator.swift */; };
+		6C2CB0FD25434D3B00CB7189 /* CameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0FC25434D3B00CB7189 /* CameraRouter.swift */; };
+		6C2CB10025434D4200CB7189 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CB0FF25434D4200CB7189 /* Camera.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +34,16 @@
 		6C2CB0D0254344C100CB7189 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C2CB0D3254344C100CB7189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C2CB0D5254344C100CB7189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C2CB0E025434A6200CB7189 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6C2CB0E425434A7100CB7189 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		6C2CB0E725434C9A00CB7189 /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
+		6C2CB0EA25434CA800CB7189 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		6C2CB0ED25434CB400CB7189 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		6C2CB0F225434CD900CB7189 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		6C2CB0F625434D2500CB7189 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
+		6C2CB0F925434D3100CB7189 /* CameraConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurator.swift; sourceTree = "<group>"; };
+		6C2CB0FC25434D3B00CB7189 /* CameraRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRouter.swift; sourceTree = "<group>"; };
+		6C2CB0FF25434D4200CB7189 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,8 @@
 		6C2CB0C6254344BF00CB7189 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6C2CB0F125434CBE00CB7189 /* Camera */,
+				6C2CB0DF254349E200CB7189 /* Profile */,
 				6C2CB0C7254344BF00CB7189 /* AppDelegate.swift */,
 				6C2CB0C9254344BF00CB7189 /* SceneDelegate.swift */,
 				6C2CB0CB254344BF00CB7189 /* ViewController.swift */,
@@ -65,6 +87,30 @@
 				6C2CB0D5254344C100CB7189 /* Info.plist */,
 			);
 			path = iOS;
+			sourceTree = "<group>";
+		};
+		6C2CB0DF254349E200CB7189 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6C2CB0ED25434CB400CB7189 /* Profile.storyboard */,
+				6C2CB0E025434A6200CB7189 /* ProfileViewController.swift */,
+				6C2CB0E425434A7100CB7189 /* ProfilePresenter.swift */,
+				6C2CB0E725434C9A00CB7189 /* ProfileConfigurator.swift */,
+				6C2CB0EA25434CA800CB7189 /* ProfileRouter.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		6C2CB0F125434CBE00CB7189 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				6C2CB0FF25434D4200CB7189 /* Camera.storyboard */,
+				6C2CB0F225434CD900CB7189 /* CameraViewController.swift */,
+				6C2CB0F625434D2500CB7189 /* CameraPresenter.swift */,
+				6C2CB0F925434D3100CB7189 /* CameraConfigurator.swift */,
+				6C2CB0FC25434D3B00CB7189 /* CameraRouter.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +172,9 @@
 			files = (
 				6C2CB0D4254344C100CB7189 /* LaunchScreen.storyboard in Resources */,
 				6C2CB0D1254344C100CB7189 /* Assets.xcassets in Resources */,
+				6C2CB0EE25434CB400CB7189 /* Profile.storyboard in Resources */,
 				6C2CB0CF254344BF00CB7189 /* Main.storyboard in Resources */,
+				6C2CB10025434D4200CB7189 /* Camera.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +186,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2CB0CC254344BF00CB7189 /* ViewController.swift in Sources */,
+				6C2CB0FA25434D3100CB7189 /* CameraConfigurator.swift in Sources */,
 				6C2CB0C8254344BF00CB7189 /* AppDelegate.swift in Sources */,
+				6C2CB0E125434A6300CB7189 /* ProfileViewController.swift in Sources */,
+				6C2CB0F725434D2500CB7189 /* CameraPresenter.swift in Sources */,
+				6C2CB0E525434A7100CB7189 /* ProfilePresenter.swift in Sources */,
+				6C2CB0E825434C9A00CB7189 /* ProfileConfigurator.swift in Sources */,
+				6C2CB0F325434CD900CB7189 /* CameraViewController.swift in Sources */,
+				6C2CB0FD25434D3B00CB7189 /* CameraRouter.swift in Sources */,
 				6C2CB0CA254344BF00CB7189 /* SceneDelegate.swift in Sources */,
+				6C2CB0EB25434CA800CB7189 /* ProfileRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
