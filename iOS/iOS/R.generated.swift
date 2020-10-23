@@ -13,19 +13,200 @@ struct R: Rswift.Validatable {
   fileprivate static let hostingBundle = Bundle(for: R.Class.self)
   
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 4 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
+    /// Color `blue`.
+    static let blue = Rswift.ColorResource(bundle: R.hostingBundle, name: "blue")
+    /// Color `grayBackground`.
+    static let grayBackground = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayBackground")
+    /// Color `grayText`.
+    static let grayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayText")
     
     /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     static func accentColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.accentColor, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "blue", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func blue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.blue, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "grayBackground", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func grayBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.grayBackground, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "grayText", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func grayText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.grayText, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.font` struct is generated, and contains static references to 18 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `Graphik-BlackItalic`.
+    static let graphikBlackItalic = Rswift.FontResource(fontName: "Graphik-BlackItalic")
+    /// Font `Graphik-Black`.
+    static let graphikBlack = Rswift.FontResource(fontName: "Graphik-Black")
+    /// Font `Graphik-BoldItalic`.
+    static let graphikBoldItalic = Rswift.FontResource(fontName: "Graphik-BoldItalic")
+    /// Font `Graphik-Bold`.
+    static let graphikBold = Rswift.FontResource(fontName: "Graphik-Bold")
+    /// Font `Graphik-ExtralightItalic`.
+    static let graphikExtralightItalic = Rswift.FontResource(fontName: "Graphik-ExtralightItalic")
+    /// Font `Graphik-Extralight`.
+    static let graphikExtralight = Rswift.FontResource(fontName: "Graphik-Extralight")
+    /// Font `Graphik-LightItalic`.
+    static let graphikLightItalic = Rswift.FontResource(fontName: "Graphik-LightItalic")
+    /// Font `Graphik-Light`.
+    static let graphikLight = Rswift.FontResource(fontName: "Graphik-Light")
+    /// Font `Graphik-MediumItalic`.
+    static let graphikMediumItalic = Rswift.FontResource(fontName: "Graphik-MediumItalic")
+    /// Font `Graphik-Medium`.
+    static let graphikMedium = Rswift.FontResource(fontName: "Graphik-Medium")
+    /// Font `Graphik-RegularItalic`.
+    static let graphikRegularItalic = Rswift.FontResource(fontName: "Graphik-RegularItalic")
+    /// Font `Graphik-Regular`.
+    static let graphikRegular = Rswift.FontResource(fontName: "Graphik-Regular")
+    /// Font `Graphik-SemiboldItalic`.
+    static let graphikSemiboldItalic = Rswift.FontResource(fontName: "Graphik-SemiboldItalic")
+    /// Font `Graphik-Semibold`.
+    static let graphikSemibold = Rswift.FontResource(fontName: "Graphik-Semibold")
+    /// Font `Graphik-SuperItalic`.
+    static let graphikSuperItalic = Rswift.FontResource(fontName: "Graphik-SuperItalic")
+    /// Font `Graphik-Super`.
+    static let graphikSuper = Rswift.FontResource(fontName: "Graphik-Super")
+    /// Font `Graphik-ThinItalic`.
+    static let graphikThinItalic = Rswift.FontResource(fontName: "Graphik-ThinItalic")
+    /// Font `Graphik-Thin`.
+    static let graphikThin = Rswift.FontResource(fontName: "Graphik-Thin")
+    
+    /// `UIFont(name: "Graphik-Black", size: ...)`
+    static func graphikBlack(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikBlack, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-BlackItalic", size: ...)`
+    static func graphikBlackItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikBlackItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Bold", size: ...)`
+    static func graphikBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikBold, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-BoldItalic", size: ...)`
+    static func graphikBoldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikBoldItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Extralight", size: ...)`
+    static func graphikExtralight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikExtralight, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-ExtralightItalic", size: ...)`
+    static func graphikExtralightItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikExtralightItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Light", size: ...)`
+    static func graphikLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikLight, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-LightItalic", size: ...)`
+    static func graphikLightItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikLightItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Medium", size: ...)`
+    static func graphikMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikMedium, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-MediumItalic", size: ...)`
+    static func graphikMediumItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikMediumItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Regular", size: ...)`
+    static func graphikRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikRegular, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-RegularItalic", size: ...)`
+    static func graphikRegularItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikRegularItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Semibold", size: ...)`
+    static func graphikSemibold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikSemibold, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-SemiboldItalic", size: ...)`
+    static func graphikSemiboldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikSemiboldItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Super", size: ...)`
+    static func graphikSuper(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikSuper, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-SuperItalic", size: ...)`
+    static func graphikSuperItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikSuperItalic, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-Thin", size: ...)`
+    static func graphikThin(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikThin, size: size)
+    }
+    
+    /// `UIFont(name: "Graphik-ThinItalic", size: ...)`
+    static func graphikThinItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: graphikThinItalic, size: size)
+    }
+    
+    static func validate() throws {
+      if R.font.graphikBlack(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Black' could not be loaded, is 'Graphik-Black.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikBlackItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-BlackItalic' could not be loaded, is 'Graphik-BlackItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Bold' could not be loaded, is 'Graphik-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-BoldItalic' could not be loaded, is 'Graphik-BoldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikExtralight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Extralight' could not be loaded, is 'Graphik-Extralight.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikExtralightItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-ExtralightItalic' could not be loaded, is 'Graphik-ExtralightItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Light' could not be loaded, is 'Graphik-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikLightItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-LightItalic' could not be loaded, is 'Graphik-LightItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Medium' could not be loaded, is 'Graphik-Medium.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikMediumItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-MediumItalic' could not be loaded, is 'Graphik-MediumItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Regular' could not be loaded, is 'Graphik-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikRegularItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-RegularItalic' could not be loaded, is 'Graphik-RegularItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikSemibold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Semibold' could not be loaded, is 'Graphik-Semibold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikSemiboldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-SemiboldItalic' could not be loaded, is 'Graphik-SemiboldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikSuper(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Super' could not be loaded, is 'Graphik-Super.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikSuperItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-SuperItalic' could not be loaded, is 'Graphik-SuperItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikThin(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-Thin' could not be loaded, is 'Graphik-Thin.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.graphikThinItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Graphik-ThinItalic' could not be loaded, is 'Graphik-ThinItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
     }
     
     fileprivate init() {}
@@ -39,6 +220,36 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "openLogo", bundle: ..., traitCollection: ...)`
     static func openLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.openLogo, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  struct nib {
+    /// Nib `HistoryCell`.
+    static let historyCell = _R.nib._HistoryCell()
+    /// Nib `MeterTypeCell`.
+    static let meterTypeCell = _R.nib._MeterTypeCell()
+    
+    /// `UINib(name: "HistoryCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.historyCell) instead")
+    static func historyCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.historyCell)
+    }
+    
+    /// `UINib(name: "MeterTypeCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.meterTypeCell) instead")
+    static func meterTypeCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.meterTypeCell)
+    }
+    
+    static func historyCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCell? {
+      return R.nib.historyCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCell
+    }
+    
+    static func meterTypeCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MeterTypeCell? {
+      return R.nib.meterTypeCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MeterTypeCell
     }
     
     fileprivate init() {}
@@ -110,6 +321,32 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
   }
   
+  struct nib {
+    struct _HistoryCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "HistoryCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _MeterTypeCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "MeterTypeCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MeterTypeCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MeterTypeCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try camera.validate()
@@ -140,9 +377,7 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct history: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = HistoryViewController
-      
+    struct history: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let historyVC = StoryboardViewControllerResource<HistoryViewController>(identifier: "historyVC")
       let name = "History"
@@ -153,6 +388,9 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'History', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "grayBackground", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayBackground' is used in storyboard 'History', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in storyboard 'History', but couldn't be loaded.") }
         }
         if _R.storyboard.history().historyVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'historyVC' could not be loaded from storyboard 'History' as 'HistoryViewController'.") }
       }

@@ -11,7 +11,7 @@
         <!--Root View Controller-->
         <scene sceneID="huT-Q9-O2o">
             <objects>
-                <tabBarController storyboardIdentifier="rootVC" extendedLayoutIncludesOpaqueBars="YES" id="q1Z-Uf-LXT" customClass="RootViewController" customModule="Tizer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="rootVC" extendedLayoutIncludesOpaqueBars="YES" id="q1Z-Uf-LXT" customClass="RootViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="guE-OM-mou">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -95,7 +95,6 @@
         <!--Navigation Controller-->
         <scene sceneID="2MA-a4-Lrj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oq-jR-2kh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="KIk-Re-dD3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="" image="tab_bar_sto" id="1xL-Uw-imw"/>
                     <toolbarItems/>
@@ -109,16 +108,17 @@
                         <segue destination="GRT-94-fu6" kind="relationship" relationship="rootViewController" id="CH8-dF-agL"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oq-jR-2kh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2341" y="329"/>
         </scene>
         <!--profileVC-->
         <scene sceneID="V7y-uO-GZN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SXs-2X-l8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="profileVC" storyboardName="Profile" referencedIdentifier="profileVC" id="GRT-94-fu6" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="i3f-gW-96i"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SXs-2X-l8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2341" y="745"/>
         </scene>

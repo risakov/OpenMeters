@@ -8,6 +8,11 @@
 import UIKit
 
 
+protocol RootView {
+
+}
+
+
 class RootViewController: UITabBarController {
 
     var presenter: RootPresenter!
@@ -25,24 +30,18 @@ class RootViewController: UITabBarController {
 
 }
 
-extension RootViewController {
+extension RootViewController: RootView {
 
     func openHistoryTab() {
-        self.presenter.openMyVideosSceneFromScriptFinal()
-    }
-    func openMyVideosSceneFromScriptFinal(for product: ProductEntity) {
-        self.presenter.openMyVideosSceneFromScriptFinal(for: product, state: .inProgressScripts)
+        self.presenter.openHistoryTab()
     }
     
-    func openProductListSceenOnCreateTab() {
-        presenter.openProductListSceenOnCreateTab()
+    func openCameraTab() {
+        self.presenter.openCameraTab()
     }
     
-    func openMenuSceenOnProfileTab() {
-        presenter.openMenuSceenOnProfileTab()
+    func openProfileTab() {
+        self.presenter.openProfileTab()
     }
-    
-    func openVideoProductListSceenOnUserVideoTab() {
-        presenter.openVideoProductListSceenOnUserVideoTab()
-    }
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRM-CF-AiI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--History View Controller-->
+        <!--История показаний-->
         <scene sceneID="qmx-1P-Wuh">
             <objects>
                 <viewController storyboardIdentifier="historyVC" id="jRM-CF-AiI" customClass="HistoryViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="icA-oQ-5d7">
                                 <rect key="frame" x="0.0" y="135" width="414" height="761"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="grayBackground"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="91" id="nkC-Vv-G7e">
                                         <rect key="frame" x="0.0" y="28" width="414" height="91"/>
@@ -39,7 +39,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8766" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izk-yd-25B">
-                                                    <rect key="frame" x="16" y="16" width="384" height="22"/>
+                                                    <rect key="frame" x="16" y="16" width="384" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="384" id="5Vb-NO-Y6u"/>
                                                     </constraints>
@@ -48,7 +48,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата: 12 дек. 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kg-6U-IL4">
-                                                    <rect key="frame" x="16" y="44" width="384" height="12"/>
+                                                    <rect key="frame" x="16" y="48" width="384" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="384" id="C4O-7u-R9X"/>
                                                     </constraints>
@@ -57,7 +57,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Серийный номер: 67157717" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAU-MN-niy">
-                                                    <rect key="frame" x="16" y="61" width="384" height="12"/>
+                                                    <rect key="frame" x="16" y="67" width="384" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="384" id="i7X-Jn-E3Y"/>
                                                     </constraints>
@@ -80,25 +80,44 @@
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Htj-0A-1kv">
                                 <rect key="frame" x="0.0" y="44" width="414" height="93"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="grayBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="93" id="MS8-4o-seC"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8MV-QV-sl9">
-                                    <size key="itemSize" width="161" height="86"/>
+                                    <size key="itemSize" width="161" height="91"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NTc-RF-TRl">
-                                        <rect key="frame" x="0.0" y="0.0" width="161" height="86"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NTc-RF-TRl" customClass="MeterTypeCell" customModule="iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="161" height="91"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fKO-ut-aWM">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIR-RB-2l7" customClass="DesignableUIButton" customModule="iOS" customModuleProvider="target">
+                                                    <rect key="frame" x="13" y="23" width="135" height="44"/>
+                                                    <color key="backgroundColor" name="blue"/>
+                                                    <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="13"/>
+                                                    <state key="normal" title="Холодная вода">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FIR-RB-2l7" firstAttribute="centerY" secondItem="fKO-ut-aWM" secondAttribute="centerY" id="rkw-Uu-dcJ"/>
+                                                <constraint firstItem="FIR-RB-2l7" firstAttribute="centerX" secondItem="fKO-ut-aWM" secondAttribute="centerX" id="snL-8b-1PT"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="161" height="86"/>
+                                        <size key="customSize" width="161" height="91"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -115,15 +134,31 @@
                             <constraint firstItem="icA-oQ-5d7" firstAttribute="leading" secondItem="eEl-gH-bMZ" secondAttribute="leading" id="tUD-rA-38q"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="История показаний" id="Sx3-7Y-AaN"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="icA-oQ-5d7" id="OAy-BO-H3H"/>
+                        <outlet property="meterTypeCollectionView" destination="Htj-0A-1kv" id="Ky0-62-qyT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXm-Jp-Hza" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="192.75362318840581" y="114.50892857142857"/>
+            <point key="canvasLocation" x="1102.8985507246377" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="FIR-RB-2l7">
+            <size key="intrinsicContentSize" width="92" height="28"/>
+        </designable>
+    </designables>
     <resources>
+        <namedColor name="blue">
+            <color red="0.0078431372549019607" green="0.72941176470588232" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grayBackground">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="grayText">
-            <color red="0.42352941176470588" green="0.47843137254901957" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.42399999499320984" green="0.4779999852180481" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

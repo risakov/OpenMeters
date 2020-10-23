@@ -7,12 +7,25 @@
 
 import UIKit
 
+protocol HistoryView: BaseView
+{
+    func reloadCollection()
+    func endRefreshing()
+}
+
 class HistoryViewController: UIViewController {
 
+    @IBOutlet weak var meterTypeCollectionView: UICollectionView!
+    @IBOutlet weak var historyTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    
 
 }

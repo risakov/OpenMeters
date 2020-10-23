@@ -8,9 +8,9 @@
 import UIKit
 
 protocol RootRouter {
-    func openHistoryScreen()
-    func openCameraScreen()
-    func openProfileScreen()
+    func openHistoryScene()
+    func openCameraScene()
+    func openProfileScene()
 }
 
 class RootRouterImp: RootRouter {
@@ -21,7 +21,7 @@ class RootRouterImp: RootRouter {
         self.view = view
     }
 
-    func openHistoryScreen() {
+    func openHistoryScene() {
 
         let indexMainScreen = TabBarIndices.historyTab.rawValue
         let tb = view!
@@ -33,7 +33,7 @@ class RootRouterImp: RootRouter {
         navC.setViewControllers([mainVC], animated: false)
     }
 
-    func openCameraScreen() {
+    func openCameraScene() {
 
         let indexNewPhotoScreen = TabBarIndices.cameraTab.rawValue
         
@@ -45,7 +45,7 @@ class RootRouterImp: RootRouter {
         navC.setViewControllers([newPhotoVC], animated: false)
     }
 
-    func openProfileScreen() {
+    func openProfileScene() {
         
         let indexProfileScreen = TabBarIndices.profileTab.rawValue
 
