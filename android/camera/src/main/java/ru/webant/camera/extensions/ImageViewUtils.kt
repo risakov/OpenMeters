@@ -1,4 +1,4 @@
-package ru.webant.openmeters.extensions
+package ru.webant.camera.extensions
 
 import android.content.Context
 import android.widget.ImageView
