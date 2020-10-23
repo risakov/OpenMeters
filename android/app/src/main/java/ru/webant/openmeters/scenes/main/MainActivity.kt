@@ -1,11 +1,10 @@
 package ru.webant.openmeters.scenes.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import ru.webant.camera.CameraActivity
 import ru.webant.openmeters.R
+import ru.webant.openmeters.scenes.value_history.ValueHistoryFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,14 +12,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .add(R.id.container, CameraFragment())
-//                .commit()
-//        }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.container, ValueHistoryFragment())
+                .commit()
+        }
 
-        val intent = Intent(this, CameraActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this, CameraActivity::class.java)
+//        startActivity(intent)
         hideStatusBar()
     }
 
