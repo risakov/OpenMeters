@@ -11,6 +11,8 @@ target 'iOS' do
   pod "DBDebugToolkit", :inhibit_warnings => true
   pod 'RxSwift', '~> 4.5.0', :inhibit_warnings => true
   pod 'RxCocoa', '~> 4.5.0', :inhibit_warnings => true
+  pod 'RxNetworkApiClient', '~> 0.1.3', :inhibit_warnings => true
+
 
 
 end
