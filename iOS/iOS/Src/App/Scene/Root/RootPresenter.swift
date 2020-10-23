@@ -15,7 +15,7 @@ protocol RootPresenter {
     func openProfileScene()
 }
 
-class RootPresenterImp {
+class RootPresenterImp: RootPresenter {
     
     private let view: RootView
     private let router: RootRouter

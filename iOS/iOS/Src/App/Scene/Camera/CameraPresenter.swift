@@ -8,6 +8,19 @@
 import Foundation
 
 
-class CameraPresenter {
+protocol CameraPresenter {
+    
+}
+
+class CameraPresenterImp: CameraPresenter {
+    
+    private weak var view: CameraView!
+    private var router: CameraRouter
+    
+    init(_ view: CameraView,
+         _ router: CameraRouter) {
+        self.view = view
+        self.router = router
+    }
     
 }

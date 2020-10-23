@@ -212,10 +212,31 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
+    /// Image `CameraTab`.
+    static let cameraTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "CameraTab")
+    /// Image `HistoryTab`.
+    static let historyTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "HistoryTab")
+    /// Image `PersonTab`.
+    static let personTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "PersonTab")
     /// Image `openLogo`.
     static let openLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "openLogo")
+    
+    /// `UIImage(named: "CameraTab", bundle: ..., traitCollection: ...)`
+    static func cameraTab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cameraTab, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "HistoryTab", bundle: ..., traitCollection: ...)`
+    static func historyTab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.historyTab, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "PersonTab", bundle: ..., traitCollection: ...)`
+    static func personTab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.personTab, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "openLogo", bundle: ..., traitCollection: ...)`
     static func openLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -255,10 +276,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
     /// Storyboard `Camera`.
     static let camera = _R.storyboard.camera()
+    /// Storyboard `EditProfile`.
+    static let editProfile = _R.storyboard.editProfile()
     /// Storyboard `History`.
     static let history = _R.storyboard.history()
     /// Storyboard `LaunchScreen`.
@@ -273,6 +296,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Camera", bundle: ...)`
     static func camera(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.camera)
+    }
+    
+    /// `UIStoryboard(name: "EditProfile", bundle: ...)`
+    static func editProfile(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.editProfile)
     }
     
     /// `UIStoryboard(name: "History", bundle: ...)`
@@ -350,6 +378,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try camera.validate()
+      try editProfile.validate()
       try history.validate()
       try launchScreen.validate()
       try profile.validate()
@@ -372,6 +401,24 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.camera().cameraVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'cameraVC' could not be loaded from storyboard 'Camera' as 'CameraViewController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct editProfile: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let editProfileVC = StoryboardViewControllerResource<EditProfileViewController>(identifier: "editProfileVC")
+      let name = "EditProfile"
+      
+      func editProfileVC(_: Void = ()) -> EditProfileViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: editProfileVC)
+      }
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+        if _R.storyboard.editProfile().editProfileVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'editProfileVC' could not be loaded from storyboard 'EditProfile' as 'EditProfileViewController'.") }
       }
       
       fileprivate init() {}
@@ -457,11 +504,12 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "CameraTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'CameraTab' is used in storyboard 'Root', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "HistoryTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'HistoryTab' is used in storyboard 'Root', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "PersonTab", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'PersonTab' is used in storyboard 'Root', but couldn't be loaded.") }
         if UIKit.UIImage(named: "light_icon_back", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'light_icon_back' is used in storyboard 'Root', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tab_bar_sto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_sto' is used in storyboard 'Root', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tab_bar_strar", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_strar' is used in storyboard 'Root', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "tab_bar_video", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tab_bar_video' is used in storyboard 'Root', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'Root', but couldn't be loaded.") }
           if UIKit.UIColor(named: "purple", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'purple' is used in storyboard 'Root', but couldn't be loaded.") }
         }
         if _R.storyboard.root().rootVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'rootVC' could not be loaded from storyboard 'Root' as 'RootViewController'.") }

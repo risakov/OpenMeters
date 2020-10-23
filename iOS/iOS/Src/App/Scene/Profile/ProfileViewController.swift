@@ -7,11 +7,21 @@
 
 import UIKit
 
+protocol ProfileView: BaseView {
+    
+}
+
 class ProfileViewController: UIViewController {
 
+    var presenter: ProfilePresenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
+}
+
+extension ProfileViewController: ProfileView {
+    
 }

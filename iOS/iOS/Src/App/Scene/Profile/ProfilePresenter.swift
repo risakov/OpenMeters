@@ -7,6 +7,20 @@
 
 import Foundation
 
-class ProfilePresenter {
+protocol ProfilePresenter {
     
 }
+
+class ProfilePresenterImp: ProfilePresenter {
+    private weak var view: ProfileView!
+    private let router: ProfileRouter
+    
+    init(_ view: ProfileView,
+         _ router: ProfileRouter) {
+        
+        self.view = view
+        self.router = router
+        
+    }
+}
+

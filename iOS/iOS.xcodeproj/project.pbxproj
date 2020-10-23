@@ -64,6 +64,12 @@
 		6C2CB26E25437A4300CB7189 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB26D25437A4300CB7189 /* Designables.swift */; };
 		6C2CB2872543832100CB7189 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB2862543832100CB7189 /* BaseView.swift */; };
 		6C2CB28B2543837200CB7189 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB28A2543837200CB7189 /* BaseRouter.swift */; };
+		6C2CB2A0254386DA00CB7189 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB29F254386DA00CB7189 /* EditProfileViewController.swift */; };
+		6C2CB2A3254386E800CB7189 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB2A2254386E800CB7189 /* EditProfilePresenter.swift */; };
+		6C2CB2A62543870200CB7189 /* EditProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB2A52543870200CB7189 /* EditProfileConfigurator.swift */; };
+		6C2CB2A92543870D00CB7189 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB2A82543870D00CB7189 /* EditProfileRouter.swift */; };
+		6C2CB2AC2543871A00CB7189 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CB2AB2543871A00CB7189 /* EditProfile.storyboard */; };
+		6C2CB2B3254390E100CB7189 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB2B2254390E100CB7189 /* CustomTabBar.swift */; };
 		98D9A2DF768A47A619CDF133 /* Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA38A715E731909FB2CAD19F /* Pods_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +134,12 @@
 		6C2CB26D25437A4300CB7189 /* Designables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		6C2CB2862543832100CB7189 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		6C2CB28A2543837200CB7189 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		6C2CB29F254386DA00CB7189 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		6C2CB2A2254386E800CB7189 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		6C2CB2A52543870200CB7189 /* EditProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileConfigurator.swift; sourceTree = "<group>"; };
+		6C2CB2A82543870D00CB7189 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
+		6C2CB2AB2543871A00CB7189 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
+		6C2CB2B2254390E100CB7189 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		75ED1051121523EE05A4AE84 /* Pods-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.release.xcconfig"; path = "Target Support Files/Pods-iOS/Pods-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FA38A715E731909FB2CAD19F /* Pods_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -265,6 +277,7 @@
 				6C2CB1702543670800CB7189 /* History */,
 				6C2CB0F125434CBE00CB7189 /* Camera */,
 				6C2CB0DF254349E200CB7189 /* Profile */,
+				6C2CB28D2543865E00CB7189 /* EditProfile */,
 				6C2CB1062543570700CB7189 /* Results */,
 			);
 			path = Scene;
@@ -274,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				6C2CB26D25437A4300CB7189 /* Designables.swift */,
+				6C2CB2B2254390E100CB7189 /* CustomTabBar.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -388,6 +402,18 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		6C2CB28D2543865E00CB7189 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				6C2CB29F254386DA00CB7189 /* EditProfileViewController.swift */,
+				6C2CB2A2254386E800CB7189 /* EditProfilePresenter.swift */,
+				6C2CB2A52543870200CB7189 /* EditProfileConfigurator.swift */,
+				6C2CB2A82543870D00CB7189 /* EditProfileRouter.swift */,
+				6C2CB2AB2543871A00CB7189 /* EditProfile.storyboard */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,6 +482,7 @@
 				6C2CB17F254367A000CB7189 /* History.storyboard in Resources */,
 				6C2CB25F2543745F00CB7189 /* Graphik-Regular.ttf in Resources */,
 				6C2CB115254357F500CB7189 /* Results.storyboard in Resources */,
+				6C2CB2AC2543871A00CB7189 /* EditProfile.storyboard in Resources */,
 				6C2CB2632543745F00CB7189 /* Graphik-Medium.ttf in Resources */,
 				6C2CB0D1254344C100CB7189 /* Assets.xcassets in Resources */,
 				6C2CB25E2543745F00CB7189 /* Graphik-BoldItalic.ttf in Resources */,
@@ -547,9 +574,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2CB2872543832100CB7189 /* BaseView.swift in Sources */,
+				6C2CB2A62543870200CB7189 /* EditProfileConfigurator.swift in Sources */,
 				6C2CB1082543577900CB7189 /* ResultsViewController.swift in Sources */,
 				6C2CB0FA25434D3100CB7189 /* CameraConfigurator.swift in Sources */,
 				6C2CB0C8254344BF00CB7189 /* AppDelegate.swift in Sources */,
+				6C2CB2A3254386E800CB7189 /* EditProfilePresenter.swift in Sources */,
+				6C2CB2A0254386DA00CB7189 /* EditProfileViewController.swift in Sources */,
 				6C2CB10C2543578900CB7189 /* ResultsPresenter.swift in Sources */,
 				6C2CB15F25435DBC00CB7189 /* RootRouter.swift in Sources */,
 				6C2CB0E125434A6300CB7189 /* ProfileViewController.swift in Sources */,
@@ -559,6 +589,8 @@
 				6C2CB18E25436B4500CB7189 /* DI.swift in Sources */,
 				6C2CB0F725434D2500CB7189 /* CameraPresenter.swift in Sources */,
 				6C2CB18725436AC600CB7189 /* RootViewEnum.swift in Sources */,
+				6C2CB2B3254390E100CB7189 /* CustomTabBar.swift in Sources */,
+				6C2CB2A92543870D00CB7189 /* EditProfileRouter.swift in Sources */,
 				6C2CB0E525434A7100CB7189 /* ProfilePresenter.swift in Sources */,
 				6C2CB0E825434C9A00CB7189 /* ProfileConfigurator.swift in Sources */,
 				6C2CB15025435D7600CB7189 /* RootPresenter.swift in Sources */,

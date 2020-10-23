@@ -33,15 +33,15 @@ class RootViewController: UITabBarController {
 extension RootViewController: RootView {
 
     func openHistoryTab() {
-        self.presenter.openHistoryTab()
+        self.presenter.openHistoryScene()
     }
     
     func openCameraTab() {
-        self.presenter.openCameraTab()
+        self.presenter.openCameraScene()
     }
     
     func openProfileTab() {
-        self.presenter.openProfileTab()
+        self.presenter.openProfileScene()
     }
 
 }

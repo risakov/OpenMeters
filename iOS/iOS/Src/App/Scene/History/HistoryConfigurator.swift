@@ -12,7 +12,7 @@ class HistoryConfigurator {
 
     func configure(view: HistoryViewController) {
         let router = HistoryRouter(view)
-        let presenter = HistoryPresenter(view, router, DI.resolve(), DI.resolve())
+        let presenter = HistoryPresenter(view, router)
         view.presenter = presenter
     }
 

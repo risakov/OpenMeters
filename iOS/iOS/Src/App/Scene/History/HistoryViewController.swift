@@ -7,8 +7,7 @@
 
 import UIKit
 
-protocol HistoryView: BaseView
-{
+protocol HistoryView: BaseView {
     func reloadCollection()
     func endRefreshing()
 }
@@ -18,6 +17,8 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var meterTypeCollectionView: UICollectionView!
     @IBOutlet weak var historyTableView: UITableView!
     
+    var presenter: HistoryPresenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,6 +27,28 @@ class HistoryViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    
+}
 
+extension HistoryViewController: UITableViewDelegate {
+    
+}
+
+//extension HistoryViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 10
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//    }
+//
+//
+//}
+
+extension HistoryViewController : HistoryView {
+    func reloadCollection() {
+    }
+    
+    func endRefreshing() {
+    }
 }

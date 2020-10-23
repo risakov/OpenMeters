@@ -7,23 +7,20 @@
 
 import UIKit
 
+protocol EditProfileView: BaseView {
+}
+
+
 class EditProfileViewController: UIViewController {
 
+    var presenter: EditProfilePresenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+
+}
+
+extension EditProfileViewController: EditProfileView {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
