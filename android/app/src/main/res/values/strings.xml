@@ -3,4 +3,9 @@
 
     <string name="ok">Ок</string>
     <string name="allow_camera_and_storage">Для использования камеры устройства необходимо дать разрешения</string>
+
+    <string name="capture_button">Кнопка съёмки</string>
+    <string name="get_photo_button">Кнопка выбора изображения из галереи</string>
+    <string name="flashlight_button">Кнопка фонарика</string>
+    <string name="left_arrow_button">Кнопка стрелки влево</string>
 </resources>

@@ -21,10 +21,12 @@ import kotlinx.android.synthetic.main.fragment_camera.*
 import ru.webant.openmeters.App
 import ru.webant.openmeters.R
 import ru.webant.openmeters.extensions.isCameraPermissionGranted
+import ru.webant.openmeters.extensions.setImageDrawable
 import java.io.*
 import java.nio.ByteBuffer
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class CameraFragment : MvpAppCompatFragment(), CameraView {
@@ -93,9 +95,29 @@ class CameraFragment : MvpAppCompatFragment(), CameraView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        captureButton.setOnClickListener {
+
+        setListeners()
+    }
+
+    private fun setListeners() {
+        captureImageView.setOnClickListener {
             takePicture()
         }
+        flashLightImageView.setOnClickListener {
+            presenter.onFlashLightImageViewClicked()
+        }
+    }
+
+    override fun changeFlashLightState(isNeedToTurnOn: Boolean) {
+        if (isNeedToTurnOn) {
+            captureRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH)
+            flashLightImageView.setImageDrawable(requireContext(), R.drawable.ic_flashlight_on)
+        } else {
+            captureRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF)
+            flashLightImageView.setImageDrawable(requireContext(), R.drawable.ic_flashlight_off)
+        }
+        captureRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON)
+        cameraCaptureSession.setRepeatingRequest(captureRequestBuilder.build(), null, null)
     }
 
     private fun takePicture() {

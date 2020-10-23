@@ -7,6 +7,10 @@ import javax.inject.Inject
 @InjectViewState
 class CameraPresenter @Inject constructor(): MvpPresenter<CameraView>() {
 
+    private var isFlashLightTurnedOn = false
 
-
+    fun onFlashLightImageViewClicked() {
+        isFlashLightTurnedOn = !isFlashLightTurnedOn
+        viewState.changeFlashLightState(isFlashLightTurnedOn)
+    }
 }
