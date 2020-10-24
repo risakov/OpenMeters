@@ -6,22 +6,22 @@ import imutils
 from imutils import contours
 
 cascade = cv.CascadeClassifier("C:\\Users\\Alisher\\Desktop\\OpenHackCV\\CV\\Cascades\\cascade.xml")
+dir_good = "C:\\Users\\Alisher\\Desktop\\OpenHackCV\\CV\\Meters\\"
 def get_filename():
     return askopenfilename(defaultextension='.bmp',
             filetypes=[('All files','*.*'),
                     ('BMP pictures', '*.bmp'),
                     ('PNG pictures','*.png'),
                     ('JPEG pictures','*.jpg')])
-for i in range(10):
-    img = cv.imread(get_filename())
-    numbers = cascade.detectMultiScale(img, 1.2, 5)
+for i in range(10, 100):
+    img = cv.imread(dir_good + str(i) + ".png")
+    img = cv.cvtColor(img, cv.IMREAD_GRAYSCALE)
+    numbers = cascade.detectMultiScale(img, 1.1, 3)
 
     for (x,y,w,h) in numbers:
         plates_rec = cv.rectangle(img, (x,y), (x+w, y+h), (0,255,0), 1)        
 
-
-    cv.imshow('img', img)
-    cv.imwrite(str(i)+'.bmp', img)
+    cv.imwrite('.\\results\\' + str(i)+'.bmp', img)
     cv.waitKey(0)
 
 '''
