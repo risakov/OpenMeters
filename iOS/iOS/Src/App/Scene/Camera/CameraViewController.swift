@@ -53,7 +53,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
             print("Canceled with selections: \(assets)")
         }, finish: { (assets) in
             print("Finished with selections: \(assets)")
-            self.presenter.convertAndSendArray(assets)
+            self.presenter.convertAndSendArrayOfImages(assets)
         }, completion: {
             
         })
@@ -164,8 +164,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
         let imageData = photo.fileDataRepresentation()
-        if let data = imageData, let img = UIImage(data: data) {
-            self.presenter.sendSingleImage(img)
+        if let data = imageData {
+            self.presenter.sendSingleImage(data)
            }
         
         //        let image = UIImage(data: imageData)

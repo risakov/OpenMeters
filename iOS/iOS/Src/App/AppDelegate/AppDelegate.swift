@@ -14,10 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        self.window?.rootViewController = HistoryConfigurator.getVC()
         DI.initDependencies(self)
         return true
+    }
+    
+    func setWindowAndOpenRootScreen(window: UIWindow?) {
+        self.window = window
+        self.openRootScreen()
+    }
+    
+    func openRootScreen() {
+        if let window = self.window, window.rootViewController == nil
+            || !(window.rootViewController?.restorationIdentifier == "firstNavigationViewController") {
+            UIView.transition(with: window, duration: 0, options: .transitionCrossDissolve, animations: {
+                let vc = R.storyboard.root.rootVC()!
+                window.rootViewController = vc
+            })
+        }
     }
 
     // MARK: UISceneSession Lifecycle

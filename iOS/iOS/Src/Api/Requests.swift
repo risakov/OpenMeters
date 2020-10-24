@@ -14,19 +14,22 @@ extension ExtendedApiRequest {
    
     // MARK: - File
 
-    static func uploadImages(_ images: [Data]) -> ExtendedApiRequest {
-        var data = [UploadFile]()
-        for image in images {
-            data.append(UploadFile("image", image, ""))
-        }
-        return extendedRequest(path: "/uploadImages",
-                               method: .post,
-                               files: data)
-    }
+//    static func uploadImages(_ images: [Data]) -> ExtendedApiRequest {
+//        var data = [UploadFile]()
+//        for image in images {
+//            data.append(UploadFile("image\(image).jpg", image, "image"))
+//        }
+//        return extendedRequest(path: "/api/uploadImages",
+//                               method: .post,
+//                               headers: [Header.contentJson],
+//                               body: ["photos": data])
+//
+//    }
     static func uploadSingleImage(_ image: Data) -> ExtendedApiRequest {
-        return extendedRequest(path: "/uploadSingleImage",
+        return extendedRequest(path: "/api/uploadSingleImage",
                                method: .post,
-                               files: [UploadFile("image", image, "")])
+                               headers: [Header.contentJson],
+                               body: UploadFile("image\(image).jpg", image, "image"))
     }
     
 

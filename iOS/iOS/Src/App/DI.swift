@@ -12,7 +12,6 @@ class DI {
     
     private static let shared = DI()
     fileprivate(set) static var container = DIContainer()
-    fileprivate(set) static var backgroundContainer = DIContainer()
     
     private init() {
         // No Constructor
@@ -21,9 +20,28 @@ class DI {
     
     static func initDependencies(_ appDelegate: AppDelegate) {
         
-        DI.container = DIContainer(parent: backgroundContainer)
+        DI.container = DIContainer()
+        
+        ApiEndpoint.baseEndpoint = ApiEndpoint.api
+
+        // MARK: - ApiClient
+        self.container.register { () -> ApiClientImp in
+                    let config = URLSessionConfiguration.default
+                    config.timeoutIntervalForRequest = 60 * 20
+                    config.timeoutIntervalForResource = 60 * 20
+                    let client = ApiClientImp(urlSessionConfiguration: config, completionHandlerQueue: .main)
+                    return client
+                }
+                .as(ApiClient.self)
+                .lifetime(.single)
+        
+
         
         // MARK: - Gateways
+        
+        self.container.register(ApiImageGateway.init)
+            .as(ImageGateway.self)
+            .lifetime(.single)
 
         // MARK: - UseCases
 
@@ -36,12 +54,12 @@ class DI {
         #endif
     }
     
-    static func resolve<T>() -> T {
-        return self.container.resolve()
-    }
-    
-    static func resolveBackground<T>() -> T {
-        return self.backgroundContainer.resolve()
+    static func resolve<T>(name: String? = nil) -> T {
+        if let name = name {
+            return self.container.resolve(name: name)
+        } else {
+            return self.container.resolve()
+        }
     }
 }
 

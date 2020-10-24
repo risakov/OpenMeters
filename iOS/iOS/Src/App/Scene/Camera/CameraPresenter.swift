@@ -14,8 +14,8 @@ import RxNetworkApiClient
 protocol CameraPresenter {
     func convertAndSendSingleImage(_ imageAsset: PHAsset)
     func convertAndSendArrayOfImages(_ arrayOfAssets: [PHAsset])
-    func sendSingleImage(_ image: UIImage)
-    func sendImages(_ images: [UIImage])
+    func sendSingleImage(_ imageData: Data)
+    func sendImages(_ imagesData: [Data])
     func openHistoryScene()
     func close()
 }
@@ -26,11 +26,16 @@ class CameraPresenterImp: CameraPresenter {
     private var router: CameraRouter
     private var minImageCount = 1
     private let disposeBag = DisposeBag()
+    private let imageGateway: ImageGateway
+    private var createdImages = [CreatedImageEntity]()
+
     
     init(_ view: CameraView,
-         _ router: CameraRouter) {
+         _ router: CameraRouter,
+         _ imageGateway: ImageGateway) {
         self.view = view
         self.router = router
+        self.imageGateway = imageGateway
     }
     
     private func getThumbnailForAssets(assets: [PHAsset]) -> [UIImage] {
@@ -62,19 +67,50 @@ class CameraPresenterImp: CameraPresenter {
     
     internal func convertAndSendSingleImage(_ imageAsset: PHAsset)  {
         let image = getThumbnailForSingleAsset(imageAsset)
-        print(image)
+        if let jpegData = image.jpegData(compressionQuality: 1.0) {
+            self.sendSingleImage(jpegData)
+        }
     }
     
     internal func convertAndSendArrayOfImages(_ arrayOfAssets: [PHAsset]) {
+        var imagesData = [Data]()
         let arrayOfImages = getThumbnailForAssets(assets: arrayOfAssets)
-        print(arrayOfImages)
+        for image in arrayOfImages {
+            if let jpegData = image.jpegData(compressionQuality: 1.0) {
+                imagesData.append(jpegData)
+            }
+        }
+        sendImages(imagesData)
     }
     
-    func sendSingleImage(_ image: UIImage) {
-        
+    func sendSingleImage(_ imageData: Data) {
+        self.imageGateway.uploadSingleImage(imageData)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: {  [weak self] response in
+                guard let self = self else { return }
+                self.createdImages.append(response)
+                self.view.showDialog(message: "Фото успешно отправлено")
+                return
+            }, onError: { [weak self] (error) in
+                guard let self = self else { return }
+                self.view.showErrorDialog(message: "Произошла ошибка \(error.localizedDescription)" )
+            })
+            .disposed(by: disposeBag)
     }
     
-    func sendImages(_ images: [UIImage]) {
+    func sendImages(_ imagesData: [Data]) {
+        self.imageGateway.uploadImages(imagesData)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onSuccess: {  [weak self] responses in
+                guard let self = self else { return }
+                self.createdImages.append(contentsOf: responses)
+                self.view.showDialog(message: "Фотографии успешно отправлены")
+                return
+            }, onError: { [weak self] (error) in
+                guard let self = self else { return }
+                self.view.showErrorDialog(message: "Произошла ошибка \(error.localizedDescription)" )
+            })
+            .disposed(by: disposeBag)
         
     }
     

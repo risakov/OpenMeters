@@ -21,6 +21,7 @@ class ExtendedApiRequest<T: Codable>: ApiRequest<T> {
         return result
     }
     
+    
     static public func extendedRequest<T: Codable>(
             path: String? = nil,
             method: HttpMethod,

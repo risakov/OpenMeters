@@ -32,7 +32,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Ft3-fO-joj">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Ble-bz-n2m" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="firstNavigationViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Ble-bz-n2m" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="HistoryTab" selectedImage="HistoryTab" id="sW9-oE-Sz0">
                         <color key="badgeColor" name="blue"/>
                     </tabBarItem>

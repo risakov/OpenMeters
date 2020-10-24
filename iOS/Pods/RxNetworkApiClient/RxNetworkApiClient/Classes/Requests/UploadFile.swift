@@ -4,9 +4,9 @@
 //
 
 import Foundation
+import RxNetworkApiClient
 
-
-public struct UploadFile {
+public struct UploadFile: JsonBodyConvertible {
 
     public let name: String
     public let data: Data

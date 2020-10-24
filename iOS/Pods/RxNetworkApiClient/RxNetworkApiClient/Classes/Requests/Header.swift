@@ -24,8 +24,7 @@ public struct Header {
 
 public extension Header {
 
-    public static let contentJson = Header("Content-Type", "application/json; charset=utf-8")
-    public static let acceptJson = Header("Accept", "application/json")
+    public static let contentJson = Header("Content-Type", "multipart/form-data")
 }
 
 

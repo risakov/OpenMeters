@@ -77,6 +77,9 @@
 		6CEBE16325444EC900E1B878 /* ApiImageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE16225444EC900E1B878 /* ApiImageGateway.swift */; };
 		6CEBE16625444FF800E1B878 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE16525444FF800E1B878 /* Requests.swift */; };
 		6CEBE169254450B500E1B878 /* ExtentedApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE168254450B500E1B878 /* ExtentedApiRequest.swift */; };
+		6CEBE16C2544514E00E1B878 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE16B2544514E00E1B878 /* Config.swift */; };
+		6CEBE16F254451B900E1B878 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE16E254451B900E1B878 /* ApiEndpoint.swift */; };
+		6CEBE172254453F000E1B878 /* ApiBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE171254453F000E1B878 /* ApiBaseGateway.swift */; };
 		98D9A2DF768A47A619CDF133 /* Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA38A715E731909FB2CAD19F /* Pods_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +157,9 @@
 		6CEBE16225444EC900E1B878 /* ApiImageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiImageGateway.swift; sourceTree = "<group>"; };
 		6CEBE16525444FF800E1B878 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		6CEBE168254450B500E1B878 /* ExtentedApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentedApiRequest.swift; sourceTree = "<group>"; };
+		6CEBE16B2544514E00E1B878 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		6CEBE16E254451B900E1B878 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
+		6CEBE171254453F000E1B878 /* ApiBaseGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBaseGateway.swift; sourceTree = "<group>"; };
 		75ED1051121523EE05A4AE84 /* Pods-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.release.xcconfig"; path = "Target Support Files/Pods-iOS/Pods-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FA38A715E731909FB2CAD19F /* Pods_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -267,7 +273,7 @@
 			children = (
 				6C2CB12625435AA300CB7189 /* App */,
 				6C2CB12E25435AFD00CB7189 /* Domain */,
-				6C2CB13025435B1200CB7189 /* EntityGateway */,
+				6CEBE16025444EB000E1B878 /* Api */,
 			);
 			path = Src;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 				6C2CB12C25435AB900CB7189 /* Util */,
 				6C2CB12D25435AD700CB7189 /* AppDelegate */,
 				6C2CB18D25436B4500CB7189 /* DI.swift */,
+				6CEBE16B2544514E00E1B878 /* Config.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -325,14 +332,6 @@
 				6CAF49A12543EEC50030409A /* UseCases */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		6C2CB13025435B1200CB7189 /* EntityGateway */ = {
-			isa = PBXGroup;
-			children = (
-				6CEBE16025444EB000E1B878 /* Api */,
-			);
-			path = EntityGateway;
 			sourceTree = "<group>";
 		};
 		6C2CB14A25435D4F00CB7189 /* Root */ = {
@@ -463,6 +462,7 @@
 				6CEBE16125444EB700E1B878 /* ApiGateways */,
 				6CEBE16525444FF800E1B878 /* Requests.swift */,
 				6CEBE168254450B500E1B878 /* ExtentedApiRequest.swift */,
+				6CEBE16E254451B900E1B878 /* ApiEndpoint.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -471,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				6CEBE16225444EC900E1B878 /* ApiImageGateway.swift */,
+				6CEBE171254453F000E1B878 /* ApiBaseGateway.swift */,
 			);
 			path = ApiGateways;
 			sourceTree = "<group>";
@@ -641,10 +642,12 @@
 				6C2CB0C8254344BF00CB7189 /* AppDelegate.swift in Sources */,
 				6C2CB2A3254386E800CB7189 /* EditProfilePresenter.swift in Sources */,
 				6CAF49BC254406D10030409A /* TabBar + visibility.swift in Sources */,
+				6CEBE16F254451B900E1B878 /* ApiEndpoint.swift in Sources */,
 				6C2CB2A0254386DA00CB7189 /* EditProfileViewController.swift in Sources */,
 				6C2CB10C2543578900CB7189 /* ResultsPresenter.swift in Sources */,
 				6C2CB15F25435DBC00CB7189 /* RootRouter.swift in Sources */,
 				6C2CB0E125434A6300CB7189 /* ProfileViewController.swift in Sources */,
+				6CEBE16C2544514E00E1B878 /* Config.swift in Sources */,
 				6CEBE169254450B500E1B878 /* ExtentedApiRequest.swift in Sources */,
 				6C2CB28B2543837200CB7189 /* BaseRouter.swift in Sources */,
 				6C2CB112254357B800CB7189 /* ResultsRouter.swift in Sources */,
@@ -652,6 +655,7 @@
 				6C2CB18E25436B4500CB7189 /* DI.swift in Sources */,
 				6C2CB0F725434D2500CB7189 /* CameraPresenter.swift in Sources */,
 				6C2CB18725436AC600CB7189 /* RootViewEnum.swift in Sources */,
+				6CEBE172254453F000E1B878 /* ApiBaseGateway.swift in Sources */,
 				6C2CB2B3254390E100CB7189 /* CustomTabBar.swift in Sources */,
 				6C2CB2A92543870D00CB7189 /* EditProfileRouter.swift in Sources */,
 				6C2CB0E525434A7100CB7189 /* ProfilePresenter.swift in Sources */,

@@ -6,19 +6,14 @@
 //
 
 import Foundation
+import RxNetworkApiClient
+import RxSwift
+
 
 class CreatedImageEntity: Codable {
+    var value: String?
+    var serialNumber: String
+    let photoPath: String
+    var isSelected: Bool = false
 
-    let localIdentifier: String?
-    let url: URL
-
-    init(localIdentifier: String, url: URL) {
-        self.localIdentifier = localIdentifier
-        self.url = url
-    }
-
-    init(url: URL) {
-        self.localIdentifier = nil
-        self.url = url
-    }
 }

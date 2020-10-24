@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import RxSwift
+import RxNetworkApiClient
+
+protocol ImageGateway {
+    func uploadImages(_ data: [Data]) -> Single<[CreatedImageEntity]>
+    func uploadSingleImage(_ data: Data) -> Single<CreatedImageEntity>
+}
