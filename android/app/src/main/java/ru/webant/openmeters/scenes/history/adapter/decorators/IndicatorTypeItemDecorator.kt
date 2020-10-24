@@ -1,4 +1,4 @@
-package ru.webant.openmeters.scenes.value_history.adapter.decorators
+package ru.webant.openmeters.scenes.history.adapter.decorators
 
 import android.graphics.Rect
 import android.view.View

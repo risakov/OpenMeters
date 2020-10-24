@@ -2,11 +2,13 @@ package ru.webant.camera
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.ImageFormat
 import android.graphics.SurfaceTexture
 import android.hardware.camera2.*
 import android.media.Image
 import android.media.ImageReader
+import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Size
@@ -35,8 +37,6 @@ class CameraActivity : AppCompatActivity() {
     private var cameraId = ""
     private var isFlashLightTurnedOn = false
     private var cameraDevice: CameraDevice? = null
-    private var someWidth = 0
-    private var someHeight = 0
 
     private var stateCallback: CameraDevice.StateCallback = object : CameraDevice.StateCallback() {
         override fun onOpened(camera: CameraDevice) {
@@ -75,6 +75,7 @@ class CameraActivity : AppCompatActivity() {
         setContentView(R.layout.activity_camera)
         setListeners()
         hideStatusBar()
+        supportActionBar?.hide()
     }
 
     override fun onResume() {
@@ -192,8 +193,10 @@ class CameraActivity : AppCompatActivity() {
                         result: TotalCaptureResult
                     ) {
                         super.onCaptureCompleted(session, request, result)
-                        Toast.makeText(this@CameraActivity, "Saved $file", Toast.LENGTH_SHORT).show()
-                        createCameraPreview()
+                        val intent = Intent()
+                        intent.data = Uri.fromFile(file)
+                        setResult(RESULT_CODE_SUCCESS, intent)
+                        finish()
                     }
                 }
             cameraDevice!!.createCaptureSession(
@@ -284,8 +287,6 @@ class CameraActivity : AppCompatActivity() {
             cameraCharacteristics = manager.getCameraCharacteristics(cameraId)
             val displayMetrics = DisplayMetrics()
             this.windowManager.defaultDisplay.getMetrics(displayMetrics)
-            someHeight = displayMetrics.heightPixels
-            someWidth = displayMetrics.widthPixels
             val map = cameraCharacteristics[CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP]!!
             imageDimension = map.getOutputSizes(SurfaceTexture::class.java)[0]
             // Todo: Permissions in another activity
@@ -299,6 +300,8 @@ class CameraActivity : AppCompatActivity() {
 
 
     companion object {
+        const val RESULT_CODE_SUCCESS = 1009
+
         private val ORIENTATIONS = SparseIntArray(4).apply {
             this.append(Surface.ROTATION_0, 90)
             this.append(Surface.ROTATION_90, 0)

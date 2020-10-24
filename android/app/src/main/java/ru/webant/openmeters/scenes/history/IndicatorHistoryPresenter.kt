@@ -1,4 +1,4 @@
-package ru.webant.openmeters.scenes.value_history
+package ru.webant.openmeters.scenes.history
 
 import com.arellomobile.mvp.InjectViewState
 import ru.webant.domain.models.IndicatorHistory
@@ -23,12 +23,9 @@ class IndicatorHistoryPresenter @Inject constructor() : BasePresenter<IndicatorH
 
     fun onIndicatorTypeClicked(indicatorType: IndicatorType) {
         indicatorTypes.forEach {
-            if (it == indicatorType) {
-                indicatorType.isSelected = true
-            } else {
-                it.isSelected = false
-            }
+            it.isSelected = false
         }
+        indicatorType.isSelected = true
         viewState.updateIndicatorTypeAdapter()
     }
 

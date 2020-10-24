@@ -1,11 +1,11 @@
-package ru.webant.openmeters.scenes.value_history.adapter
+package ru.webant.openmeters.scenes.history.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.webant.domain.models.IndicatorType
 import ru.webant.openmeters.R
-import ru.webant.openmeters.scenes.value_history.adapter.holders.IndicatorTypeViewHolder
+import ru.webant.openmeters.scenes.history.adapter.holders.IndicatorTypeViewHolder
 
 class IndicatorTypeAdapter : RecyclerView.Adapter<IndicatorTypeViewHolder>() {
 

@@ -1,4 +1,4 @@
-package ru.webant.openmeters.scenes.value_history
+package ru.webant.openmeters.scenes.history
 
 import android.os.Bundle
 import android.view.View
@@ -10,9 +10,9 @@ import ru.webant.domain.models.IndicatorType
 import ru.webant.openmeters.App
 import ru.webant.openmeters.R
 import ru.webant.openmeters.base.BaseFragment
-import ru.webant.openmeters.scenes.value_history.adapter.IndicatorHistoryAdapter
-import ru.webant.openmeters.scenes.value_history.adapter.IndicatorTypeAdapter
-import ru.webant.openmeters.scenes.value_history.adapter.decorators.IndicatorTypeItemDecorator
+import ru.webant.openmeters.scenes.history.adapter.IndicatorHistoryAdapter
+import ru.webant.openmeters.scenes.history.adapter.IndicatorTypeAdapter
+import ru.webant.openmeters.scenes.history.adapter.decorators.IndicatorTypeItemDecorator
 
 class IndicatorHistoryFragment : BaseFragment(), IndicatorHistoryView {
 
@@ -27,7 +27,7 @@ class IndicatorHistoryFragment : BaseFragment(), IndicatorHistoryView {
 
 
     @ProvidePresenter
-    fun providePresenter(): IndicatorHistoryPresenter = App.appComponent.provideValueHistoryPresenter()
+    fun providePresenter(): IndicatorHistoryPresenter = App.appComponent.provideIndicatorHistoryPresenter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

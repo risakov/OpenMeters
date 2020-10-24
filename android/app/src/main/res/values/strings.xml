@@ -4,4 +4,11 @@
     <string name="ok">Ок</string>
     <string name="allow_camera_and_storage">Для использования камеры устройства необходимо дать разрешения</string>
     <string name="meter_history">История показаний</string>
+    <string name="processing_result">Обрабатываем…</string>
+    <string name="indicator_image">Изображение счетчика</string>
+    <string name="meter_readings">Показание</string>
+    <string name="serial_number">Серийный номер</string>
+    <string name="to_confirm">Подтвердить</string>
+
+    <string name="left_arrow_button">Кнопка стрелки влево</string>
 </resources>

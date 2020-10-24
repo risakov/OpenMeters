@@ -10,7 +10,8 @@ import ru.webant.openmeters.scenes.main.MainActivity
 abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
 
     abstract val layoutId: Int
-    open var toolbarLayoutId: Int = -1
+    open var toolbarLayoutId = -1
+    open var isNeedToShowBottomNavigationView = true
     var toolbar: View? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -28,6 +29,7 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
 
     override fun onResume() {
         super.onResume()
+        changeBottomNavigationBarVisibility()
         updateToolbar()
     }
 
@@ -38,6 +40,10 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
 
     open fun setUpToolbar(toolbar: View?) {
 
+    }
+
+    private fun changeBottomNavigationBarVisibility() {
+        (activity as MainActivity).changeBottomNavigationBarVisibility(isNeedToShowBottomNavigationView)
     }
 
     fun updateToolbar() {

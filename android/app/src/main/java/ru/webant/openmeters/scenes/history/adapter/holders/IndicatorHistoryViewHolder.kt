@@ -1,4 +1,4 @@
-package ru.webant.openmeters.scenes.value_history.adapter.holders
+package ru.webant.openmeters.scenes.history.adapter.holders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

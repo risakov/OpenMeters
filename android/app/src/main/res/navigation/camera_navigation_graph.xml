@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/camera_navigation"
+    app:startDestination="@id/processingFragment">
+
+    <fragment
+        android:id="@+id/processingFragment"
+        android:name="ru.webant.openmeters.scenes.camera.processing.ProcessingFragment"
+        android:label="ProcessingFragment" >
+        <action
+            android:id="@+id/openResultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="ru.webant.openmeters.scenes.camera.result.ResultFragment"
+        android:label="ResultFragment" />
+</navigation>

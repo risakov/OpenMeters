@@ -1,4 +1,4 @@
-package ru.webant.openmeters.scenes.value_history
+package ru.webant.openmeters.scenes.history
 
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
