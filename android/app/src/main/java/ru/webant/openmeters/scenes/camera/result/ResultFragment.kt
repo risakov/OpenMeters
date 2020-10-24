@@ -16,6 +16,7 @@ import ru.webant.gateway.constants.ApiConstants.API_URL
 import ru.webant.openmeters.App
 import ru.webant.openmeters.R
 import ru.webant.openmeters.base.BaseFragment
+import ru.webant.openmeters.extensions.rotateInfiniteAnimation
 import ru.webant.openmeters.extensions.setIsVisible
 import ru.webant.openmeters.scenes.camera.result.adapter.IndicatorResultAdapter
 
@@ -125,6 +126,11 @@ class ResultFragment : BaseFragment(), ResultView {
                 )
             )
         }
+    }
+
+    override fun changeLoaderState(state: Boolean) {
+        loaderImageView.setIsVisible(state)
+        loaderImageView.rotateInfiniteAnimation()
     }
 
     private fun setListeners() {

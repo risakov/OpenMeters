@@ -5,13 +5,20 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Jopa"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:drawablePadding="40dp"
+        android:fontFamily="@font/graphic_regular"
+        android:gravity="center"
+        android:text="@string/section_in_progress"
+        android:textColor="@color/colorLightBlack"
+        android:textSize="17sp"
+        app:drawableTopCompat="@drawable/ic_in_progress_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

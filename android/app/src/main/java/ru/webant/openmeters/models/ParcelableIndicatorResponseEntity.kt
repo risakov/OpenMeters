@@ -6,6 +6,7 @@ import ru.webant.domain.entities.IndicatorResponseEntity
 
 @Parcelize
 data class ParcelableIndicatorResponseEntity(
+    val meterId: Int,
     var value: String?,
     var serialNumber: String?,
     val photoPath: String,
@@ -14,6 +15,7 @@ data class ParcelableIndicatorResponseEntity(
 
     fun toIndicatorResultEntity(): IndicatorResponseEntity {
         return IndicatorResponseEntity(
+            meterId = this.meterId,
             value = this.value,
             serialNumber = this.serialNumber,
             photoPath = this.photoPath,
@@ -26,6 +28,7 @@ data class ParcelableIndicatorResponseEntity(
 
         fun fromIndicatorResponseEntity(indicatorResponse: IndicatorResponseEntity): ParcelableIndicatorResponseEntity {
             return ParcelableIndicatorResponseEntity(
+                meterId = indicatorResponse.meterId,
                 value = indicatorResponse.value,
                 serialNumber = indicatorResponse.serialNumber,
                 photoPath = indicatorResponse.photoPath,

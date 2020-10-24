@@ -20,6 +20,9 @@ interface ResultView : BaseView {
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun changeMetersErrorVisibility(state: Boolean)
 
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun changeLoaderState(state: Boolean)
+
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun updateIndicatorResultAdapter()
 

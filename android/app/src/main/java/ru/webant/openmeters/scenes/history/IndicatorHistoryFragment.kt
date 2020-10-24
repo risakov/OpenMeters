@@ -5,6 +5,7 @@ import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_indicator_history.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 import ru.webant.domain.models.IndicatorHistory
 import ru.webant.domain.models.IndicatorType
 import ru.webant.openmeters.App
@@ -27,7 +28,14 @@ class IndicatorHistoryFragment : BaseFragment(), IndicatorHistoryView {
 
 
     @ProvidePresenter
-    fun providePresenter(): IndicatorHistoryPresenter = App.appComponent.provideIndicatorHistoryPresenter()
+    fun providePresenter(): IndicatorHistoryPresenter =
+        App.appComponent.provideIndicatorHistoryPresenter()
+
+    override fun setUpToolbar(toolbar: View?) {
+        toolbar?.let {
+            it.toolbarTitle.text = resources.getString(R.string.history)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

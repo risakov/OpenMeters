@@ -1,13 +1,20 @@
 package ru.webant.openmeters.scenes.camera.result
 
 import com.arellomobile.mvp.InjectViewState
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
 import ru.webant.domain.entities.IndicatorResponseEntity
+import ru.webant.domain.entities.post.PostIndicatorValue
+import ru.webant.domain.gateways.IndicatorGateway
 import ru.webant.openmeters.base.BasePresenter
 import ru.webant.openmeters.models.ParcelableIndicatorResponseEntity
 import javax.inject.Inject
 
 @InjectViewState
-class ResultPresenter @Inject constructor() : BasePresenter<ResultView>() {
+class ResultPresenter @Inject constructor(
+    private val indicatorGateway: IndicatorGateway
+) : BasePresenter<ResultView>() {
 
     lateinit var indicatorResults: ArrayList<IndicatorResponseEntity>
     private lateinit var chosenIndicator: IndicatorResponseEntity
@@ -31,12 +38,40 @@ class ResultPresenter @Inject constructor() : BasePresenter<ResultView>() {
     }
 
     fun onConfirmButtonClicked() {
-        viewState.navigateToAllReadyFragment()
+        if (indicatorResults.size == 1) {
+            indicatorGateway.createIndicatorValue(
+                PostIndicatorValue(
+                    chosenIndicator.meterId,
+                    chosenIndicator.value!!
+                )
+            )
+                .subscribeOn(Schedulers.io())
+                .doOnSubscribe {
+                    viewState.changeLoaderState(true)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally {
+                    viewState.changeLoaderState(false)
+                }
+                .subscribe({
+                    viewState.navigateToAllReadyFragment()
+                },{
+                    viewState.showMessageWithRouteToHistoryFragment()
+                })
+                .addTo(compositeDisposable)
+        } else {
+            viewState.navigateToAllReadyFragment()
+        }
     }
 
     fun onMeterReadingsChanged(newValue: String) {
-        chosenIndicator.value = newValue
-        viewState.changeMetersErrorVisibility(false)
+        if (newValue.isBlank()) {
+            chosenIndicator.value = null
+            viewState.changeMetersErrorVisibility(true)
+        } else {
+            chosenIndicator.value = newValue
+            viewState.changeMetersErrorVisibility(false)
+        }
         viewState.updateIndicatorResultAdapter()
         isCannotConfirmResult()
     }
