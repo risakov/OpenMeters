@@ -15,4 +15,8 @@
     <string name="like">Палец вверх</string>
     <string name="meters_was_sent_to_bank">Показания обработаны и отправлены в банк.</string>
     <string name="go_to_history_of_meters">Перейти к истории показаний</string>
+    <string name="meter_processing_error">Счётчик не распознан</string>
+    
+    <string name="could_not_recognize">Не удалось распознать</string>
+    <string name="could_not_recognize_try_again">Не удалось распознать показание счетчика, повторите попытку или введите в ручную</string>
 </resources>

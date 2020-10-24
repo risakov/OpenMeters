@@ -4,16 +4,27 @@
     android:layout_width="60dp"
     android:layout_height="60dp"
     android:layout_marginStart="10dp">
-
+    
     <ImageView
         android:id="@+id/indicatorResultImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg_rounded_image_gray"
         android:contentDescription="@string/indicator_image"
         android:scaleType="centerCrop"
-        android:background="@drawable/bg_rounded_image_gray"
         android:src="@android:drawable/presence_online"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/meterProcessingErrorImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:contentDescription="@string/meter_processing_error"
+        android:src="@drawable/ic_red_circle_with_exclamation"
+        app:layout_constraintEnd_toEndOf="@id/indicatorResultImageView"
+        app:layout_constraintTop_toTopOf="@id/indicatorResultImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_indicator_result.view.*
 import ru.webant.domain.entities.IndicatorResponseEntity
 import ru.webant.openmeters.R
+import ru.webant.openmeters.extensions.setIsVisible
 import ru.webant.openmeters.scenes.camera.result.adapter.IndicatorResultAdapter
 
 class IndicatorResultViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
@@ -23,9 +24,18 @@ class IndicatorResultViewHolder(val view: View) : RecyclerView.ViewHolder(view) 
         this.callback = callback
         this.indicatorResult = indicatorResult
         view.bindIsSelected()
+        view.bindErrorImage()
     }
 
-    fun View.bindIsSelected() {
+    private fun View.bindErrorImage() {
+        if (indicatorResult.value == null) {
+            meterProcessingErrorImageView.setIsVisible(true)
+        } else {
+            meterProcessingErrorImageView.setIsVisible(false)
+        }
+    }
+
+    private fun View.bindIsSelected() {
         if (indicatorResult.isSelected) {
             indicatorResultImageView.setBackgroundResource(R.drawable.bg_rounded_image_light_blue)
         } else {

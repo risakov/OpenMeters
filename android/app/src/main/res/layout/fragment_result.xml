@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:scrollbars="vertical"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbars="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="@id/horizontalGuideline"
             app:layout_constraintStart_toStartOf="parent"
-            tools:itemCount="4"/>
+            tools:itemCount="4" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/meterReadingsTextInputLayout"
@@ -61,7 +61,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/colorCelestial"
+            android:background="@drawable/bg_text_input_layout_celestial"
             android:fontFamily="@font/graphic_regular"
             android:hint="@string/meter_readings"
             android:textColorHint="@color/colorGray"
@@ -73,9 +73,29 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:fontFamily="@font/graphic_regular"
+                android:inputType="number"
                 android:textColor="@android:color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/meterReadingErrorTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/graphic_regular"
+            android:lineSpacingMultiplier="1.6"
+            android:text="@string/could_not_recognize_try_again"
+            android:textColor="@color/colorRed"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:textColorHint="@color/colorRed"
+            app:layout_constraintEnd_toEndOf="@id/meterReadingsTextInputLayout"
+            app:layout_constraintStart_toStartOf="@id/meterReadingsTextInputLayout"
+            app:layout_constraintTop_toBottomOf="@id/meterReadingsTextInputLayout" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/serialNumberTextInputLayout"
@@ -84,10 +104,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/colorCelestial"
+            android:background="@drawable/bg_text_input_layout_celestial"
             android:fontFamily="@font/graphic_regular"
             android:hint="@string/serial_number"
-            app:layout_constraintTop_toBottomOf="@id/meterReadingsTextInputLayout">
+            app:layout_constraintTop_toBottomOf="@id/meterReadingErrorTextView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/serialNumberEditText"
@@ -95,6 +115,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:fontFamily="@font/graphic_regular"
+                android:inputType="number"
                 android:textColor="@android:color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>

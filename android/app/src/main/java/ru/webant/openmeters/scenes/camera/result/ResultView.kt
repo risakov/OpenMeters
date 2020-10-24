@@ -11,8 +11,20 @@ interface ResultView : BaseView {
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun initRecyclerView(indicatorResults: ArrayList<IndicatorResponseEntity>)
 
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun initIndicatorInfo(indicatorResult: IndicatorResponseEntity)
+
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun changeButtonClickableState(state: Boolean)
+
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun changeMetersErrorVisibility(state: Boolean)
+
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun updateIndicatorResultAdapter()
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun clearEditTextFocuses()
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun navigateToAllReadyFragment()
