@@ -358,7 +358,6 @@ class CameraFragment : BaseFragment(), CameraView {
         val facingFront = cameraCharacteristics
             .get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_FRONT
         if (facingFront) deviceOrientation = -deviceOrientation
-        // Todo: Fix screen rotation
         return (sensorOrientation + deviceOrientation + 360) % 360
     }
 
@@ -372,7 +371,6 @@ class CameraFragment : BaseFragment(), CameraView {
             requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
             val map = cameraCharacteristics[CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP]!!
             imageDimension = map.getOutputSizes(SurfaceTexture::class.java)[0]
-            // Todo: Permissions in another activity
             if (isCameraPermissionGranted(requireActivity())) {
                 manager.openCamera(cameraId, stateCallback, null)
             }
