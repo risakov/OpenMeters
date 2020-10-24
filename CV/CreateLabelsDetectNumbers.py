@@ -13,7 +13,7 @@ class Coords:
         self.y2 = y2
 
 
-class ExampleApp(tk.Tk):
+class LabelsForImage(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.canvas = tk.Canvas(self, width=512, height=512, cursor="cross")
@@ -49,13 +49,15 @@ class ExampleApp(tk.Tk):
     def new_image(self):
         (width, height) = self.im.size
         file = self.filename.replace("C:/Users/Alisher/Desktop/OpenHackCV/CV/Meters/", "")
-        info = {"filename":self.filename,
+        info = {"filename":file,
             "width":width, "height":height,
             "class":"numbers",
             "xmin" : self.x2, "ymin":self.y2, "xmax":self.x1, "ymax":self.y1}
         if random.random() > 0.2:
             self.train.append(info)
+            self.im.save(self.path_train + file)
         else:
+            self.im.save(self.path_valid + file)
             self.valid.append(info)
 
         self.id += 1
@@ -89,18 +91,13 @@ class ExampleApp(tk.Tk):
                              ('JPEG pictures','*.jpg')])
 
     def on_button_press(self, event):
-        # save mouse drag start position
         self.x1 = event.x
         self.y1 = event.y
-
-        #one rectangle
         if not self.rect:
             self.rect = self.canvas.create_rectangle(self.x1, self.y1, 1, 1, )
 
     def on_move_press(self, event):
         self.x2, self.y2 = (event.x, event.y)
-
-        # expand rectangle as you drag the mouse
         self.canvas.coords(self.rect, self.x1, self.y1, self.x2, self.y2)
     
     def on_button_release(self, event):
@@ -109,5 +106,5 @@ class ExampleApp(tk.Tk):
 
 
 if __name__ == "__main__":
-    app = ExampleApp()
+    app = LabelsForImage()
     app.mainloop()
