@@ -18,6 +18,7 @@ image, res = get_output_image(temp_path)
 for i in range(len(res)):
     data[i] = str(res[i])
 
+cv2.imwrite('rec_'+  argv[1], image)
 print(json.dumps(data))
 os.remove(temp_path)
 exit
