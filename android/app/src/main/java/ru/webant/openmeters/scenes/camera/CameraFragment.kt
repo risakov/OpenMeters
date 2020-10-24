@@ -19,7 +19,6 @@ import android.util.Size
 import android.util.SparseIntArray
 import android.view.*
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -27,6 +26,7 @@ import kotlinx.android.synthetic.main.fragment_camera.*
 import ru.webant.openmeters.App
 import ru.webant.openmeters.R
 import ru.webant.openmeters.base.BaseFragment
+import ru.webant.openmeters.extensions.isCameraPermissionGranted
 import ru.webant.openmeters.extensions.setImageDrawable
 import java.io.*
 import java.nio.ByteBuffer
@@ -373,9 +373,9 @@ class CameraFragment : BaseFragment(), CameraView {
             val map = cameraCharacteristics[CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP]!!
             imageDimension = map.getOutputSizes(SurfaceTexture::class.java)[0]
             // Todo: Permissions in another activity
-//            if (isCameraPermissionGranted(this)) {
-            manager.openCamera(cameraId, stateCallback, null)
-//            }
+            if (isCameraPermissionGranted(requireActivity())) {
+                manager.openCamera(cameraId, stateCallback, null)
+            }
         } catch (e: CameraAccessException) {
             e.printStackTrace()
         }
@@ -383,9 +383,6 @@ class CameraFragment : BaseFragment(), CameraView {
 
 
     companion object {
-        const val RESULT_CODE_SUCCESS = 1009
-        const val STRING_ARRAY_LIST_EXTRA = "StringArrayListExtra"
-
         private const val REQUEST_GET_IMAGES_FROM_GALLERY = 5052
         private val ORIENTATIONS = SparseIntArray(4).apply {
             this.append(Surface.ROTATION_0, 90)
