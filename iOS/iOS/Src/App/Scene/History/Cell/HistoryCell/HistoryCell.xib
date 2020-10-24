@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,49 +19,63 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="91" id="rid-m5-ag4" customClass="HistoryCell" customModule="iOS" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" id="rid-m5-ag4" customClass="HistoryCell" customModule="iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rid-m5-ag4" id="PZt-8k-2uI" customClass="HistoryCell" customModule="iOS" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8766" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yje-53-vjK">
-                        <rect key="frame" x="16" y="16" width="384" height="26"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9Y-GN-BT0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8766" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yje-53-vjK">
+                                <rect key="frame" x="15" y="16" width="384" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="384" id="f0e-HR-eQD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Semibold" family="Graphik" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата: 12 дек. 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsD-vx-t8u">
+                                <rect key="frame" x="15" y="48" width="384" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="384" id="AMy-uQ-76o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
+                                <color key="textColor" name="grayText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Серийный номер: 67157717" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZp-5e-sBF">
+                                <rect key="frame" x="15" y="67" width="384" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="384" id="5bH-fW-W6i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
+                                <color key="textColor" name="grayText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="384" id="f0e-HR-eQD"/>
+                            <constraint firstItem="LZp-5e-sBF" firstAttribute="top" secondItem="LsD-vx-t8u" secondAttribute="bottom" constant="5" id="2e2-64-pET"/>
+                            <constraint firstAttribute="height" constant="91" id="4td-LK-G7R"/>
+                            <constraint firstItem="Yje-53-vjK" firstAttribute="top" secondItem="H9Y-GN-BT0" secondAttribute="top" constant="16" id="9FF-di-14G"/>
+                            <constraint firstItem="Yje-53-vjK" firstAttribute="leading" secondItem="H9Y-GN-BT0" secondAttribute="leading" constant="15" id="DZW-FR-rGE"/>
+                            <constraint firstItem="LsD-vx-t8u" firstAttribute="top" secondItem="Yje-53-vjK" secondAttribute="bottom" constant="6" id="i6L-mF-YQT"/>
+                            <constraint firstAttribute="width" constant="414" id="oe6-s5-19v"/>
+                            <constraint firstItem="LZp-5e-sBF" firstAttribute="leading" secondItem="LsD-vx-t8u" secondAttribute="leading" id="q1x-2E-46j"/>
+                            <constraint firstItem="LsD-vx-t8u" firstAttribute="leading" secondItem="Yje-53-vjK" secondAttribute="leading" id="sCc-Us-td8"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Graphik-Semibold" family="Graphik" pointSize="22"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата: 12 дек. 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsD-vx-t8u">
-                        <rect key="frame" x="16" y="48" width="384" height="14"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="384" id="AMy-uQ-76o"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
-                        <color key="textColor" name="grayText"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Серийный номер: 67157717" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZp-5e-sBF">
-                        <rect key="frame" x="16" y="67" width="384" height="14"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="384" id="5bH-fW-W6i"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="12"/>
-                        <color key="textColor" name="grayText"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="LZp-5e-sBF" firstAttribute="leading" secondItem="LsD-vx-t8u" secondAttribute="leading" id="JsT-Hf-OUK"/>
-                    <constraint firstItem="LsD-vx-t8u" firstAttribute="top" secondItem="Yje-53-vjK" secondAttribute="bottom" constant="6" id="KWn-ur-B87"/>
-                    <constraint firstItem="LZp-5e-sBF" firstAttribute="top" secondItem="LsD-vx-t8u" secondAttribute="bottom" constant="5" id="O0j-4m-FJI"/>
-                    <constraint firstItem="Yje-53-vjK" firstAttribute="leading" secondItem="PZt-8k-2uI" secondAttribute="leading" constant="16" id="QfT-yh-NmU"/>
-                    <constraint firstItem="Yje-53-vjK" firstAttribute="top" secondItem="PZt-8k-2uI" secondAttribute="top" constant="16" id="VLf-qa-41o"/>
-                    <constraint firstItem="LsD-vx-t8u" firstAttribute="leading" secondItem="Yje-53-vjK" secondAttribute="leading" id="yOY-pp-8rP"/>
+                    <constraint firstItem="H9Y-GN-BT0" firstAttribute="leading" secondItem="PZt-8k-2uI" secondAttribute="leading" id="IAR-QB-Y0J"/>
+                    <constraint firstAttribute="trailing" secondItem="H9Y-GN-BT0" secondAttribute="trailing" id="Jev-4k-s4a"/>
+                    <constraint firstAttribute="bottom" secondItem="H9Y-GN-BT0" secondAttribute="bottom" id="g3s-Kx-1d0"/>
+                    <constraint firstItem="H9Y-GN-BT0" firstAttribute="top" secondItem="PZt-8k-2uI" secondAttribute="top" id="hY4-bH-Rg9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -68,12 +83,15 @@
                 <outlet property="serialNumberLabel" destination="LZp-5e-sBF" id="bvn-Zt-mpI"/>
                 <outlet property="valueLabel" destination="Yje-53-vjK" id="clJ-IC-qGX"/>
             </connections>
-            <point key="canvasLocation" x="108.69565217391305" y="139.62053571428569"/>
+            <point key="canvasLocation" x="108.69565217391305" y="138.95089285714286"/>
         </tableViewCell>
     </objects>
     <resources>
         <namedColor name="grayText">
             <color red="0.42399999499320984" green="0.4779999852180481" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

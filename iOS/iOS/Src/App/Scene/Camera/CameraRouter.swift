@@ -16,8 +16,12 @@ class CameraRouter {
         self.view = view
     }
     
+    func openHistoryScene() {
+        HistoryConfigurator.open(navigationController: self.view.navigationController!)
+    }
+    
     func close() {
-        self.view.navigationController?.popViewController(animated: true)
+        self.view.navigationController?.popToRootViewController(animated: true)
     }
     
     

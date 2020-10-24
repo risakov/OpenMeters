@@ -140,6 +140,7 @@ class DesignableUIButton: UIButton {
         }
     }
     
+    
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return self.layer.cornerRadius
@@ -170,7 +171,21 @@ class DesignableUIButton: UIButton {
             layer.borderColor = newValue?.cgColor
         }
     }
-
+    
+    func toogleButton(_ toogle: Bool) {
+        if toogle {
+            self.backgroundColor = R.color.blue()
+            self.titleLabel?.textColor = .white
+            self.borderWidth = 0
+            self.borderColor = .white
+        } else {
+            self.backgroundColor = .white
+            self.titleLabel?.textColor = R.color.black()
+            self.borderWidth = 1
+            self.borderColor = R.color.graySeparator()
+        }
+    }
+    
     func generateTouchFeedback() {
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.impactOccurred()

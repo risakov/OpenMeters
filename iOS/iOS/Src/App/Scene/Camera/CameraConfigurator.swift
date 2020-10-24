@@ -10,7 +10,7 @@ import UIKit
 class CameraConfigurator {
     func configure(view: CameraViewController) {
         let router = CameraRouter(view)
-        let presenter = CameraPresenterImp(view, router)
+        let presenter = CameraPresenterImp(view, router, DI.resolve())
         view.presenter = presenter
     }
 

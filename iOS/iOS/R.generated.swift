@@ -17,14 +17,18 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 4 colors.
+  /// This `R.color` struct is generated, and contains static references to 6 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
+    /// Color `black`.
+    static let black = Rswift.ColorResource(bundle: R.hostingBundle, name: "black")
     /// Color `blue`.
     static let blue = Rswift.ColorResource(bundle: R.hostingBundle, name: "blue")
     /// Color `grayBackground`.
     static let grayBackground = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayBackground")
+    /// Color `graySeparator`.
+    static let graySeparator = Rswift.ColorResource(bundle: R.hostingBundle, name: "graySeparator")
     /// Color `grayText`.
     static let grayText = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayText")
     
@@ -33,6 +37,13 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func accentColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.accentColor, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "black", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func black(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.black, compatibleWith: traitCollection)
     }
     
     /// `UIColor(named: "blue", bundle: ..., traitCollection: ...)`
@@ -47,6 +58,13 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func grayBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.grayBackground, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "graySeparator", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func graySeparator(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.graySeparator, compatibleWith: traitCollection)
     }
     
     /// `UIColor(named: "grayText", bundle: ..., traitCollection: ...)`
@@ -212,7 +230,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 9 images.
   struct image {
     /// Image `CameraTab`.
     static let cameraTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "CameraTab")
@@ -220,8 +238,18 @@ struct R: Rswift.Validatable {
     static let historyTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "HistoryTab")
     /// Image `PersonTab`.
     static let personTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "PersonTab")
+    /// Image `backButton`.
+    static let backButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "backButton")
+    /// Image `flashlight-off`.
+    static let flashlightOff = Rswift.ImageResource(bundle: R.hostingBundle, name: "flashlight-off")
+    /// Image `flashlight-on`.
+    static let flashlightOn = Rswift.ImageResource(bundle: R.hostingBundle, name: "flashlight-on")
+    /// Image `galleryButton`.
+    static let galleryButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "galleryButton")
     /// Image `openLogo`.
     static let openLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "openLogo")
+    /// Image `snapshotButton`.
+    static let snapshotButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "snapshotButton")
     
     /// `UIImage(named: "CameraTab", bundle: ..., traitCollection: ...)`
     static func cameraTab(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -238,9 +266,34 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.personTab, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "backButton", bundle: ..., traitCollection: ...)`
+    static func backButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backButton, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "flashlight-off", bundle: ..., traitCollection: ...)`
+    static func flashlightOff(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.flashlightOff, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "flashlight-on", bundle: ..., traitCollection: ...)`
+    static func flashlightOn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.flashlightOn, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "galleryButton", bundle: ..., traitCollection: ...)`
+    static func galleryButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.galleryButton, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "openLogo", bundle: ..., traitCollection: ...)`
     static func openLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.openLogo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "snapshotButton", bundle: ..., traitCollection: ...)`
+    static func snapshotButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.snapshotButton, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -248,10 +301,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `HistoryCellWithCollection`.
+    static let historyCellWithCollection = _R.nib._HistoryCellWithCollection()
     /// Nib `HistoryCell`.
     static let historyCell = _R.nib._HistoryCell()
-    /// Nib `MeterTypeCell`.
-    static let meterTypeCell = _R.nib._MeterTypeCell()
     
     /// `UINib(name: "HistoryCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.historyCell) instead")
@@ -259,19 +312,29 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.historyCell)
     }
     
-    /// `UINib(name: "MeterTypeCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.meterTypeCell) instead")
-    static func meterTypeCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.meterTypeCell)
+    /// `UINib(name: "HistoryCellWithCollection", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.historyCellWithCollection) instead")
+    static func historyCellWithCollection(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.historyCellWithCollection)
     }
     
     static func historyCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCell? {
       return R.nib.historyCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCell
     }
     
-    static func meterTypeCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MeterTypeCell? {
-      return R.nib.meterTypeCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MeterTypeCell
+    static func historyCellWithCollection(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCellWithCollection? {
+      return R.nib.historyCellWithCollection.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCellWithCollection
     }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `historyCellWithCollection`.
+    static let historyCellWithCollection: Rswift.ReuseIdentifier<HistoryCellWithCollection> = Rswift.ReuseIdentifier(identifier: "historyCellWithCollection")
+    /// Reuse identifier `historyCell`.
+    static let historyCell: Rswift.ReuseIdentifier<HistoryCell> = Rswift.ReuseIdentifier(identifier: "historyCell")
     
     fileprivate init() {}
   }
@@ -350,8 +413,11 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
-    struct _HistoryCell: Rswift.NibResourceType {
+    struct _HistoryCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = HistoryCell
+      
       let bundle = R.hostingBundle
+      let identifier = "historyCell"
       let name = "HistoryCell"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCell? {
@@ -361,12 +427,15 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _MeterTypeCell: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "MeterTypeCell"
+    struct _HistoryCellWithCollection: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = HistoryCellWithCollection
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> MeterTypeCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MeterTypeCell
+      let bundle = R.hostingBundle
+      let identifier = "historyCellWithCollection"
+      let name = "HistoryCellWithCollection"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCellWithCollection? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCellWithCollection
       }
       
       fileprivate init() {}
@@ -398,7 +467,13 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "backButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'backButton' is used in storyboard 'Camera', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "flashlight-off", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'flashlight-off' is used in storyboard 'Camera', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "flashlight-on", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'flashlight-on' is used in storyboard 'Camera', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "galleryButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'galleryButton' is used in storyboard 'Camera', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "snapshotButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'snapshotButton' is used in storyboard 'Camera', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "black", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black' is used in storyboard 'Camera', but couldn't be loaded.") }
         }
         if _R.storyboard.camera().cameraVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'cameraVC' could not be loaded from storyboard 'Camera' as 'CameraViewController'.") }
       }
@@ -435,9 +510,7 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if #available(iOS 11.0, *) {
-          if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'History', but couldn't be loaded.") }
           if UIKit.UIColor(named: "grayBackground", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayBackground' is used in storyboard 'History', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "grayText", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayText' is used in storyboard 'History', but couldn't be loaded.") }
         }
         if _R.storyboard.history().historyVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'historyVC' could not be loaded from storyboard 'History' as 'HistoryViewController'.") }
       }

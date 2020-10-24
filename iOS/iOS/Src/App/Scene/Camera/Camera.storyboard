@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,9 +17,53 @@
                     <view key="view" contentMode="scaleToFill" id="R66-jK-CCR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1P-wn-lc8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAh-US-SfG">
+                                        <rect key="frame" x="167" y="708" width="80" height="80"/>
+                                        <state key="normal" image="snapshotButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-iK-c37">
+                                        <rect key="frame" x="46" y="726" width="44" height="44"/>
+                                        <state key="normal" image="galleryButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZk-oG-llO">
+                                        <rect key="frame" x="16" y="27" width="28" height="28"/>
+                                        <state key="normal" image="backButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZR-Nv-VmK">
+                                        <rect key="frame" x="363" y="27" width="28" height="28"/>
+                                        <state key="normal" image="flashlight-off"/>
+                                        <state key="selected" image="flashlight-on"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="black"/>
+                                <constraints>
+                                    <constraint firstItem="nZk-oG-llO" firstAttribute="leading" secondItem="K1P-wn-lc8" secondAttribute="leading" constant="16" id="Dmz-yb-iPh"/>
+                                    <constraint firstItem="nZk-oG-llO" firstAttribute="top" secondItem="K1P-wn-lc8" secondAttribute="top" constant="27" id="Dwh-vw-rZ6"/>
+                                    <constraint firstItem="fZR-Nv-VmK" firstAttribute="centerY" secondItem="nZk-oG-llO" secondAttribute="centerY" id="F1R-ZL-Pkr"/>
+                                    <constraint firstItem="GAh-US-SfG" firstAttribute="centerX" secondItem="K1P-wn-lc8" secondAttribute="centerX" id="Fh2-MD-cdN"/>
+                                    <constraint firstItem="kfT-iK-c37" firstAttribute="centerY" secondItem="GAh-US-SfG" secondAttribute="centerY" id="LtK-Fc-ev8"/>
+                                    <constraint firstAttribute="bottom" secondItem="GAh-US-SfG" secondAttribute="bottom" constant="30" id="Q9x-tM-cwY"/>
+                                    <constraint firstAttribute="trailing" secondItem="fZR-Nv-VmK" secondAttribute="trailing" constant="23" id="Yxe-zp-lAj"/>
+                                    <constraint firstItem="kfT-iK-c37" firstAttribute="leading" secondItem="K1P-wn-lc8" secondAttribute="leading" constant="46" id="oVt-e7-ZvN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kh8-tG-V2P"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K1P-wn-lc8" firstAttribute="top" secondItem="kh8-tG-V2P" secondAttribute="top" id="H7m-0D-1vx"/>
+                            <constraint firstItem="kh8-tG-V2P" firstAttribute="bottom" secondItem="K1P-wn-lc8" secondAttribute="bottom" id="Hn7-cY-qh3"/>
+                            <constraint firstItem="kh8-tG-V2P" firstAttribute="trailing" secondItem="K1P-wn-lc8" secondAttribute="trailing" id="ZpN-gw-QKB"/>
+                            <constraint firstItem="K1P-wn-lc8" firstAttribute="leading" secondItem="kh8-tG-V2P" secondAttribute="leading" id="kRx-kE-J4y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="previewView" destination="K1P-wn-lc8" id="EDb-Dc-jax"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yp3-zs-7Ou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +71,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="28" height="28"/>
+        <image name="flashlight-off" width="28" height="28"/>
+        <image name="flashlight-on" width="14" height="24"/>
+        <image name="galleryButton" width="44" height="44"/>
+        <image name="snapshotButton" width="80" height="80"/>
+        <namedColor name="black">
+            <color red="0.20399999618530273" green="0.22400000691413879" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

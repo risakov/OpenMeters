@@ -7,4 +7,5 @@ ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxNetworkApiClient/RxNetworkApiClient.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/SwiftLazy/SwiftLazy.framework
+${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
