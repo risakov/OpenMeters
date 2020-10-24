@@ -40,7 +40,7 @@ class RetrofitModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://192.168.0.106:8777")
+            .baseUrl("http://192.168.11.212:3333")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)

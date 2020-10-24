@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/camera_navigation"
-    app:startDestination="@id/processingFragment">
+    app:startDestination="@id/cameraFragment">
 
     <fragment
         android:id="@+id/processingFragment"
@@ -13,6 +13,9 @@
             app:destination="@id/resultFragment"
             app:popUpTo="@id/camera_navigation"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="filePaths"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -28,4 +31,14 @@
         android:id="@+id/allReadyFragment"
         android:name="ru.webant.openmeters.scenes.camera.all_ready.AllReadyFragment"
         android:label="AllReadyFragment" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="ru.webant.openmeters.scenes.camera.CameraFragment"
+        android:label="CameraFragment" >
+        <action
+            android:id="@+id/openProcessingFragment"
+            app:destination="@id/processingFragment"
+            app:popUpTo="@id/camera_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

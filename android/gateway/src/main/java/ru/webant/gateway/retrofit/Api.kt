@@ -11,6 +11,10 @@ import ru.webant.domain.entities.ResponseEntity
 interface Api {
 
     @Multipart
-    @POST("/uploadImage")
+    @POST("/api/uploadImages")
     fun uploadFiles(@Part files: List<MultipartBody.Part>): Single<ResponseEntity<IndicatorResponseEntity>>
+
+    @Multipart
+    @POST("/api/uploadSingleImage")
+    fun uploadFile(@Part file: MultipartBody.Part): Single<ResponseEntity<IndicatorResponseEntity>>
 }

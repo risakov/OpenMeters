@@ -8,4 +8,5 @@ import ru.webant.domain.entities.ResponseEntity
 interface IndicatorGateway {
 
     fun uploadFiles(files: List<MultipartBody.Part>): Single<ResponseEntity<IndicatorResponseEntity>>
+    fun uploadFile(file: MultipartBody.Part): Single<ResponseEntity<IndicatorResponseEntity>>
 }

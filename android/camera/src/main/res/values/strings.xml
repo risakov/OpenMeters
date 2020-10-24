@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="capture_button">Кнопка съёмки</string>
-    <string name="get_photo_button">Кнопка выбора изображения из галереи</string>
-    <string name="flashlight_button">Кнопка фонарика</string>
-    <string name="left_arrow_button">Кнопка стрелки влево</string>
-</resources>

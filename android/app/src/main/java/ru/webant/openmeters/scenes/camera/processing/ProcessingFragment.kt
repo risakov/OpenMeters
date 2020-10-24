@@ -2,7 +2,9 @@ package ru.webant.openmeters.scenes.camera.processing
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_processing.*
@@ -15,6 +17,8 @@ class ProcessingFragment : BaseFragment(), ProcessingView {
     override val layoutId = R.layout.fragment_processing
     override var isNeedToShowBottomNavigationView = false
 
+    private val args: ProcessingFragmentArgs by navArgs()
+
 
     @InjectPresenter
     lateinit var presenter: ProcessingPresenter
@@ -24,7 +28,12 @@ class ProcessingFragment : BaseFragment(), ProcessingView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.filePaths = args.filePaths.toCollection(ArrayList())
         setListeners()
+    }
+
+    override fun showToast(filePaths: ArrayList<String>) {
+        Toast.makeText(requireContext(), "Zhopa ${filePaths.size}", Toast.LENGTH_SHORT).show()
     }
 
     private fun setListeners() {
