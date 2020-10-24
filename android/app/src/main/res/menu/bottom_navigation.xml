@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigationHistory"
+        android:icon="@drawable/selector_menu"
+        android:title="qqq" />
+
+    <item
+        android:id="@+id/navigationCamera"
+        android:icon="@drawable/selector_camera"
+        android:title="asd" />
+
+    <item
+        android:id="@+id/navigationProfile"
+        android:icon="@drawable/selector_profile"
+        android:title="www" />
+</menu>
