@@ -2,8 +2,8 @@ package ru.webant.domain.gateways
 
 import io.reactivex.Single
 import okhttp3.MultipartBody
-import ru.webant.domain.models.IndicatorResponseEntity
-import ru.webant.domain.models.ResponseEntity
+import ru.webant.domain.entities.IndicatorResponseEntity
+import ru.webant.domain.entities.ResponseEntity
 
 interface IndicatorGateway {
 

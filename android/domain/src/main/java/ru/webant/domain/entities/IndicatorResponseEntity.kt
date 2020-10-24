@@ -1,4 +1,4 @@
-package ru.webant.domain.models
+package ru.webant.domain.entities
 
 data class IndicatorResponseEntity(
     val value: String,

@@ -2,7 +2,7 @@ package ru.webant.openmeters.di
 
 import dagger.Component
 import ru.webant.openmeters.scenes.main.MainPresenter
-import ru.webant.openmeters.scenes.value_history.ValueHistoryPresenter
+import ru.webant.openmeters.scenes.value_history.IndicatorHistoryPresenter
 import javax.inject.Singleton
 
 @Singleton
@@ -10,5 +10,5 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun provideMainPresenter(): MainPresenter
-    fun provideValueHistoryPresenter(): ValueHistoryPresenter
+    fun provideValueHistoryPresenter(): IndicatorHistoryPresenter
 }

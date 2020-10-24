@@ -5,8 +5,8 @@ import okhttp3.MultipartBody
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
-import ru.webant.domain.models.IndicatorResponseEntity
-import ru.webant.domain.models.ResponseEntity
+import ru.webant.domain.entities.IndicatorResponseEntity
+import ru.webant.domain.entities.ResponseEntity
 
 interface Api {
 
