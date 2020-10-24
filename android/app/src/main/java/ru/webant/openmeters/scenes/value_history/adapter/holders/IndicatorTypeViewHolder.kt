@@ -34,7 +34,7 @@ class IndicatorTypeViewHolder(private val view: View) : RecyclerView.ViewHolder(
     private fun View.bindIsSelected(indicatorType: IndicatorType) {
         if (indicatorType.isSelected) {
             indicatorTypeContainer.setBackgroundResource(R.drawable.bg_rounded_light_blue)
-            indicatorTypeTitleTextView.setTextColor(ContextCompat.getColor(context, R.color.colorLightBlack))
+            indicatorTypeTitleTextView.setTextColor(ContextCompat.getColor(context, android.R.color.white))
         } else {
             indicatorTypeContainer.setBackgroundResource(R.drawable.bg_rounded_white_with_light_gray_border)
             indicatorTypeTitleTextView.setTextColor(ContextCompat.getColor(context, R.color.colorLightBlack))

@@ -36,16 +36,6 @@ class IndicatorHistoryPresenter @Inject constructor() : BasePresenter<IndicatorH
         indicatorValues.add(IndicatorHistory(4))
         indicatorValues.add(IndicatorHistory(15))
         indicatorValues.add(IndicatorHistory(5))
-        indicatorValues.add(IndicatorHistory(6))
-        indicatorValues.add(IndicatorHistory(7))
-        indicatorValues.add(IndicatorHistory(12))
-        indicatorValues.add(IndicatorHistory(777))
-        indicatorValues.add(IndicatorHistory(15))
-        indicatorValues.add(IndicatorHistory(5))
-        indicatorValues.add(IndicatorHistory(6))
-        indicatorValues.add(IndicatorHistory(7))
-        indicatorValues.add(IndicatorHistory(12))
-        indicatorValues.add(IndicatorHistory(777))
     }
 
     private fun setIndicatorTypes() {
