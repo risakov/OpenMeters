@@ -166,6 +166,9 @@ class CameraFragment : BaseFragment(), CameraView {
         flashLightImageView.setOnClickListener {
             changeFlashLightState()
         }
+        leftArrowImageView.setOnClickListener {
+            presenter.onLeftArrowClicked()
+        }
         getImageImageView.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type =

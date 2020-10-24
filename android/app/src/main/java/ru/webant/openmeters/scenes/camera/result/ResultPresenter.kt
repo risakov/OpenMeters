@@ -3,21 +3,20 @@ package ru.webant.openmeters.scenes.camera.result
 import com.arellomobile.mvp.InjectViewState
 import ru.webant.domain.entities.IndicatorResponseEntity
 import ru.webant.openmeters.base.BasePresenter
+import ru.webant.openmeters.models.ParcelableIndicatorResponseEntity
 import javax.inject.Inject
 
 @InjectViewState
 class ResultPresenter @Inject constructor() : BasePresenter<ResultView>() {
 
-    private val indicatorResults = ArrayList<IndicatorResponseEntity>()
+    lateinit var indicatorResults: ArrayList<IndicatorResponseEntity>
     private lateinit var chosenIndicator: IndicatorResponseEntity
 
 
-    override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
-        initIndicatorResults()
-        viewState.initRecyclerView(indicatorResults)
-        viewState.initIndicatorInfo(chosenIndicator)
-        isCannotConfirmResult()
+    fun parseParcelableIndicator(parcelableIndicators: ArrayList<ParcelableIndicatorResponseEntity>) {
+        indicatorResults = parcelableIndicators.map { it.toIndicatorResultEntity() } as ArrayList
+        chosenIndicator = indicatorResults[0].apply { isSelected = true }
+        setInitialSettings()
     }
 
     fun onIndicatorResultClicked(indicatorResult: IndicatorResponseEntity) {
@@ -49,17 +48,19 @@ class ResultPresenter @Inject constructor() : BasePresenter<ResultView>() {
         }
     }
 
+    fun onLeftArrowClicked() {
+        viewState.openHistoryFragment()
+    }
+
     fun onSerialNumberChanged(newSerialNumber: String) {
         chosenIndicator.serialNumber = newSerialNumber
         isCannotConfirmResult()
     }
 
-    private fun initIndicatorResults() {
-        indicatorResults.add(IndicatorResponseEntity(null, "qqweqweq", "asdasd", true))
-        indicatorResults.add(IndicatorResponseEntity(null, "tttttt", "asdasd"))
-        indicatorResults.add(IndicatorResponseEntity(null, null, "asdasd"))
-        indicatorResults.add(IndicatorResponseEntity(null, null, "asdasd"))
-        chosenIndicator = indicatorResults[0]
+    private fun setInitialSettings() {
+        viewState.initIndicatorInfo(chosenIndicator)
+        viewState.initRecyclerView(indicatorResults)
+        isCannotConfirmResult()
     }
 
     private fun isCannotConfirmResult() {

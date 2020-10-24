@@ -6,4 +6,8 @@ import javax.inject.Inject
 
 @InjectViewState
 class CameraPresenter @Inject constructor() : BasePresenter<CameraView>() {
+
+    fun onLeftArrowClicked() {
+        viewState.openHistoryFragment()
+    }
 }

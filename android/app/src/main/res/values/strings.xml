@@ -23,4 +23,7 @@
 
     <string name="could_not_recognize">Не удалось распознать</string>
     <string name="could_not_recognize_try_again">Не удалось распознать показание счетчика, повторите попытку или введите в ручную</string>
+
+    <string name="error">Ошибка!</string>
+    <string name="backend_error_happened">Произошла ошибка на стороне сервера. Попробуйте позднее</string>
 </resources>

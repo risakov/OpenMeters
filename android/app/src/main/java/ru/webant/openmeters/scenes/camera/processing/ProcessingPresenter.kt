@@ -7,8 +7,10 @@ import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import ru.webant.domain.entities.IndicatorResponseEntity
 import ru.webant.domain.gateways.IndicatorGateway
 import ru.webant.openmeters.base.BasePresenter
+import ru.webant.openmeters.models.ParcelableIndicatorResponseEntity
 import java.io.File
 import javax.inject.Inject
 
@@ -18,6 +20,7 @@ class ProcessingPresenter @Inject constructor(
 ) : BasePresenter<ProcessingView>() {
 
     lateinit var filePaths: ArrayList<String>
+
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -38,9 +41,9 @@ class ProcessingPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-
+                viewState.openResultFragment(parseResultToParcelable((it.data)))
             }, {
-                it.printStackTrace()
+                viewState.showMessageWithRouteToHistoryFragment()
             })
             .addTo(compositeDisposable)
     }
@@ -58,10 +61,16 @@ class ProcessingPresenter @Inject constructor(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-
+                viewState.openResultFragment(parseResultToParcelable(it.data))
             }, {
-                it.printStackTrace()
+                viewState.showMessageWithRouteToHistoryFragment()
             })
             .addTo(compositeDisposable)
+    }
+
+    private fun parseResultToParcelable(indicatorResponse: List<IndicatorResponseEntity>): ArrayList<ParcelableIndicatorResponseEntity> {
+        return indicatorResponse.map {
+            ParcelableIndicatorResponseEntity.fromIndicatorResponseEntity(it)
+        } as ArrayList
     }
 }

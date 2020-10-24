@@ -6,10 +6,13 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_result.*
 import ru.webant.domain.entities.IndicatorResponseEntity
+import ru.webant.gateway.constants.ApiConstants.API_URL
 import ru.webant.openmeters.App
 import ru.webant.openmeters.R
 import ru.webant.openmeters.base.BaseFragment
@@ -21,6 +24,7 @@ class ResultFragment : BaseFragment(), ResultView {
     override val layoutId = R.layout.fragment_result
     override var isNeedToShowBottomNavigationView = false
 
+    private val args: ResultFragmentArgs by navArgs()
     private val adapter = IndicatorResultAdapter()
 
     @InjectPresenter
@@ -42,6 +46,7 @@ class ResultFragment : BaseFragment(), ResultView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.parseParcelableIndicator(args.indicatorResults.toCollection(ArrayList()))
         setListeners()
     }
 
@@ -60,6 +65,10 @@ class ResultFragment : BaseFragment(), ResultView {
         } else {
             serialNumberEditText.setText(indicatorResult.serialNumber)
         }
+        Glide.with(this)
+            .load("$API_URL${indicatorResult.photoPath}")
+            .placeholder(R.drawable.ic_image_placeholder)
+            .into(indicatorImageView)
     }
 
     override fun clearEditTextFocuses() {
@@ -90,17 +99,41 @@ class ResultFragment : BaseFragment(), ResultView {
     override fun changeButtonClickableState(state: Boolean) {
         confirmButton.isEnabled = state
         if (state) {
-            confirmButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorLightBlue))
-            confirmButton.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.white))
+            confirmButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.colorLightBlue
+                )
+            )
+            confirmButton.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    android.R.color.white
+                )
+            )
         } else {
-            confirmButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPreLightGray))
-            confirmButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorDarkGray))
+            confirmButton.setBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.colorPreLightGray
+                )
+            )
+            confirmButton.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.colorDarkGray
+                )
+            )
         }
     }
 
     private fun setListeners() {
         confirmButton.setOnClickListener {
             presenter.onConfirmButtonClicked()
+        }
+
+        leftArrowImageView.setOnClickListener {
+            presenter.onLeftArrowClicked()
         }
 
         meterReadingsEditText.onFocusChangeListener = View.OnFocusChangeListener { p0, hasFocus ->
