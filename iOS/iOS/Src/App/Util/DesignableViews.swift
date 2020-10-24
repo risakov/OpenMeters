@@ -1,5 +1,5 @@
 //
-//  Designables.swift
+//  DesignableViews.swift
 //  iOS
 //
 //  Created by Роман on 23.10.2020.
@@ -140,7 +140,6 @@ class DesignableUIButton: UIButton {
         }
     }
     
-    
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return self.layer.cornerRadius
@@ -175,12 +174,12 @@ class DesignableUIButton: UIButton {
     func toogleButton(_ toogle: Bool) {
         if toogle {
             self.backgroundColor = R.color.blue()
-            self.titleLabel?.textColor = .white
+            self.setTitleColor(.white, for: .normal)
             self.borderWidth = 0
             self.borderColor = .white
         } else {
             self.backgroundColor = .white
-            self.titleLabel?.textColor = R.color.black()
+            self.setTitleColor(R.color.black(), for: .normal)
             self.borderWidth = 1
             self.borderColor = R.color.graySeparator()
         }

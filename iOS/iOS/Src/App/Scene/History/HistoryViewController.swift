@@ -31,7 +31,7 @@ class HistoryViewController: UIViewController {
     
     func registerCells() {
         historyTableView.register(UINib(resource: R.nib.historyCell), forCellReuseIdentifier: R.reuseIdentifier.historyCell.identifier)
-        historyTableView.register(UINib(resource: R.nib.historyCellWithCollection), forCellReuseIdentifier: R.reuseIdentifier.historyCellWithCollection.identifier)
+        historyTableView.register(UINib(resource: R.nib.historyCellWithStackView), forCellReuseIdentifier: R.reuseIdentifier.historyCellWithStackView.identifier)
 
         self.historyTableView.delegate = self
         self.historyTableView.dataSource = self
@@ -56,13 +56,12 @@ extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            let cellWithCollection =  tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.historyCellWithCollection, for: indexPath)!
-            cellWithCollection.setup()
-            return cellWithCollection
+            let firstCell =  tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.historyCellWithStackView, for: indexPath)!
+            firstCell.setup()
+            return firstCell
         }
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.historyCell, for: indexPath)!
-//        cell.createTopBorder()
         cell.setup()
         
         return cell

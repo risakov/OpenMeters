@@ -75,6 +75,7 @@ open class ApiRequest<ResponseType: Codable>: NetworkRequest {
     open var formData: FormDataFields?
     open var headers: [Header]?
     open var files: [UploadFile]?
+    open var file: UploadFile? = nil
     open var method: HttpMethod?
     open var body: BodyConvertible?
 
@@ -90,6 +91,7 @@ open class ApiRequest<ResponseType: Codable>: NetworkRequest {
             headers: [Header]? = nil,
             formData: FormDataFields? = nil,
             files: [UploadFile]? = nil,
+            file: UploadFile? = nil,
             body: BodyConvertible? = nil,
             query: QueryField...) -> ApiRequest<ResponseType> {
         let request = ApiRequest<ResponseType>(endpoint)
@@ -98,6 +100,7 @@ open class ApiRequest<ResponseType: Codable>: NetworkRequest {
         request.headers = headers
         request.formData = formData
         request.files = files
+        request.file = file
         request.body = body
         request.query = query
         return request
