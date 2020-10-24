@@ -5,9 +5,8 @@ from scipy import ndimage
 import math
 from keras.models import load_model
 
-model = load_model('./digit_classifier.h5')
 
-def predict_digit(img):
+def predict_digit(model, img):
     test_image = img.reshape(-1,28,28,1)
     return np.argmax(model.predict(test_image))
 
@@ -40,9 +39,9 @@ def image_refiner(gray):
     return gray
 
 
-
-
-def get_output_image(path):
+def get_output_image(path, path_to_data):
+    print(path_to_data)
+    model = load_model(path_to_data)
     img = cv2.imread(path,2)
     img_org =  cv2.imread(path)
 
@@ -66,7 +65,7 @@ def get_output_image(path):
             roi = image_refiner(roi)
             th,fnl = cv2.threshold(roi,127,255,cv2.THRESH_BINARY)
 
-            pred = predict_digit(roi)
+            pred = predict_digit(model, roi)
             print(pred)
             res.append(pred)
             
