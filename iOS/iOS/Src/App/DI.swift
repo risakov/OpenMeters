@@ -26,10 +26,6 @@ class DI {
         // MARK: - Gateways
 
         // MARK: - UseCases
-        
-        self.container.register { CheckPermissionsUseCaseImp() }
-            .as(CheckPermissionsUseCase.self)
-        
 
         // MARK: - PaginationUseCase
         

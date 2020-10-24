@@ -5,7 +5,7 @@
 //  Created by Роман on 23.10.2020.
 //
 
-import Foundation
+import UIKit
 
 class CameraRouter {
     
@@ -17,8 +17,14 @@ class CameraRouter {
     }
     
     func openHistoryScene() {
-        HistoryConfigurator.open(navigationController: self.view.navigationController!)
-    }
+        let indexHistoryScreen = TabBarIndices.historyTab.rawValue
+        
+        let tb = self.view.tabBarController
+        self.view.tabBarController?.selectedIndex = indexHistoryScreen
+        let navC = tb?.viewControllers?[indexHistoryScreen] as! UINavigationController
+        navC.popToRootViewController(animated: false)
+        let historyVC = HistoryConfigurator.getVC()
+        navC.setViewControllers([historyVC], animated: false)    }
     
     func close() {
         self.view.navigationController?.popToRootViewController(animated: true)

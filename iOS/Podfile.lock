@@ -1,4 +1,5 @@
 PODS:
+  - BSImagePicker (3.3.1)
   - DBDebugToolkit (0.6.0)
   - DITranquillity (3.7.2):
     - SwiftLazy
@@ -19,6 +20,7 @@ PODS:
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - BSImagePicker (~> 3.1)
   - DBDebugToolkit
   - DITranquillity (~> 3.7.1)
   - Kingfisher (~> 5.0)
@@ -30,6 +32,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - BSImagePicker
     - DBDebugToolkit
     - DITranquillity
     - Kingfisher
@@ -43,6 +46,7 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  BSImagePicker: 0fe04b574d4d6b81093785d2af6c26227efc8428
   DBDebugToolkit: 03eb3483da4daf03b853b83ade5a8da9c8b7aff4
   DITranquillity: eac3d90c40150159049e2d109d4108ee5ba5da18
   Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 15de921d06f12f16675357b36fbb0367a91b3e3f
+PODFILE CHECKSUM: 2658934e0518e3aba0f03edbf9c35c3778719edf
 
 COCOAPODS: 1.10.0

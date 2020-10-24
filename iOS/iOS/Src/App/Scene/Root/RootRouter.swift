@@ -23,26 +23,26 @@ class RootRouterImp: RootRouter {
 
     func openHistoryScene() {
 
-        let indexMainScreen = TabBarIndices.historyTab.rawValue
+        let indexHistoryScreen = TabBarIndices.historyTab.rawValue
         let tb = view!
-        tb.selectedIndex = indexMainScreen
-        let navC = tb.viewControllers?[indexMainScreen] as! UINavigationController
+        tb.selectedIndex = indexHistoryScreen
+        let navC = tb.viewControllers?[indexHistoryScreen] as! UINavigationController
         navC.popToRootViewController(animated: false)
-        let mainVC = HistoryConfigurator.getVC()
+        let historyVC = HistoryConfigurator.getVC()
 
-        navC.setViewControllers([mainVC], animated: false)
+        navC.setViewControllers([historyVC], animated: false)
     }
 
     func openCameraScene() {
 
-        let indexNewPhotoScreen = TabBarIndices.cameraTab.rawValue
+        let indexCameraScreen = TabBarIndices.cameraTab.rawValue
         
         let tb = view!
-        tb.selectedIndex = indexNewPhotoScreen
-        let navC = tb.viewControllers?[indexNewPhotoScreen] as! UINavigationController
+        tb.selectedIndex = indexCameraScreen
+        let navC = tb.viewControllers?[indexCameraScreen] as! UINavigationController
         navC.popToRootViewController(animated: false)
-        let newPhotoVC = CameraConfigurator.getVC()
-        navC.setViewControllers([newPhotoVC], animated: false)
+        let cameraVC = CameraConfigurator.getVC()
+        navC.setViewControllers([cameraVC], animated: false)
     }
 
     func openProfileScene() {
