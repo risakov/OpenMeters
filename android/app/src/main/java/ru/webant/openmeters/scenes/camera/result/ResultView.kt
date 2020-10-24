@@ -13,4 +13,7 @@ interface ResultView : BaseView {
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun updateIndicatorResultAdapter()
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun navigateToAllReadyFragment()
 }

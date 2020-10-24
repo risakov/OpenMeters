@@ -11,4 +11,8 @@
     <string name="to_confirm">Подтвердить</string>
 
     <string name="left_arrow_button">Кнопка стрелки влево</string>
+    <string name="all_ready">Все готово!</string>
+    <string name="like">Палец вверх</string>
+    <string name="meters_was_sent_to_bank">Показания обработаны и отправлены в банк.</string>
+    <string name="go_to_history_of_meters">Перейти к истории показаний</string>
 </resources>

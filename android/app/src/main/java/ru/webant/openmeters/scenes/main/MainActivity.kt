@@ -43,6 +43,10 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setIsVisible(state)
     }
 
+    fun navigateToHistoryFragment() {
+        bottomNavigationView.selectedItemId = R.id.historyContainer
+    }
+
     fun setUpActionBar(view: View?) {
         if (view == null) {
             supportActionBar?.hide()

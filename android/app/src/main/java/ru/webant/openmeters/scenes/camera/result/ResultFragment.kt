@@ -1,5 +1,8 @@
 package ru.webant.openmeters.scenes.camera.result
 
+import android.os.Bundle
+import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_result.*
@@ -25,7 +28,7 @@ class ResultFragment : BaseFragment(), ResultView {
 
     override fun initRecyclerView(indicatorResults: ArrayList<IndicatorResponseEntity>) {
         adapter.addItems(indicatorResults)
-        adapter.setCallback(object: IndicatorResultAdapter.Callback {
+        adapter.setCallback(object : IndicatorResultAdapter.Callback {
             override fun onIndicatorResultClicked(indicatorResult: IndicatorResponseEntity) {
                 presenter.onIndicatorResultClicked(indicatorResult)
             }
@@ -33,7 +36,23 @@ class ResultFragment : BaseFragment(), ResultView {
         indicatorsRecyclerView.adapter = adapter
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setListeners()
+    }
+
     override fun updateIndicatorResultAdapter() {
         adapter.notifyDataSetChanged()
+    }
+
+    override fun navigateToAllReadyFragment() {
+        ResultFragmentDirections.openAllReadyFragment()
+            .let(findNavController()::navigate)
+    }
+
+    private fun setListeners() {
+        confirmButton.setOnClickListener {
+            presenter.onConfirmButtonClicked()
+        }
     }
 }

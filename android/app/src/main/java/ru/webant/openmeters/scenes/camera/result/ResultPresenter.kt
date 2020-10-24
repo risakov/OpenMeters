@@ -25,6 +25,10 @@ class ResultPresenter @Inject constructor() : BasePresenter<ResultView>() {
         viewState.updateIndicatorResultAdapter()
     }
 
+    fun onConfirmButtonClicked() {
+        viewState.navigateToAllReadyFragment()
+    }
+
     private fun initIndicatorResults() {
         indicatorResults.add(IndicatorResponseEntity("asd", "asd", "asdasd", true))
         indicatorResults.add(IndicatorResponseEntity("asd", "asd", "asdasd"))

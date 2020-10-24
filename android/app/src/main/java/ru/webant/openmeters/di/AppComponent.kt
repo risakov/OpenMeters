@@ -1,6 +1,7 @@
 package ru.webant.openmeters.di
 
 import dagger.Component
+import ru.webant.openmeters.scenes.camera.all_ready.AllReadyPresenter
 import ru.webant.openmeters.scenes.camera.processing.ProcessingPresenter
 import ru.webant.openmeters.scenes.camera.result.ResultPresenter
 import ru.webant.openmeters.scenes.history.IndicatorHistoryPresenter
@@ -17,4 +18,5 @@ interface AppComponent {
     fun provideProfilePresenter(): ProfilePresenter
     fun provideProcessingPresenter(): ProcessingPresenter
     fun provideResultPresenter(): ResultPresenter
+    fun provideAllReadyPresenter(): AllReadyPresenter
 }
