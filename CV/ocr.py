@@ -111,7 +111,6 @@ def get_output_image(path):
     contours,hierarchy = cv2.findContours(thresh, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     res = []
     cnt_dict = dict()
-    cv2.imshow("tresh", thresh)
     for j,cnt in enumerate(contours):
         epsilon = 0.01*cv2.arcLength(cnt,True)
         approx = cv2.approxPolyDP(cnt,epsilon,True)
@@ -122,7 +121,7 @@ def get_output_image(path):
             cv2.rectangle(img_org,(x,y),(x+w,y+h),(0,255,0),2)
             roi = img[y:y+h, x:x+w]
             roi = cv2.bitwise_not(roi)
-            th,fnl = cv2.threshold(roi,127,255,cv2.THRESH_BINARY)
+            #th,fnl = cv2.threshold(roi,127,255,cv2.THRESH_BINARY)
             cv2.imwrite('temp.png', roi)
             pred = predict('temp.png')[0]
             print(pred)

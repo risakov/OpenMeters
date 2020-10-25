@@ -5,29 +5,37 @@ import cv2
 import os
 import ocr
 
+from detecto.core import Model
+from detecto.utils import read_image
+
+model = Model.load('localization_model.pth', ['digits'])
+
 path = argv[1]
 image_name = argv[2]
 filename = path +'\\'+ image_name
 data = {}
 
-cascade = cv2.CascadeClassifier(path + "\\Cascades\\cascade.xml")
-img = cv2.imread(filename)
-img = cv2.cvtColor(img, cv2.IMREAD_GRAYSCALE)
+#cascade = cv2.CascadeClassifier(path + "\\Cascades\\cascade.xml")
+#img = cv2.imread(filename)
+img = read_image(filename)
+top_preds = model.predict_top(img)
+res = top_preds[1].numpy()[0]
+#numbers = cascade.detectMultiScale(img, 1.1, 3)
 
-numbers = cascade.detectMultiScale(img, 1.1, 3)
-(x,y,w,h) = numbers[0]
+x, y = int(res[0]), int(res[1])
+w = int(res[2])
+h = int(res[3])
+w = w - x
+h = h - y
 img = img[y:y+h, x:x+w]
 temp_path = "res.png"
 cv2.imwrite(temp_path, img)
+
 image, res = ocr.get_output_image(temp_path)
 for i in range(len(res)):
     data[str(i)] = str(res[i])
 
-cv2.imwrite(argv[1] + '\\rec_'+  argv[2], image)
-cv2.imwrite(argv[1] + '\\loc_'+  argv[2], cv2.rectangle(cv2.imread(filename), (x,y), (x+w, y+h), (0,255,0), 5))
 full_data = {"serialNumber" : "", "value" : data}
 print(json.dumps(full_data))
-cv2.imshow("o", image)
-cv2.waitKey(0)
-#os.remove(temp_path)
+os.remove(temp_path)
 exit
