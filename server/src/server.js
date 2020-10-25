@@ -50,6 +50,6 @@ app.set('port', process.env.PORT || 3333);
 app.listen(app.get('port'), function () {
   console.info('Express server listening on port ' + app.get('port'));
 });
-// require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-//     console.log('addr: '+add);
-// })
+require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+    console.log('addr: '+add);
+})
