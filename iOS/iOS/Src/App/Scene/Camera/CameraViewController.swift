@@ -13,16 +13,20 @@ import BSImagePicker
 
 
 protocol CameraView: BaseView {
-
+    func showPreloaderView()
+    func hidePreloaderView()
 }
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var flashlightButton: UIButton!
-    
+    @IBOutlet weak var preloaderView: UIView!
+    @IBOutlet weak var customActivityIndicator: UIView!
     var captureSession: AVCaptureSession!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    
+    var activityIndicator: MyIndicator!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -44,7 +48,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
         imagePicker.settings.theme.selectionStyle = .numbered
         imagePicker.settings.fetch.assets.supportedMediaTypes = [.image, .video]
         imagePicker.settings.selection.unselectOnReachingMax = true
-
+        
         self.presentImagePicker(imagePicker, select: { (asset) in
             print("Selected: \(asset)")
         }, deselect: { (asset) in
@@ -53,15 +57,9 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
             print("Canceled with selections: \(assets)")
         }, finish: { (assets) in
             print("Finished with selections: \(assets)")
-            self.presenter.convertAndSendArrayOfImages(assets)
+            self.presenter.getThumbnailForAssets(assets: assets)
         }, completion: {
-            
         })
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        CameraConfigurator().configure(view: self)
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -71,8 +69,16 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
         self.presenter.openHistoryScene()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        CameraConfigurator().configure(view: self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let activityInd = MyIndicator(frame: customActivityIndicator.frame, image: R.image.loader()!)
+        self.activityIndicator = activityInd
+        self.customActivityIndicator.addSubview(activityIndicator)
         self.tabBarController?.tabBar.tabsVisiblty(false)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -89,32 +95,27 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func startCamera() {
-            captureSession = AVCaptureSession()
-            captureSession.sessionPreset = AVCaptureSession.Preset.photo
-            cameraOutput = AVCapturePhotoOutput()
-
-            if let device = AVCaptureDevice.default(for: .video),
-               let input = try? AVCaptureDeviceInput(device: device) {
-                if (captureSession.canAddInput(input)) {
-                    captureSession.addInput(input)
-                    if (captureSession.canAddOutput(cameraOutput)) {
-                        captureSession.addOutput(cameraOutput)
-                        prevLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-                        prevLayer?.frame.size = previewView.frame.size
-                        prevLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-                        previewView.layer.addSublayer(prevLayer!)
-                        captureSession.startRunning()
-                    }
-                } else {
-                    print("issue here : captureSesssion.canAddInput")
+        captureSession = AVCaptureSession()
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        cameraOutput = AVCapturePhotoOutput()
+        
+        if let device = AVCaptureDevice.default(for: .video),
+           let input = try? AVCaptureDeviceInput(device: device) {
+            if (captureSession.canAddInput(input)) {
+                captureSession.addInput(input)
+                if (captureSession.canAddOutput(cameraOutput)) {
+                    captureSession.addOutput(cameraOutput)
+                    prevLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                    prevLayer?.frame.size = previewView.frame.size
+                    prevLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                    previewView.layer.addSublayer(prevLayer!)
+                    captureSession.startRunning()
                 }
-            } else {
-                print("some problem here")
             }
+        }
     }
     
     func capturePhoto() {
-
         let settings = AVCapturePhotoSettings()
         let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
         let previewFormat = [
@@ -147,7 +148,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
                     print(error)
                 }
             }
-            
             device.unlockForConfiguration()
         } catch {
             print(error)
@@ -166,14 +166,23 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         let imageData = photo.fileDataRepresentation()
         if let data = imageData {
             self.presenter.sendSingleImage(data)
-           }
+        }
         
         //        let image = UIImage(data: imageData)
     }
 }
 
 extension CameraViewController: CameraView {
-
+    func showPreloaderView() {
+        self.preloaderView.isHidden = false
+        self.activityIndicator.startAnimating()
+    }
+    
+    func hidePreloaderView() {
+        self.preloaderView.isHidden = true
+        self.activityIndicator.stopAnimating()
+    }
+    
 }
 
 

@@ -230,7 +230,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
     /// Image `CameraTab`.
     static let cameraTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "CameraTab")
@@ -246,6 +246,10 @@ struct R: Rswift.Validatable {
     static let flashlightOn = Rswift.ImageResource(bundle: R.hostingBundle, name: "flashlight-on")
     /// Image `galleryButton`.
     static let galleryButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "galleryButton")
+    /// Image `like`.
+    static let like = Rswift.ImageResource(bundle: R.hostingBundle, name: "like")
+    /// Image `loader`.
+    static let loader = Rswift.ImageResource(bundle: R.hostingBundle, name: "loader")
     /// Image `openLogo`.
     static let openLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "openLogo")
     /// Image `snapshotButton`.
@@ -284,6 +288,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "galleryButton", bundle: ..., traitCollection: ...)`
     static func galleryButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.galleryButton, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "like", bundle: ..., traitCollection: ...)`
+    static func like(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.like, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "loader", bundle: ..., traitCollection: ...)`
+    static func loader(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loader, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "openLogo", bundle: ..., traitCollection: ...)`
@@ -339,7 +353,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
   struct storyboard {
     /// Storyboard `Camera`.
     static let camera = _R.storyboard.camera()
@@ -351,6 +365,8 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Profile`.
     static let profile = _R.storyboard.profile()
+    /// Storyboard `Ready`.
+    static let ready = _R.storyboard.ready()
     /// Storyboard `Results`.
     static let results = _R.storyboard.results()
     /// Storyboard `Root`.
@@ -379,6 +395,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Profile", bundle: ...)`
     static func profile(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.profile)
+    }
+    
+    /// `UIStoryboard(name: "Ready", bundle: ...)`
+    static func ready(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.ready)
     }
     
     /// `UIStoryboard(name: "Results", bundle: ...)`
@@ -451,6 +472,7 @@ struct _R: Rswift.Validatable {
       try history.validate()
       try launchScreen.validate()
       try profile.validate()
+      try ready.validate()
       try results.validate()
       try root.validate()
     }
@@ -474,6 +496,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "snapshotButton", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'snapshotButton' is used in storyboard 'Camera', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
           if UIKit.UIColor(named: "black", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black' is used in storyboard 'Camera', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'Camera', but couldn't be loaded.") }
         }
         if _R.storyboard.camera().cameraVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'cameraVC' could not be loaded from storyboard 'Camera' as 'CameraViewController'.") }
       }
@@ -548,6 +571,26 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.profile().profileVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profileVC' could not be loaded from storyboard 'Profile' as 'ProfileViewController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct ready: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Ready"
+      let readyVC = StoryboardViewControllerResource<ReadyViewController>(identifier: "readyVC")
+      
+      func readyVC(_: Void = ()) -> ReadyViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: readyVC)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "like", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like' is used in storyboard 'Ready', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'Ready', but couldn't be loaded.") }
+        }
+        if _R.storyboard.ready().readyVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'readyVC' could not be loaded from storyboard 'Ready' as 'ReadyViewController'.") }
       }
       
       fileprivate init() {}

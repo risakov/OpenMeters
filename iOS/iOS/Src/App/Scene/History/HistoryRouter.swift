@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HistoryRouter {
+class HistoryRouter: BaseRouter {
     
     weak var view: UIViewController!
 
