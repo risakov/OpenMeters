@@ -19,7 +19,6 @@
 		6C2CB0F325434CD900CB7189 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0F225434CD900CB7189 /* CameraViewController.swift */; };
 		6C2CB0F725434D2500CB7189 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0F625434D2500CB7189 /* CameraPresenter.swift */; };
 		6C2CB0FA25434D3100CB7189 /* CameraConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0F925434D3100CB7189 /* CameraConfigurator.swift */; };
-		6C2CB0FD25434D3B00CB7189 /* CameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB0FC25434D3B00CB7189 /* CameraRouter.swift */; };
 		6C2CB10025434D4200CB7189 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C2CB0FF25434D4200CB7189 /* Camera.storyboard */; };
 		6C2CB1082543577900CB7189 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB1072543577900CB7189 /* ResultsViewController.swift */; };
 		6C2CB10C2543578900CB7189 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB10B2543578900CB7189 /* ResultsPresenter.swift */; };
@@ -80,6 +79,14 @@
 		6CEBE16F254451B900E1B878 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE16E254451B900E1B878 /* ApiEndpoint.swift */; };
 		6CEBE172254453F000E1B878 /* ApiBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE171254453F000E1B878 /* ApiBaseGateway.swift */; };
 		6CEBE1E12544C9FC00E1B878 /* PhotoApiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1E02544C9FC00E1B878 /* PhotoApiEntity.swift */; };
+		6CEBE1EA2544F6BE00E1B878 /* PHAsset + image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1E92544F6BE00E1B878 /* PHAsset + image.swift */; };
+		6CEBE1EE25450AAE00E1B878 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1ED25450AAE00E1B878 /* CustomActivityIndicator.swift */; };
+		6CEBE1F425450E0600E1B878 /* ReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1F325450E0600E1B878 /* ReadyViewController.swift */; };
+		6CEBE1F825450E1400E1B878 /* ReadyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1F725450E1400E1B878 /* ReadyPresenter.swift */; };
+		6CEBE1FB25450E1E00E1B878 /* ReadyConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1FA25450E1E00E1B878 /* ReadyConfigurator.swift */; };
+		6CEBE1FF25450E2C00E1B878 /* ReadyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1FE25450E2C00E1B878 /* ReadyRouter.swift */; };
+		6CEBE20225450E3400E1B878 /* Ready.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CEBE20125450E3400E1B878 /* Ready.storyboard */; };
+		6CEBE206254516FB00E1B878 /* CameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE205254516FA00E1B878 /* CameraRouter.swift */; };
 		98D9A2DF768A47A619CDF133 /* Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA38A715E731909FB2CAD19F /* Pods_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +106,6 @@
 		6C2CB0F225434CD900CB7189 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6C2CB0F625434D2500CB7189 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
 		6C2CB0F925434D3100CB7189 /* CameraConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurator.swift; sourceTree = "<group>"; };
-		6C2CB0FC25434D3B00CB7189 /* CameraRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRouter.swift; sourceTree = "<group>"; };
 		6C2CB0FF25434D4200CB7189 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		6C2CB1072543577900CB7189 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		6C2CB10B2543578900CB7189 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
@@ -160,6 +166,14 @@
 		6CEBE16E254451B900E1B878 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		6CEBE171254453F000E1B878 /* ApiBaseGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBaseGateway.swift; sourceTree = "<group>"; };
 		6CEBE1E02544C9FC00E1B878 /* PhotoApiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoApiEntity.swift; sourceTree = "<group>"; };
+		6CEBE1E92544F6BE00E1B878 /* PHAsset + image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset + image.swift"; sourceTree = "<group>"; };
+		6CEBE1ED25450AAE00E1B878 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
+		6CEBE1F325450E0600E1B878 /* ReadyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyViewController.swift; sourceTree = "<group>"; };
+		6CEBE1F725450E1400E1B878 /* ReadyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyPresenter.swift; sourceTree = "<group>"; };
+		6CEBE1FA25450E1E00E1B878 /* ReadyConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyConfigurator.swift; sourceTree = "<group>"; };
+		6CEBE1FE25450E2C00E1B878 /* ReadyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyRouter.swift; sourceTree = "<group>"; };
+		6CEBE20125450E3400E1B878 /* Ready.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ready.storyboard; sourceTree = "<group>"; };
+		6CEBE205254516FA00E1B878 /* CameraRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRouter.swift; sourceTree = "<group>"; };
 		75ED1051121523EE05A4AE84 /* Pods-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.release.xcconfig"; path = "Target Support Files/Pods-iOS/Pods-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FA38A715E731909FB2CAD19F /* Pods_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -237,11 +251,12 @@
 		6C2CB0F125434CBE00CB7189 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				6CEBE1EC25450A7100E1B878 /* CustomActivityIndicator */,
 				6C2CB0FF25434D4200CB7189 /* Camera.storyboard */,
 				6C2CB0F225434CD900CB7189 /* CameraViewController.swift */,
 				6C2CB0F625434D2500CB7189 /* CameraPresenter.swift */,
 				6C2CB0F925434D3100CB7189 /* CameraConfigurator.swift */,
-				6C2CB0FC25434D3B00CB7189 /* CameraRouter.swift */,
+				6CEBE205254516FA00E1B878 /* CameraRouter.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -297,6 +312,7 @@
 				6C2CB14A25435D4F00CB7189 /* Root */,
 				6C2CB1702543670800CB7189 /* History */,
 				6C2CB0F125434CBE00CB7189 /* Camera */,
+				6CEBE1F225450DE000E1B878 /* Ready */,
 				6C2CB0DF254349E200CB7189 /* Profile */,
 				6C2CB28D2543865E00CB7189 /* EditProfile */,
 				6C2CB1062543570700CB7189 /* Results */,
@@ -310,6 +326,7 @@
 				6C2CB26D25437A4300CB7189 /* DesignableViews.swift */,
 				6C2CB2B2254390E100CB7189 /* CustomTabBar.swift */,
 				6CAF49BB254406D10030409A /* TabBar + visibility.swift */,
+				6CEBE1E92544F6BE00E1B878 /* PHAsset + image.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -484,6 +501,26 @@
 			path = ApiEntities;
 			sourceTree = "<group>";
 		};
+		6CEBE1EC25450A7100E1B878 /* CustomActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				6CEBE1ED25450AAE00E1B878 /* CustomActivityIndicator.swift */,
+			);
+			path = CustomActivityIndicator;
+			sourceTree = "<group>";
+		};
+		6CEBE1F225450DE000E1B878 /* Ready */ = {
+			isa = PBXGroup;
+			children = (
+				6CEBE1F325450E0600E1B878 /* ReadyViewController.swift */,
+				6CEBE1F725450E1400E1B878 /* ReadyPresenter.swift */,
+				6CEBE1FA25450E1E00E1B878 /* ReadyConfigurator.swift */,
+				6CEBE1FE25450E2C00E1B878 /* ReadyRouter.swift */,
+				6CEBE20125450E3400E1B878 /* Ready.storyboard */,
+			);
+			path = Ready;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +597,7 @@
 				6C2CB26A2543745F00CB7189 /* Graphik-Light.ttf in Resources */,
 				6C2CB25B2543745F00CB7189 /* Graphik-ThinItalic.ttf in Resources */,
 				6C606FEE2543A62B0011AF77 /* HistoryCellWithStackView.xib in Resources */,
+				6CEBE20225450E3400E1B878 /* Ready.storyboard in Resources */,
 				6C2CB0EE25434CB400CB7189 /* Profile.storyboard in Resources */,
 				6C2CB25C2543745F00CB7189 /* Graphik-Extralight.ttf in Resources */,
 				6C2CB2622543745F00CB7189 /* Graphik-MediumItalic.ttf in Resources */,
@@ -652,6 +690,7 @@
 				6CAF49BC254406D10030409A /* TabBar + visibility.swift in Sources */,
 				6CEBE16F254451B900E1B878 /* ApiEndpoint.swift in Sources */,
 				6C2CB2A0254386DA00CB7189 /* EditProfileViewController.swift in Sources */,
+				6CEBE1FF25450E2C00E1B878 /* ReadyRouter.swift in Sources */,
 				6C2CB10C2543578900CB7189 /* ResultsPresenter.swift in Sources */,
 				6C2CB15F25435DBC00CB7189 /* RootRouter.swift in Sources */,
 				6C2CB0E125434A6300CB7189 /* ProfileViewController.swift in Sources */,
@@ -671,22 +710,27 @@
 				6C2CB0E825434C9A00CB7189 /* ProfileConfigurator.swift in Sources */,
 				6C2CB15025435D7600CB7189 /* RootPresenter.swift in Sources */,
 				6C2CB1842543697700CB7189 /* R.generated.swift in Sources */,
+				6CEBE206254516FB00E1B878 /* CameraRouter.swift in Sources */,
 				6C2CB0F325434CD900CB7189 /* CameraViewController.swift in Sources */,
 				6C2CB237254371B900CB7189 /* HistoryCell.swift in Sources */,
-				6C2CB0FD25434D3B00CB7189 /* CameraRouter.swift in Sources */,
+				6CEBE1F825450E1400E1B878 /* ReadyPresenter.swift in Sources */,
 				6C606FED2543A62B0011AF77 /* HistoryCellWithStackView.swift in Sources */,
 				6CEBE15D25444EA700E1B878 /* ImageGateway.swift in Sources */,
 				6C2CB15725435DA100CB7189 /* RootConfigurator.swift in Sources */,
+				6CEBE1FB25450E1E00E1B878 /* ReadyConfigurator.swift in Sources */,
 				6CEBE13A25441C6300E1B878 /* CreatedImageEntity.swift in Sources */,
 				6C2CB1762543673000CB7189 /* HistoryPresenter.swift in Sources */,
 				6CEBE16625444FF800E1B878 /* Requests.swift in Sources */,
 				6C2CB0CA254344BF00CB7189 /* SceneDelegate.swift in Sources */,
+				6CEBE1EA2544F6BE00E1B878 /* PHAsset + image.swift in Sources */,
 				6C2CB1722543672300CB7189 /* HistoryViewController.swift in Sources */,
+				6CEBE1F425450E0600E1B878 /* ReadyViewController.swift in Sources */,
 				6C2CB10F254357A000CB7189 /* ResultsConfigurator.swift in Sources */,
 				6C2CB1792543673D00CB7189 /* HistoryConfigurator.swift in Sources */,
 				6C2CB26E25437A4300CB7189 /* DesignableViews.swift in Sources */,
 				6C2CB0EB25434CA800CB7189 /* ProfileRouter.swift in Sources */,
 				6C2CB17C2543678000CB7189 /* HistoryRouter.swift in Sources */,
+				6CEBE1EE25450AAE00E1B878 /* CustomActivityIndicator.swift in Sources */,
 				6CEBE16325444EC900E1B878 /* ApiImageGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

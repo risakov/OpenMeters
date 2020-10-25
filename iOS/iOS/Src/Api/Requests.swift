@@ -19,14 +19,14 @@ extension ExtendedApiRequest {
         for image in images {
             data.append(UploadFile("photos", image, "multipart/form-data"))
         }
-        return extendedRequest(path: "/api/uploadImages",
+        return extendedRequest(path: "/uploadImages",
                                method: .post,
                                files: data)
 
     }
     
     static func uploadSingleImage(_ image: Data) -> ExtendedApiRequest {
-        return extendedRequest(path: "/api/uploadSingleImage",
+        return extendedRequest(path: "/uploadSingleImage",
                                method: .post,
                                files: [UploadFile("file" , image, "multipart/form-data")])
     }

@@ -1,17 +1,16 @@
 //
-//  CameraRouter.swift
+//  ReadyRouter.swift
 //  iOS
 //
-//  Created by Роман on 23.10.2020.
+//  Created by Роман on 25.10.2020.
 //
 
 import UIKit
 
-class CameraRouter: BaseRouter {
-    
+class ReadyRouter: BaseRouter {
     weak var view: UIViewController!
 
-    init(_ view: CameraViewController) {
+    init(_ view: ReadyViewController) {
         self.view = view
     }
     
@@ -23,11 +22,7 @@ class CameraRouter: BaseRouter {
         let navC = tb?.viewControllers?[indexHistoryScreen] as! UINavigationController
         navC.popToRootViewController(animated: false)
         let historyVC = HistoryConfigurator.getVC()
-        navC.setViewControllers([historyVC], animated: true)
-    }
-    
-    func openReadyScreen() {
-
+        navC.setViewControllers([historyVC], animated: false)
     }
     
     func close() {

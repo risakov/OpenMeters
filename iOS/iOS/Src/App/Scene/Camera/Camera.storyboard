@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Regular.ttf">
+            <string>Graphik-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Camera View Controller-->
         <scene sceneID="abX-4g-F3c">
@@ -17,8 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1P-wn-lc8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="888"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1P-wn-lc8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="892"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="black"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAh-US-SfG">
@@ -43,6 +49,17 @@
                                     <action selector="onImagesToPickButtonTap:" destination="D8C-bY-NdZ" eventType="touchUpInside" id="nSS-QO-778"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZk-oG-llO">
+                                <rect key="frame" x="23" y="74" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="Vee-5W-zsc"/>
+                                    <constraint firstAttribute="height" constant="28" id="wQT-zF-XzJ"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="backButton:" destination="D8C-bY-NdZ" eventType="touchUpInside" id="bZ1-f3-37Q"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZR-Nv-VmK">
                                 <rect key="frame" x="363" y="74" width="28" height="28"/>
                                 <constraints>
@@ -58,37 +75,72 @@
                                     <action selector="onFlashlightButtonTap:" destination="D8C-bY-NdZ" eventType="touchUpInside" id="Pfa-yY-aKD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZk-oG-llO">
-                                <rect key="frame" x="23" y="74" width="28" height="28"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cIt-4F-0GE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="966"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SA7-Tv-vOV">
+                                        <rect key="frame" x="119.5" y="453" width="175" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обрабатываем..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5K-F0-hhw">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="26"/>
+                                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQq-MA-Cq1">
+                                                <rect key="frame" x="0.0" y="36" width="175" height="24"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2x-ei-L5k">
+                                                        <rect key="frame" x="75.5" y="0.0" width="24" height="24"/>
+                                                        <color key="backgroundColor" name="blue"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="24" id="DLF-iC-xdD"/>
+                                                            <constraint firstAttribute="height" constant="24" id="OLh-40-EyA"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" name="blue"/>
+                                                <constraints>
+                                                    <constraint firstItem="I2x-ei-L5k" firstAttribute="centerY" secondItem="pQq-MA-Cq1" secondAttribute="centerY" id="CIe-Pp-43S"/>
+                                                    <constraint firstItem="I2x-ei-L5k" firstAttribute="top" secondItem="pQq-MA-Cq1" secondAttribute="top" id="Ge2-Ic-gTc"/>
+                                                    <constraint firstAttribute="width" constant="175" id="qdA-Fm-U8r"/>
+                                                    <constraint firstItem="I2x-ei-L5k" firstAttribute="centerX" secondItem="pQq-MA-Cq1" secondAttribute="centerX" id="t2Z-lg-das"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="175" id="u19-ib-Fhr"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="blue"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="Vee-5W-zsc"/>
-                                    <constraint firstAttribute="height" constant="28" id="wQT-zF-XzJ"/>
+                                    <constraint firstItem="SA7-Tv-vOV" firstAttribute="centerY" secondItem="cIt-4F-0GE" secondAttribute="centerY" id="ng0-Xt-50q"/>
+                                    <constraint firstItem="SA7-Tv-vOV" firstAttribute="centerX" secondItem="cIt-4F-0GE" secondAttribute="centerX" id="oeM-K6-oAg"/>
                                 </constraints>
-                                <state key="normal" image="backButton"/>
-                                <connections>
-                                    <action selector="backButton:" destination="D8C-bY-NdZ" eventType="touchUpInside" id="bZ1-f3-37Q"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kh8-tG-V2P"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cIt-4F-0GE" firstAttribute="leading" secondItem="kh8-tG-V2P" secondAttribute="leading" id="30G-aY-9yC"/>
                             <constraint firstItem="GAh-US-SfG" firstAttribute="leading" secondItem="kfT-iK-c37" secondAttribute="trailing" constant="57" id="60M-lu-HB6"/>
                             <constraint firstItem="kh8-tG-V2P" firstAttribute="bottom" secondItem="GAh-US-SfG" secondAttribute="bottom" constant="-40" id="Bcd-Lb-837"/>
-                            <constraint firstItem="K1P-wn-lc8" firstAttribute="top" secondItem="kh8-tG-V2P" secondAttribute="top" id="H7m-0D-1vx"/>
                             <constraint firstItem="nZk-oG-llO" firstAttribute="leading" secondItem="kh8-tG-V2P" secondAttribute="leading" constant="23" id="HSa-k5-wK7"/>
-                            <constraint firstItem="kh8-tG-V2P" firstAttribute="bottom" secondItem="K1P-wn-lc8" secondAttribute="bottom" constant="-70" id="Hn7-cY-qh3"/>
                             <constraint firstItem="kfT-iK-c37" firstAttribute="centerY" secondItem="GAh-US-SfG" secondAttribute="centerY" id="I0R-ev-NG3"/>
-                            <constraint firstItem="kh8-tG-V2P" firstAttribute="trailing" secondItem="K1P-wn-lc8" secondAttribute="trailing" id="ZpN-gw-QKB"/>
+                            <constraint firstItem="cIt-4F-0GE" firstAttribute="top" secondItem="R66-jK-CCR" secondAttribute="top" id="V1h-Yj-WoI"/>
+                            <constraint firstAttribute="bottom" secondItem="cIt-4F-0GE" secondAttribute="bottom" constant="-70" id="WC5-cE-loR"/>
                             <constraint firstItem="nZk-oG-llO" firstAttribute="centerY" secondItem="fZR-Nv-VmK" secondAttribute="centerY" id="beH-vs-m19"/>
-                            <constraint firstItem="K1P-wn-lc8" firstAttribute="leading" secondItem="kh8-tG-V2P" secondAttribute="leading" id="kRx-kE-J4y"/>
                             <constraint firstItem="GAh-US-SfG" firstAttribute="centerX" secondItem="kh8-tG-V2P" secondAttribute="centerX" id="kwh-41-5Qw"/>
                             <constraint firstItem="fZR-Nv-VmK" firstAttribute="top" secondItem="kh8-tG-V2P" secondAttribute="top" constant="30" id="m8F-VL-bOi"/>
                             <constraint firstItem="kh8-tG-V2P" firstAttribute="trailing" secondItem="fZR-Nv-VmK" secondAttribute="trailing" constant="23" id="w5E-Cd-Jlg"/>
+                            <constraint firstItem="kh8-tG-V2P" firstAttribute="trailing" secondItem="cIt-4F-0GE" secondAttribute="trailing" id="zzR-NW-DKO"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="customActivityIndicator" destination="pQq-MA-Cq1" id="dUf-Ba-Paz"/>
                         <outlet property="flashlightButton" destination="fZR-Nv-VmK" id="Mgm-3i-bPo"/>
+                        <outlet property="preloaderView" destination="cIt-4F-0GE" id="ivM-b3-ce9"/>
                         <outlet property="previewView" destination="K1P-wn-lc8" id="EDb-Dc-jax"/>
                     </connections>
                 </viewController>
@@ -105,6 +157,9 @@
         <image name="snapshotButton" width="80" height="80"/>
         <namedColor name="black">
             <color red="0.20399999618530273" green="0.22400000691413879" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue">
+            <color red="0.0080000003799796104" green="0.72899997234344482" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

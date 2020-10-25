@@ -12,8 +12,8 @@ import RxNetworkApiClient
 
 
 protocol CameraPresenter {
-    func convertAndSendSingleImage(_ imageAsset: PHAsset)
-    func convertAndSendArrayOfImages(_ arrayOfAssets: [PHAsset])
+    func getThumbnailForSingleAsset(_ imageAsset: PHAsset)
+    func getThumbnailForAssets(assets: [PHAsset])
     func sendSingleImage(_ imageData: Data)
     func sendImages(_ imagesData: [Data])
     func openHistoryScene()
@@ -24,11 +24,9 @@ class CameraPresenterImp: CameraPresenter {
     
     private weak var view: CameraView!
     private var router: CameraRouter
-    private var minImageCount = 1
     private let disposeBag = DisposeBag()
     private let imageGateway: ImageGateway
     private var createdImages = [CreatedImageEntity]()
-
     
     init(_ view: CameraView,
          _ router: CameraRouter,
@@ -38,66 +36,45 @@ class CameraPresenterImp: CameraPresenter {
         self.imageGateway = imageGateway
     }
     
-    private func getThumbnailForAssets(assets: [PHAsset]) -> [UIImage] {
-        var arrayOfImages = [UIImage]()
+    internal func getThumbnailForAssets(assets: [PHAsset]) {
+        var arrayOfImagesData = [Data]()
         for asset in assets {
-            let manager = PHImageManager.default()
-            let option = PHImageRequestOptions()
-            var image = UIImage()
-            option.isSynchronous = true
-            option.deliveryMode = .highQualityFormat
-            option.resizeMode = .exact
-            manager.requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-                image = result!
-                arrayOfImages.append(image)
-            })
-        }
-
-        return arrayOfImages
-    }
-    
-    private func getThumbnailForSingleAsset(_ imageAsset: PHAsset) -> UIImage {
-        let manager = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        var image = UIImage()
-        option.isSynchronous = true
-        option.deliveryMode = .highQualityFormat
-        option.resizeMode = .exact
-        manager.requestImage(for: imageAsset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-            image = result!
-        })
-        return image
-    }
-    
-    internal func convertAndSendSingleImage(_ imageAsset: PHAsset)  {
-        let image = getThumbnailForSingleAsset(imageAsset)
-        if let jpegData = image.jpegData(compressionQuality: 1.0) {
-            self.sendSingleImage(jpegData)
-        }
-    }
-    
-    internal func convertAndSendArrayOfImages(_ arrayOfAssets: [PHAsset]) {
-        var imagesData = [Data]()
-        let arrayOfImages = getThumbnailForAssets(assets: arrayOfAssets)
-        for image in arrayOfImages {
-            if let jpegData = image.jpegData(compressionQuality: 1.0) {
-                imagesData.append(jpegData)
+            PHImageManager.default().requestAVAsset(forVideo: asset,
+                                                    options: nil) { (asset, audioMix, info) in
+                 if let asset = asset as? AVURLAsset,
+                    let data = NSData(contentsOf: asset.url) as Data? {
+                        arrayOfImagesData.append(data)
+                }
             }
         }
-        sendImages(imagesData)
+        self.sendImages(arrayOfImagesData)
+    }
+    
+    internal func getThumbnailForSingleAsset(_ imageAsset: PHAsset) {
+
+        PHImageManager.default().requestAVAsset(forVideo: imageAsset,
+                                                options: nil) { (asset, audioMix, info) in
+             if let asset = asset as? AVURLAsset,
+                let data = NSData(contentsOf: asset.url) as Data? {
+                    self.sendSingleImage(data)
+                 }
+              }
     }
     
     func sendSingleImage(_ imageData: Data) {
         self.imageGateway.uploadSingleImage(imageData)
             .observeOn(MainScheduler.instance)
-            .subscribe(onSuccess: {  [weak self] response in
-                guard let self = self else { return }
-                self.createdImages.append(response)
-                self.view.showDialog(message: "Фото успешно отправлено")
-                return
-            }, onError: { [weak self] (error) in
-                guard let self = self else { return }
-                self.view.showErrorDialog(message: "Произошла ошибка \(error.localizedDescription)" )
+            .do(onSubscribe: { [weak self] in
+                self?.view.showPreloaderView()
+                })
+            .subscribe(onSuccess: { [weak self] createdImage in
+                self?.createdImages.append(createdImage)
+                self?.router.openReadyScreen()
+                }, onError: { [weak self] error in
+                    self?.view.showErrorDialog(message: "Произошла ошибка отправки: \(error.localizedDescription)", action: { [weak self] _ in
+                        self?.view.hidePreloaderView()
+                        self?.openHistoryScene()
+                    })
             })
             .disposed(by: disposeBag)
     }
@@ -105,18 +82,21 @@ class CameraPresenterImp: CameraPresenter {
     func sendImages(_ imagesData: [Data]) {
         self.imageGateway.uploadImages(imagesData)
             .observeOn(MainScheduler.instance)
-            .subscribe(onSuccess: {  [weak self] responses in
-                guard let self = self else { return }
-                self.createdImages.append(contentsOf: responses)
-                self.view.showDialog(message: "Фотографии успешно отправлены")
-                return
-            }, onError: { [weak self] (error) in
-                guard let self = self else { return }
-                self.view.showErrorDialog(message: "Произошла ошибка \(error.localizedDescription)" )
+            .do(onSubscribe: { [weak self] in
+                self?.view.showPreloaderView()
+                })
+            .subscribe(onSuccess: { [weak self] createdImage in
+                self?.createdImages.append(contentsOf: createdImage)
+                self?.router.openReadyScreen()
+                }, onError: { [weak self] error in
+                    self?.view.showErrorDialog(message: "Произошла ошибка отправки: \(error.localizedDescription)", action: { [weak self] _ in
+                        self?.view.hidePreloaderView()
+                        self?.openHistoryScene()
+                    })
             })
             .disposed(by: disposeBag)
-        
     }
+        
     
     func openHistoryScene() {
         self.router.openHistoryScene()
