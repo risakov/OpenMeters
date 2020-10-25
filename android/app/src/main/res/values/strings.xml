@@ -29,4 +29,5 @@
     <string name="error">Ошибка!</string>
     <string name="backend_error_happened">Произошла ошибка на стороне сервера. Попробуйте позднее</string>
     <string name="section_in_progress">Раздел находится в разработке</string>
+    <string name="logo">Логотип</string>
 </resources>

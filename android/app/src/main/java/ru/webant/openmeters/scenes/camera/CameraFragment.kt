@@ -115,20 +115,24 @@ class CameraFragment : BaseFragment(), CameraView {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_GET_IMAGES_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
-            val filePaths = ArrayList<String>()
-            val clipData = data?.clipData
-            if (clipData != null) {
-                for (i in 0 until clipData.itemCount) {
-                    val uri = clipData.getItemAt(i).uri
-                    filePaths.add(getFilePathFromUri(uri))
+        if (requestCode == REQUEST_GET_IMAGES_FROM_GALLERY) {
+            if (resultCode == Activity.RESULT_OK) {
+                val filePaths = ArrayList<String>()
+                val clipData = data?.clipData
+                if (clipData != null) {
+                    for (i in 0 until clipData.itemCount) {
+                        val uri = clipData.getItemAt(i).uri
+                        filePaths.add(getFilePathFromUri(uri))
+                    }
+                } else {
+                    data?.data?.let {
+                        filePaths.add(getFilePathFromUri(data.data!!))
+                    }
                 }
+                navigateToProcessingFragment(filePaths)
             } else {
-                data?.data?.let {
-                    filePaths.add(getFilePathFromUri(data.data!!))
-                }
+                getImageImageView.isEnabled = true
             }
-            navigateToProcessingFragment(filePaths)
         }
     }
 
@@ -161,27 +165,32 @@ class CameraFragment : BaseFragment(), CameraView {
 
     private fun setListeners() {
         captureImageView.setOnClickListener {
-            takePicture()
+            presenter.onTakePictureClicked()
         }
         flashLightImageView.setOnClickListener {
-            changeFlashLightState()
+            presenter.onFlashLightClicked()
         }
         leftArrowImageView.setOnClickListener {
             presenter.onLeftArrowClicked()
         }
         getImageImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type =
-                "image/*" //allows any image file type. Change * to specific extension to limit it
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-            startActivityForResult(
-                Intent.createChooser(intent, "Select Picture"),
-                REQUEST_GET_IMAGES_FROM_GALLERY
-            )
+            presenter.onGetImageClicked()
         }
     }
 
-    private fun changeFlashLightState() {
+    override fun getImagesFromGallery() {
+        getImageImageView.isEnabled = false
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type =
+            "image/*" //allows any image file type. Change * to specific extension to limit it
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        startActivityForResult(
+            Intent.createChooser(intent, "Select Picture"),
+            REQUEST_GET_IMAGES_FROM_GALLERY
+        )
+    }
+
+    override fun changeFlashLightState() {
         isFlashLightTurnedOn = !isFlashLightTurnedOn
         setFlashLightState()
     }
@@ -198,7 +207,8 @@ class CameraFragment : BaseFragment(), CameraView {
         cameraCaptureSession.setRepeatingRequest(captureRequestBuilder.build(), null, null)
     }
 
-    private fun takePicture() {
+    override fun takePicture() {
+        captureImageView.isEnabled = false
         if (cameraDevice == null) {
             return
         }

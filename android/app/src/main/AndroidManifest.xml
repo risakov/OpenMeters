@@ -18,7 +18,12 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".scenes.main.MainActivity"
-            android:windowSoftInputMode="adjustPan|stateAlwaysVisible">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysVisible" />
+
+        <activity
+            android:name=".scenes.splash.SplashActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
