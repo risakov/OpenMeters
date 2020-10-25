@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from scipy import ndimage
 import math
 from keras.models import load_model
+import ocr
 
 
 def predict_digit(model, img):
@@ -48,7 +49,7 @@ def get_output_image(path, path_to_data):
     ret,thresh = cv2.threshold(img,127,255,0)
     contours,hierarchy = cv2.findContours(thresh, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
     res = []
-
+    cv2.imshow("tresh", thresh)
     for j,cnt in enumerate(contours):
         epsilon = 0.01*cv2.arcLength(cnt,True)
         approx = cv2.approxPolyDP(cnt,epsilon,True)
@@ -64,8 +65,9 @@ def get_output_image(path, path_to_data):
             roi = cv2.bitwise_not(roi)
             roi = image_refiner(roi)
             th,fnl = cv2.threshold(roi,127,255,cv2.THRESH_BINARY)
-
-            pred = predict_digit(model, roi)
+            cv2.imshow('r',roi)
+            cv2.waitKey(0)
+            pred = ocr.predict(roi)#predict_digit(model, roi)
             print(pred)
             res.append(pred)
             
@@ -73,3 +75,8 @@ def get_output_image(path, path_to_data):
             img_org = put_label(img_org,pred,x,y)
 
     return img_org, res
+
+filename = "C:\\Users\\Alisher\\Desktop\\OpenHackCV\\CV\\17.bmp"
+im, res = get_output_image(filename, '.\\digit_classifier.h5')
+cv2.imshow("im", im)
+cv2.waitKey(0)
