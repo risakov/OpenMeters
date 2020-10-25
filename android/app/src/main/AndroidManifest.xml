@@ -18,6 +18,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".scenes.main.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
