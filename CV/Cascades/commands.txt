@@ -1,0 +1,2 @@
+C:\Users\Alisher\Desktop\opencv\build\x64\vc15\bin\opencv_traincascade.exe -data haarcascade -vec C:\Users\Alisher\Desktop\opencv\build\x64\vc15\bin\samples.vec -bg Bad.dat -numStages 20 -minhitrate 0.999 -maxFalseAlarmRate 0.5 -numPos 155 -numNeg 245 -w 100 -h 20 -mode ALL -precalcValBufSize 4096 -precalcIdxBufSize 4096
+opencv_createsamples.exe -info C:\Users\Alisher\Desktop\CVMeters\Good.dat -vec samples.vec -num 186 -w 100 -h 20

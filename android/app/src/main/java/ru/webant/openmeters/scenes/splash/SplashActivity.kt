@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import ru.webant.openmeters.R
 import ru.webant.openmeters.extensions.rotateInfiniteAnimation
-import ru.webant.openmeters.scenes.main.MainActivity
+import ru.webant.openmeters.local_adress.LocalAddressActivity
 
 
 class SplashActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             run {
-                val mainIntent = Intent(this@SplashActivity, MainActivity::class.java)
+                val mainIntent = Intent(this@SplashActivity, LocalAddressActivity::class.java)
                 this@SplashActivity.startActivity(mainIntent)
                 this@SplashActivity.finish()
             }
