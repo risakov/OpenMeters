@@ -10,4 +10,16 @@ class CameraPresenter @Inject constructor() : BasePresenter<CameraView>() {
     fun onLeftArrowClicked() {
         viewState.openHistoryFragment()
     }
+
+    fun onTakePictureClicked() {
+        viewState.takePicture()
+    }
+
+    fun onFlashLightClicked() {
+        viewState.changeFlashLightState()
+    }
+
+    fun onGetImageClicked() {
+        viewState.getImagesFromGallery()
+    }
 }
