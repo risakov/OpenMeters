@@ -52,22 +52,22 @@ class LabelsForImage(tk.Tk):
     def new_image(self):
         (width, height) = self.im.size
         file = self.filename.replace("C:/Users/Alisher/Desktop/OpenHackCV/CV/Meters/", "n")
-        info = {"image_id":self.image_id, "filename":file,
+        info = {"filename": "n" + file,
             "width":width, "height":height,
             "class":"numbers",
-            "xmin" : self.x1, "ymin":self.y1, "xmax":self.x2, "ymax":self.y2}
+            "xmin" : self.x1, "ymin":self.y1, "xmax":self.x2, "ymax":self.y2, "image_id": file.replace(".png",  "")}
         self.image_id += 1
         if random.random() > 0.2:
             self.train.append(info)
-            self.im.save(self.path_train +"n" +  file)
+            self.im.save(self.path_train +"n" + file)
         else:
-            self.im.save(self.path_valid + file)
+            self.im.save(self.path_valid +"n"+ file)
             self.valid.append(info)
         self._draw_image()
         print('ok')
 
     def save_csv(self, filename, data):
-        columns=["image_id", "filename", "width", "height", "class", "xmin", "ymin", "xmax", "ymax"]
+        columns=[ "filename", "width", "height", "class", "xmin", "ymin", "xmax", "ymax", "image_id"]
         with open(filename, "w", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=columns)
             writer.writeheader()
