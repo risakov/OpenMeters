@@ -301,8 +301,8 @@ struct R: Rswift.Validatable {
   
   /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
-    /// Nib `HistoryCellWithCollection`.
-    static let historyCellWithCollection = _R.nib._HistoryCellWithCollection()
+    /// Nib `HistoryCellWithStackView`.
+    static let historyCellWithStackView = _R.nib._HistoryCellWithStackView()
     /// Nib `HistoryCell`.
     static let historyCell = _R.nib._HistoryCell()
     
@@ -312,18 +312,18 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.historyCell)
     }
     
-    /// `UINib(name: "HistoryCellWithCollection", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.historyCellWithCollection) instead")
-    static func historyCellWithCollection(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.historyCellWithCollection)
+    /// `UINib(name: "HistoryCellWithStackView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.historyCellWithStackView) instead")
+    static func historyCellWithStackView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.historyCellWithStackView)
     }
     
     static func historyCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCell? {
       return R.nib.historyCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCell
     }
     
-    static func historyCellWithCollection(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCellWithCollection? {
-      return R.nib.historyCellWithCollection.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCellWithCollection
+    static func historyCellWithStackView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCellWithStackView? {
+      return R.nib.historyCellWithStackView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCellWithStackView
     }
     
     fileprivate init() {}
@@ -331,8 +331,8 @@ struct R: Rswift.Validatable {
   
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `historyCellWithCollection`.
-    static let historyCellWithCollection: Rswift.ReuseIdentifier<HistoryCellWithCollection> = Rswift.ReuseIdentifier(identifier: "historyCellWithCollection")
+    /// Reuse identifier `historyCellWithStackView`.
+    static let historyCellWithStackView: Rswift.ReuseIdentifier<HistoryCellWithStackView> = Rswift.ReuseIdentifier(identifier: "historyCellWithStackView")
     /// Reuse identifier `historyCell`.
     static let historyCell: Rswift.ReuseIdentifier<HistoryCell> = Rswift.ReuseIdentifier(identifier: "historyCell")
     
@@ -427,15 +427,15 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _HistoryCellWithCollection: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = HistoryCellWithCollection
+    struct _HistoryCellWithStackView: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = HistoryCellWithStackView
       
       let bundle = R.hostingBundle
-      let identifier = "historyCellWithCollection"
-      let name = "HistoryCellWithCollection"
+      let identifier = "historyCellWithStackView"
+      let name = "HistoryCellWithStackView"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCellWithCollection? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCellWithCollection
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> HistoryCellWithStackView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? HistoryCellWithStackView
       }
       
       fileprivate init() {}

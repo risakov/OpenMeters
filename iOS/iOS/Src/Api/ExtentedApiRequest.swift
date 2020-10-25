@@ -29,6 +29,7 @@ class ExtendedApiRequest<T: Codable>: ApiRequest<T> {
             headers: [Header]? = nil,
             formData: FormDataFields? = nil,
             files: [UploadFile]? = nil,
+            file: UploadFile? = nil,
             body: BodyConvertible? = nil,
             query: QueryField...) -> ExtendedApiRequest<T> {
         
@@ -40,6 +41,7 @@ class ExtendedApiRequest<T: Codable>: ApiRequest<T> {
                         headers: headers,
                         formData: formData,
                         files: files,
+                        file: file,
                         body: body,
                         queryArr: query)
     }
@@ -51,6 +53,7 @@ class ExtendedApiRequest<T: Codable>: ApiRequest<T> {
             headers: [Header]? = nil,
             formData: FormDataFields? = nil,
             files: [UploadFile]? = nil,
+            file: UploadFile? = nil,
             body: BodyConvertible? = nil,
             queryArr: [QueryField]) -> ExtendedApiRequest<T> {
         
@@ -60,6 +63,7 @@ class ExtendedApiRequest<T: Codable>: ApiRequest<T> {
         request.headers = headers
         request.formData = formData
         request.files = files
+        request.file = file
         request.body = body
         request.query = queryArr
         return request

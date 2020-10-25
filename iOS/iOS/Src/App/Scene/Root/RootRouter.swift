@@ -42,7 +42,7 @@ class RootRouterImp: RootRouter {
         let navC = tb.viewControllers?[indexCameraScreen] as! UINavigationController
         navC.popToRootViewController(animated: false)
         let cameraVC = CameraConfigurator.getVC()
-        navC.setViewControllers([cameraVC], animated: false)
+        navC.setViewControllers([cameraVC], animated: true)
     }
 
     func openProfileScene() {

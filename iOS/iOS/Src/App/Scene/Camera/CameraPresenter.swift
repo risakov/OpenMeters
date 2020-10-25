@@ -45,7 +45,9 @@ class CameraPresenterImp: CameraPresenter {
             let option = PHImageRequestOptions()
             var image = UIImage()
             option.isSynchronous = true
-            manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            option.deliveryMode = .highQualityFormat
+            option.resizeMode = .exact
+            manager.requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
                 image = result!
                 arrayOfImages.append(image)
             })
@@ -59,7 +61,9 @@ class CameraPresenterImp: CameraPresenter {
         let option = PHImageRequestOptions()
         var image = UIImage()
         option.isSynchronous = true
-        manager.requestImage(for: imageAsset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+        option.deliveryMode = .highQualityFormat
+        option.resizeMode = .exact
+        manager.requestImage(for: imageAsset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
             image = result!
         })
         return image
