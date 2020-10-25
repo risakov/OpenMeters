@@ -23,8 +23,14 @@ router.post('/uploadImages', async (req, res) => {
             //loop all files
             for(const file of req.files.photos) {
                 file.mv('./uploads/' + file.name);
-                const pythonResult = await runPythonScript(`/uploads/${file.name}`)
+                const pythonResult = await runPythonScript(['./uploads', file.name])
                 const parsedResult = JSON.parse(pythonResult[0])
+                let value = ''
+                for(key in parsedResult.value) {
+                    console.log(key + " = " + parsedResult.value[key]);
+                    value += parsedResult.value[key]
+                }
+                parsedResult.value = value
                 data.push(parsedResult)
             }
 
@@ -50,8 +56,15 @@ router.post('/uploadSingleImage', async (req, res) => {
 
                 let meter = req.files.file;
                 meter.mv('./uploads/' + meter.name);
-                const pythonResult = await runPythonScript(`/uploads/${meter.name}`)
+                const pythonResult = await runPythonScript(['./uploads',meter.name])
+                
                 const parsedResult = JSON.parse(pythonResult[0])
+                let value = ''
+                for(key in parsedResult.value) {
+                    console.log(key + " = " + parsedResult.value[key]);
+                    value += parsedResult.value[key]
+                }
+                parsedResult.value = value
 
                 const response = parsedResult
 
