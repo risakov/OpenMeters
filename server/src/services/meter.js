@@ -18,11 +18,14 @@ async function getById(id) {
 }
 
 async function create(params) {
-    if (params.serialNumber && await db.Meter.findOne({ where: { serialNumber: params.serialNumber } })) {
-        throw 'serialNumber "' + params.serialNumber + '" уже использован';
+    if (params.serialNumber) {
+        const result = await db.Meter.findOrCreate({ where: { serialNumber: params.serialNumber, type: params.type } });
+        return result
+    } else {
+        const result = await db.Meter.create(params)
+        return result
     }
 
-    await db.Meter.create(params);
 }
 
 async function update(id, params) {

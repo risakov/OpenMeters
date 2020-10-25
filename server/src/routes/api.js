@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var multer = require('multer')
-var upload = multer({ dest: 'uploads/' })
 var runPythonScript = require('../utils/runPythonScript')
-const meterService = require('../services/meter');
+// var meterService = require('../services/meter')
+// var valueService = require('../services/values')
 
 router.get('/', function (req, res) {
     res.json({
@@ -12,7 +11,6 @@ router.get('/', function (req, res) {
 });
 
 router.post('/uploadImages', async (req, res) => {
-    console.log(req.files)
     try {
         if(!req.files) {
             res.send({
@@ -20,20 +18,21 @@ router.post('/uploadImages', async (req, res) => {
                 message: 'No file uploaded'
             });
         } else {
-            let data = []; 
-    
+            let data = [];
+
             //loop all files
             for(const file of req.files.photos) {
                 file.mv('./uploads/' + file.name);
                 const pythonResult = await runPythonScript(`/uploads/${file.name}`)
-                data.push(JSON.parse(pythonResult[0]))
+                const parsedResult = JSON.parse(pythonResult[0])
+                data.push(parsedResult)
             }
+
             res.send({
                 status: true,
                 message: 'Files are uploaded',
                 data: data
             });
-            console.log(data)
         }
     } catch (err) {
         res.status(500).send(err);
@@ -41,7 +40,6 @@ router.post('/uploadImages', async (req, res) => {
 });
 
 router.post('/uploadSingleImage', async (req, res) => {
-    console.log(req.files)
     try {
         if(!req.files) {
             res.status(400).json({
@@ -50,18 +48,18 @@ router.post('/uploadSingleImage', async (req, res) => {
             });
         } else {
 
-            let meter = req.files.file;
-            
-            meter.mv('./uploads/' + meter.name);
-            const pythonResult = await runPythonScript(`/uploads/${meter.name}`)
-            const response = (JSON.parse(pythonResult[0]))
+                let meter = req.files.file;
+                meter.mv('./uploads/' + meter.name);
+                const pythonResult = await runPythonScript(`/uploads/${meter.name}`)
+                const parsedResult = JSON.parse(pythonResult[0])
 
-            res.json({
-                status: true,
-                message: 'File is uploaded',
-                data: response
-            });
-            console.log('single', data)
+                const response = parsedResult
+
+                res.json({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: [response]
+                });
         }
     } catch (err) {
         res.status(500).json(err);
