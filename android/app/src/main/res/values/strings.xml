@@ -9,6 +9,7 @@
     <string name="meter_readings">Показание</string>
     <string name="serial_number">Серийный номер</string>
     <string name="to_confirm">Подтвердить</string>
+    <string name="ready">Готово</string>
 
     <string name="left_arrow_button">Кнопка стрелки влево</string>
     <string name="all_ready">Все готово!</string>
@@ -30,4 +31,6 @@
     <string name="backend_error_happened">Произошла ошибка на стороне сервера. Попробуйте позднее</string>
     <string name="section_in_progress">Раздел находится в разработке</string>
     <string name="logo">Логотип</string>
+    <string name="url">Local url (with http:// or https://)</string>
+    <string name="enter_link_for_connection">Введите ссылку для подключения</string>
 </resources>
