@@ -21,6 +21,9 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateAlwaysVisible" />
 
+        <activity android:name=".local_adress.LocalAddressActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysVisible"/>
+
         <activity
             android:name=".scenes.splash.SplashActivity"
             android:label="@string/app_name">
