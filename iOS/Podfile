@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'iOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'R.swift', '~> 5.0.3'
+  pod 'DITranquillity', '~> 3.7.1', :inhibit_warnings => true
+  pod 'Kingfisher', '~> 5.0', :inhibit_warnings => true
+  pod "DBDebugToolkit", :inhibit_warnings => true
+  pod 'RxSwift', '~> 4.5.0', :inhibit_warnings => true
+  pod 'RxCocoa', '~> 4.5.0', :inhibit_warnings => true
+  pod 'RxNetworkApiClient', '~> 0.1.3', :inhibit_warnings => true
+  pod "SwiftyCam", :inhibit_warnings => true
+  pod "BSImagePicker", "~> 3.1", :inhibit_warnings => true
+
+
+end

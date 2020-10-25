@@ -12,7 +12,7 @@ class GatewayModule {
 
     @Provides
     @Singleton
-    fun provideAuthGateway(api: Api): IndicatorGateway {
+    fun provideIndicatorGateway(api: Api): IndicatorGateway {
         return RetrofitIndicatorGateway(api)
     }
 }

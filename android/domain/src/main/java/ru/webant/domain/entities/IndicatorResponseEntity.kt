@@ -1,6 +1,11 @@
 package ru.webant.domain.entities
 
+import java.io.Serializable
+
 data class IndicatorResponseEntity(
-    val value: String,
-    val serialNumber: String
-)
+    val meterId: Int,
+    var value: String?,
+    var serialNumber: String?,
+    val photoPath: String,
+    var isSelected: Boolean = false
+) : Serializable

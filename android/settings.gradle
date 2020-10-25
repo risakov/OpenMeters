@@ -1,4 +1,3 @@
-include ':camera'
 include ':domain'
 include ':gateway'
 include ':app'

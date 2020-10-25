@@ -7,35 +7,33 @@ import android.view.WindowManager
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.webant.openmeters.R
-import ru.webant.openmeters.scenes.value_history.IndicatorHistoryFragment
+import ru.webant.openmeters.extensions.setIsVisible
+
 
 class MainActivity : AppCompatActivity() {
 
-    private val navigationItemReselectedListener = BottomNavigationView.OnNavigationItemReselectedListener { item ->
-        when (item.itemId) {
-
-        }
-    }
+    private val navController by lazy { findNavController(R.id.navHostFragment) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.container, IndicatorHistoryFragment())
-                .commit()
-        }
-
-//        val intent = Intent(this, CameraActivity::class.java)
-//        startActivity(intent)
         hideStatusBar()
         setupBottomNavigation()
+    }
+
+    fun changeBottomNavigationBarVisibility(state: Boolean) {
+        bottomNavigationView.setIsVisible(state)
+    }
+
+    fun navigateToHistoryFragment() {
+        bottomNavigationView.selectedItemId = R.id.historyContainer
     }
 
     fun setUpActionBar(view: View?) {
@@ -58,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() {
-        bottomNavigationView.setOnNavigationItemReselectedListener(navigationItemReselectedListener)
+        bottomNavigationView.setupWithNavController(navController)
     }
 
     private fun hideStatusBar() {

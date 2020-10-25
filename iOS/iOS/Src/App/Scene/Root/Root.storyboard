@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q1Z-Uf-LXT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="huT-Q9-O2o">
+            <objects>
+                <tabBarController storyboardIdentifier="rootVC" extendedLayoutIncludesOpaqueBars="YES" id="q1Z-Uf-LXT" customClass="RootViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="guE-OM-mou" customClass="CustomTabBar" customModule="iOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="purple"/>
+                        <color key="selectedImageTintColor" name="blue"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ble-bz-n2m" kind="relationship" relationship="viewControllers" id="9sl-ve-rA6"/>
+                        <segue destination="wxU-Uc-RSD" kind="relationship" relationship="viewControllers" id="8CA-Vn-n2K"/>
+                        <segue destination="KIk-Re-dD3" kind="relationship" relationship="viewControllers" id="KMj-Oc-uXp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ux5-xF-2bq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="460" y="-463"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ft3-fO-joj">
+            <objects>
+                <navigationController restorationIdentifier="firstNavigationViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Ble-bz-n2m" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="HistoryTab" selectedImage="HistoryTab" id="sW9-oE-Sz0">
+                        <color key="badgeColor" name="blue"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="light_icon_back" backIndicatorTransitionMaskImage="light_icon_back" id="QgT-AP-XXN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="darkTextColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wg2-aB-KZG">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BTy-35-qh2" kind="relationship" relationship="rootViewController" id="IbQ-e7-iJj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCZ-9d-gCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1471" y="330"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SE2-6b-sbH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wxU-Uc-RSD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="CameraTab" selectedImage="CameraTab" id="4ef-rr-XQ8">
+                        <color key="badgeColor" name="blue"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="light_icon_back" backIndicatorTransitionMaskImage="light_icon_back" id="xcB-hK-rIp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="darkTextColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KOS-Kc-JWI" kind="relationship" relationship="rootViewController" id="gJc-w9-WUU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8K7-z7-bYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="329"/>
+        </scene>
+        <!--historyVC-->
+        <scene sceneID="hS4-bm-T7j">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="historyVC" storyboardName="History" referencedIdentifier="historyVC" id="BTy-35-qh2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ku3-b1-2sy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t9D-mz-Gqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1471" y="764"/>
+        </scene>
+        <!--cameraVC-->
+        <scene sceneID="KdB-Wk-Rxy">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="cameraVC" storyboardName="Camera" referencedIdentifier="cameraVC" id="KOS-Kc-JWI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3TO-oy-xMn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAT-Qc-4cG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="460" y="763"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2MA-a4-Lrj">
+            <objects>
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="KIk-Re-dD3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="PersonTab" selectedImage="PersonTab" id="1xL-Uw-imw">
+                        <color key="badgeColor" name="blue"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="light_icon_back" backIndicatorTransitionMaskImage="light_icon_back" id="say-Hx-G12">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GRT-94-fu6" kind="relationship" relationship="rootViewController" id="CH8-dF-agL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oq-jR-2kh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2341" y="329"/>
+        </scene>
+        <!--profileVC-->
+        <scene sceneID="V7y-uO-GZN">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="profileVC" storyboardName="Profile" referencedIdentifier="profileVC" id="GRT-94-fu6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="i3f-gW-96i"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SXs-2X-l8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2341" y="745"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CameraTab" width="33" height="33"/>
+        <image name="HistoryTab" width="28" height="28"/>
+        <image name="PersonTab" width="26" height="26"/>
+        <image name="light_icon_back" width="24" height="24"/>
+        <namedColor name="blue">
+            <color red="0.0080000003799796104" green="0.72899997234344482" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="purple">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

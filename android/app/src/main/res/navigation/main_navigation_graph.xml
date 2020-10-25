@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation_graph"
+    app:startDestination="@id/historyContainer">
+
+    <fragment
+        android:id="@+id/historyContainer"
+        android:name="ru.webant.openmeters.navigation.HistoryContainer"
+        android:label="HistoryContainer" />
+    <fragment
+        android:id="@+id/cameraContainer"
+        android:name="ru.webant.openmeters.navigation.CameraContainer"
+        android:label="CameraContainer" />
+    <fragment
+        android:id="@+id/profileContainer"
+        android:name="ru.webant.openmeters.navigation.ProfileContainer"
+        android:label="ProfileContainer" />
+</navigation>

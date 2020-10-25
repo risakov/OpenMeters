@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Bold.ttf">
+            <string>Graphik-Bold</string>
+        </array>
+        <array key="Graphik-Regular.ttf">
+            <string>Graphik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Ready View Controller-->
+        <scene sceneID="XYl-Eb-jnO">
+            <objects>
+                <viewController storyboardIdentifier="readyVC" id="MWx-Yl-Tth" customClass="ReadyViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vEW-yL-df8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-Vu-flK">
+                                <rect key="frame" x="147" y="277.5" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="BC4-Gd-iWK"/>
+                                    <constraint firstAttribute="height" constant="120" id="FXv-cs-CTz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все готово!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXA-B7-9Z3">
+                                <rect key="frame" x="31.5" y="442.5" width="351" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BdW-XL-RgR"/>
+                                    <constraint firstAttribute="width" constant="351" id="oXU-wx-TMS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulj-53-tYI">
+                                <rect key="frame" x="20" y="778" width="374" height="44"/>
+                                <color key="backgroundColor" name="blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="U7J-GY-f2J"/>
+                                    <constraint firstAttribute="height" constant="44" id="zfK-ls-lty"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="17"/>
+                                <state key="normal" title="Перейти к истории показаний">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onHistoryButtonTap:" destination="MWx-Yl-Tth" eventType="touchUpInside" id="tWO-ts-kTQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показания обработаны и отправлены в банк." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pg0-EJ-DxY">
+                                <rect key="frame" x="103.5" y="479" width="207" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="axH-8V-IQr"/>
+                                    <constraint firstAttribute="width" constant="207" id="r6s-3w-GPG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3gG-sI-sYF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xXA-B7-9Z3" firstAttribute="centerY" secondItem="3gG-sI-sYF" secondAttribute="centerY" id="4c2-qZ-H1h"/>
+                            <constraint firstItem="Ulj-53-tYI" firstAttribute="leading" secondItem="3gG-sI-sYF" secondAttribute="leading" constant="20" id="C62-CP-2UK"/>
+                            <constraint firstItem="3gG-sI-sYF" firstAttribute="bottom" secondItem="Ulj-53-tYI" secondAttribute="bottom" constant="40" id="CML-Ks-tWq"/>
+                            <constraint firstItem="xXA-B7-9Z3" firstAttribute="top" secondItem="vPN-Vu-flK" secondAttribute="bottom" constant="45" id="Qme-0C-clG"/>
+                            <constraint firstItem="vPN-Vu-flK" firstAttribute="centerX" secondItem="3gG-sI-sYF" secondAttribute="centerX" id="UdE-Ym-Jgf"/>
+                            <constraint firstItem="Pg0-EJ-DxY" firstAttribute="top" secondItem="xXA-B7-9Z3" secondAttribute="bottom" constant="15.5" id="Zae-fr-kvp"/>
+                            <constraint firstItem="Ulj-53-tYI" firstAttribute="centerX" secondItem="3gG-sI-sYF" secondAttribute="centerX" id="cdQ-6W-KBR"/>
+                            <constraint firstItem="Pg0-EJ-DxY" firstAttribute="centerX" secondItem="3gG-sI-sYF" secondAttribute="centerX" id="dj6-E9-BHd"/>
+                            <constraint firstItem="3gG-sI-sYF" firstAttribute="trailing" secondItem="Ulj-53-tYI" secondAttribute="trailing" constant="20" id="fD9-0s-cpq"/>
+                            <constraint firstItem="xXA-B7-9Z3" firstAttribute="centerX" secondItem="3gG-sI-sYF" secondAttribute="centerX" id="fNC-13-Uac"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fmE-Kq-eYV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="253.62318840579712" y="98.4375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="like" width="125" height="125"/>
+        <namedColor name="blue">
+            <color red="0.0080000003799796104" green="0.72899997234344482" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

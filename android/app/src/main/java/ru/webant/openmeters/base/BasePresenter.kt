@@ -7,6 +7,9 @@ abstract class BasePresenter<T : BaseView> : MvpPresenter<T>() {
 
     protected val compositeDisposable = CompositeDisposable()
 
+    fun showCameraError() {
+        viewState.showMessageWithRouteToHistoryFragment()
+    }
 
     override fun onDestroy() {
         super.onDestroy()

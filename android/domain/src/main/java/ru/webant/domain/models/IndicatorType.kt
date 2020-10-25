@@ -16,4 +16,10 @@ sealed class IndicatorType(open val title: String, open var isSelected: Boolean)
         override val title: String = "Электричество",
         override var isSelected: Boolean = false
     ) : IndicatorType(title, isSelected)
+
+    companion object {
+        const val HOT_WATER = "Горячая вода"
+        const val COLD_WATER = "Холодная вода"
+        const val ELECTRICITY = "Электричество"
+    }
 }

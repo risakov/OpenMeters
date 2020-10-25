@@ -7,6 +7,10 @@
     <color name="colorLightBlue">#02BAE8</color>
     <color name="colorLightBlack">#343944</color>
     <color name="colorLightGray">#EBEBEB</color>
+    <color name="colorPreLightGray">#95A7B8</color>
     <color name="colorDarkWhite">#F7F8FA</color>
+    <color name="colorCelestial">#F2F6F9</color>
     <color name="colorGray">#95A7B8</color>
+    <color name="colorDarkGray">#8393A3</color>
+    <color name="colorRed">#E60C0C</color>
 </resources>

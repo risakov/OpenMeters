@@ -4,16 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import com.arellomobile.mvp.MvpAppCompatFragment
+import ru.webant.openmeters.R
 import ru.webant.openmeters.scenes.main.MainActivity
 
 abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
 
     abstract val layoutId: Int
-    open var toolbarLayoutId: Int = -1
+    open var toolbarLayoutId = -1
+    open var isNeedToShowBottomNavigationView = true
     var toolbar: View? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(layoutId, container, false)
     }
 
@@ -28,6 +35,7 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
 
     override fun onResume() {
         super.onResume()
+        changeBottomNavigationBarVisibility()
         updateToolbar()
     }
 
@@ -36,8 +44,30 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
         toolbar = null
     }
 
+    override fun showMessageWithRouteToHistoryFragment() {
+        AlertDialog.Builder(requireContext())
+            .setMessage(R.string.error)
+            .setMessage(R.string.backend_error_happened)
+            .setCancelable(false)
+            .setPositiveButton(R.string.ok) { _, _ ->
+                openHistoryFragment()
+            }
+            .create()
+            .show()
+    }
+
+    override fun openHistoryFragment() {
+        (activity as MainActivity).navigateToHistoryFragment()
+    }
+
     open fun setUpToolbar(toolbar: View?) {
 
+    }
+
+    private fun changeBottomNavigationBarVisibility() {
+        (activity as MainActivity).changeBottomNavigationBarVisibility(
+            isNeedToShowBottomNavigationView
+        )
     }
 
     fun updateToolbar() {
