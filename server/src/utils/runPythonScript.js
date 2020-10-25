@@ -9,14 +9,14 @@ runPythonScript = (args) => {
   
     return new Promise((resolve,reject) =>{
       try{
-        PythonShell.run('./script1.py', options, (err, results) => {
+        PythonShell.run('./CV/scriptRecognition.py', options, (err, results) => {
           if (err) {console.log(err);}
           resolve(results);          
         }); 
       }
-      catch{
+      catch (err) {
         console.log('error running python code')
-        reject();
+        reject(err);
       }
     })
 }

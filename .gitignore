@@ -1,0 +1,10 @@
+CV/Meters/
+CV/tr/
+CV/train/
+CV/val/
+CV/valid/
+CV/env/
+CV/Cascades/results/
+CV/__pycache__/
+CV/digits_comma.traineddata
+CV/localization_model.pth
