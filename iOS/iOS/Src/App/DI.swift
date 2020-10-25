@@ -30,6 +30,8 @@ class DI {
                     config.timeoutIntervalForRequest = 60 * 20
                     config.timeoutIntervalForResource = 60 * 20
                     let client = ApiClientImp(urlSessionConfiguration: config, completionHandlerQueue: .main)
+                    client.responseHandlersQueue.append(ErrorResponseHandler())
+                    client.responseHandlersQueue.append(JsonResponseHandler())
                     return client
                 }
                 .as(ApiClient.self)

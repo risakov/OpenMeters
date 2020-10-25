@@ -17,7 +17,7 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 6 colors.
+  /// This `R.color` struct is generated, and contains static references to 7 colors.
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
@@ -27,6 +27,8 @@ struct R: Rswift.Validatable {
     static let blue = Rswift.ColorResource(bundle: R.hostingBundle, name: "blue")
     /// Color `grayBackground`.
     static let grayBackground = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayBackground")
+    /// Color `grayInput`.
+    static let grayInput = Rswift.ColorResource(bundle: R.hostingBundle, name: "grayInput")
     /// Color `graySeparator`.
     static let graySeparator = Rswift.ColorResource(bundle: R.hostingBundle, name: "graySeparator")
     /// Color `grayText`.
@@ -58,6 +60,13 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func grayBackground(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.grayBackground, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "grayInput", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func grayInput(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.grayInput, compatibleWith: traitCollection)
     }
     
     /// `UIColor(named: "graySeparator", bundle: ..., traitCollection: ...)`
@@ -230,7 +239,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 11 images.
+  /// This `R.image` struct is generated, and contains static references to 13 images.
   struct image {
     /// Image `CameraTab`.
     static let cameraTab = Rswift.ImageResource(bundle: R.hostingBundle, name: "CameraTab")
@@ -246,10 +255,14 @@ struct R: Rswift.Validatable {
     static let flashlightOn = Rswift.ImageResource(bundle: R.hostingBundle, name: "flashlight-on")
     /// Image `galleryButton`.
     static let galleryButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "galleryButton")
+    /// Image `inDevelop`.
+    static let inDevelop = Rswift.ImageResource(bundle: R.hostingBundle, name: "inDevelop")
     /// Image `like`.
     static let like = Rswift.ImageResource(bundle: R.hostingBundle, name: "like")
     /// Image `loader`.
     static let loader = Rswift.ImageResource(bundle: R.hostingBundle, name: "loader")
+    /// Image `meter`.
+    static let meter = Rswift.ImageResource(bundle: R.hostingBundle, name: "meter")
     /// Image `openLogo`.
     static let openLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "openLogo")
     /// Image `snapshotButton`.
@@ -290,6 +303,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.galleryButton, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "inDevelop", bundle: ..., traitCollection: ...)`
+    static func inDevelop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.inDevelop, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "like", bundle: ..., traitCollection: ...)`
     static func like(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.like, compatibleWith: traitCollection)
@@ -298,6 +316,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "loader", bundle: ..., traitCollection: ...)`
     static func loader(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.loader, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "meter", bundle: ..., traitCollection: ...)`
+    static func meter(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.meter, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "openLogo", bundle: ..., traitCollection: ...)`
@@ -353,12 +376,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 8 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
   struct storyboard {
     /// Storyboard `Camera`.
     static let camera = _R.storyboard.camera()
     /// Storyboard `EditProfile`.
     static let editProfile = _R.storyboard.editProfile()
+    /// Storyboard `Endpoint`.
+    static let endpoint = _R.storyboard.endpoint()
     /// Storyboard `History`.
     static let history = _R.storyboard.history()
     /// Storyboard `LaunchScreen`.
@@ -380,6 +405,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "EditProfile", bundle: ...)`
     static func editProfile(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.editProfile)
+    }
+    
+    /// `UIStoryboard(name: "Endpoint", bundle: ...)`
+    static func endpoint(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.endpoint)
     }
     
     /// `UIStoryboard(name: "History", bundle: ...)`
@@ -469,6 +499,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try camera.validate()
       try editProfile.validate()
+      try endpoint.validate()
       try history.validate()
       try launchScreen.validate()
       try profile.validate()
@@ -522,6 +553,28 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct endpoint: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let endpointVC = StoryboardViewControllerResource<EndpointViewController>(identifier: "endpointVC")
+      let name = "Endpoint"
+      
+      func endpointVC(_: Void = ()) -> EndpointViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: endpointVC)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "openLogo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'openLogo' is used in storyboard 'Endpoint', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "black", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black' is used in storyboard 'Endpoint', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'Endpoint', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "grayBackground", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayBackground' is used in storyboard 'Endpoint', but couldn't be loaded.") }
+        }
+        if _R.storyboard.endpoint().endpointVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'endpointVC' could not be loaded from storyboard 'Endpoint' as 'EndpointViewController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct history: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let historyVC = StoryboardViewControllerResource<HistoryViewController>(identifier: "historyVC")
@@ -568,6 +621,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "inDevelop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'inDevelop' is used in storyboard 'Profile', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
         if _R.storyboard.profile().profileVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profileVC' could not be loaded from storyboard 'Profile' as 'ProfileViewController'.") }
@@ -588,6 +642,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "like", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'like' is used in storyboard 'Ready', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "black", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black' is used in storyboard 'Ready', but couldn't be loaded.") }
           if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'Ready', but couldn't be loaded.") }
         }
         if _R.storyboard.ready().readyVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'readyVC' could not be loaded from storyboard 'Ready' as 'ReadyViewController'.") }
@@ -601,7 +656,10 @@ struct _R: Rswift.Validatable {
       let name = "Results"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "meter", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'meter' is used in storyboard 'Results', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'blue' is used in storyboard 'Results', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "grayInput", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'grayInput' is used in storyboard 'Results', but couldn't be loaded.") }
         }
       }
       

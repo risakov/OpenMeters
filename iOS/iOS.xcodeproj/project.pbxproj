@@ -69,6 +69,13 @@
 		6C2CB2B3254390E100CB7189 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB2B2254390E100CB7189 /* CustomTabBar.swift */; };
 		6C606FED2543A62B0011AF77 /* HistoryCellWithStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C606FEB2543A62B0011AF77 /* HistoryCellWithStackView.swift */; };
 		6C606FEE2543A62B0011AF77 /* HistoryCellWithStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C606FEC2543A62B0011AF77 /* HistoryCellWithStackView.xib */; };
+		6C9BAE92254527A600F81F34 /* JsonResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BAE91254527A600F81F34 /* JsonResponseHandler.swift */; };
+		6C9BAE96254527EC00F81F34 /* ErrorResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BAE95254527EC00F81F34 /* ErrorResponseHandler.swift */; };
+		6C9BAE9D2545598600F81F34 /* EndpointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BAE9C2545598600F81F34 /* EndpointViewController.swift */; };
+		6C9BAEA12545599400F81F34 /* EndpointPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BAEA02545599400F81F34 /* EndpointPresenter.swift */; };
+		6C9BAEA4254559A700F81F34 /* EndpointConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BAEA3254559A700F81F34 /* EndpointConfigurator.swift */; };
+		6C9BAEA7254559B300F81F34 /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BAEA6254559B300F81F34 /* EndpointRouter.swift */; };
+		6C9BAEAA254559C800F81F34 /* Endpoint.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C9BAEA9254559C800F81F34 /* Endpoint.storyboard */; };
 		6CAF49BC254406D10030409A /* TabBar + visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAF49BB254406D10030409A /* TabBar + visibility.swift */; };
 		6CEBE13A25441C6300E1B878 /* CreatedImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE13925441C6300E1B878 /* CreatedImageEntity.swift */; };
 		6CEBE15D25444EA700E1B878 /* ImageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE15C25444EA700E1B878 /* ImageGateway.swift */; };
@@ -78,7 +85,6 @@
 		6CEBE16C2544514E00E1B878 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE16B2544514E00E1B878 /* Config.swift */; };
 		6CEBE16F254451B900E1B878 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE16E254451B900E1B878 /* ApiEndpoint.swift */; };
 		6CEBE172254453F000E1B878 /* ApiBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE171254453F000E1B878 /* ApiBaseGateway.swift */; };
-		6CEBE1E12544C9FC00E1B878 /* PhotoApiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1E02544C9FC00E1B878 /* PhotoApiEntity.swift */; };
 		6CEBE1EA2544F6BE00E1B878 /* PHAsset + image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1E92544F6BE00E1B878 /* PHAsset + image.swift */; };
 		6CEBE1EE25450AAE00E1B878 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1ED25450AAE00E1B878 /* CustomActivityIndicator.swift */; };
 		6CEBE1F425450E0600E1B878 /* ReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEBE1F325450E0600E1B878 /* ReadyViewController.swift */; };
@@ -156,6 +162,13 @@
 		6C2CB2B2254390E100CB7189 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		6C606FEB2543A62B0011AF77 /* HistoryCellWithStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellWithStackView.swift; sourceTree = "<group>"; };
 		6C606FEC2543A62B0011AF77 /* HistoryCellWithStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCellWithStackView.xib; sourceTree = "<group>"; };
+		6C9BAE91254527A600F81F34 /* JsonResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponseHandler.swift; sourceTree = "<group>"; };
+		6C9BAE95254527EC00F81F34 /* ErrorResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseHandler.swift; sourceTree = "<group>"; };
+		6C9BAE9C2545598600F81F34 /* EndpointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointViewController.swift; sourceTree = "<group>"; };
+		6C9BAEA02545599400F81F34 /* EndpointPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointPresenter.swift; sourceTree = "<group>"; };
+		6C9BAEA3254559A700F81F34 /* EndpointConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointConfigurator.swift; sourceTree = "<group>"; };
+		6C9BAEA6254559B300F81F34 /* EndpointRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
+		6C9BAEA9254559C800F81F34 /* Endpoint.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Endpoint.storyboard; sourceTree = "<group>"; };
 		6CAF49BB254406D10030409A /* TabBar + visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBar + visibility.swift"; sourceTree = "<group>"; };
 		6CEBE13925441C6300E1B878 /* CreatedImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedImageEntity.swift; sourceTree = "<group>"; };
 		6CEBE15C25444EA700E1B878 /* ImageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGateway.swift; sourceTree = "<group>"; };
@@ -165,7 +178,6 @@
 		6CEBE16B2544514E00E1B878 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6CEBE16E254451B900E1B878 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		6CEBE171254453F000E1B878 /* ApiBaseGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBaseGateway.swift; sourceTree = "<group>"; };
-		6CEBE1E02544C9FC00E1B878 /* PhotoApiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoApiEntity.swift; sourceTree = "<group>"; };
 		6CEBE1E92544F6BE00E1B878 /* PHAsset + image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset + image.swift"; sourceTree = "<group>"; };
 		6CEBE1ED25450AAE00E1B878 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		6CEBE1F325450E0600E1B878 /* ReadyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyViewController.swift; sourceTree = "<group>"; };
@@ -239,11 +251,11 @@
 		6C2CB0DF254349E200CB7189 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				6C2CB0ED25434CB400CB7189 /* Profile.storyboard */,
 				6C2CB0E025434A6200CB7189 /* ProfileViewController.swift */,
 				6C2CB0E425434A7100CB7189 /* ProfilePresenter.swift */,
 				6C2CB0E725434C9A00CB7189 /* ProfileConfigurator.swift */,
 				6C2CB0EA25434CA800CB7189 /* ProfileRouter.swift */,
+				6C2CB0ED25434CB400CB7189 /* Profile.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -308,6 +320,7 @@
 		6C2CB12825435AAA00CB7189 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				6C9BAE9B2545596400F81F34 /* Endpoint */,
 				6C2CB2852543831800CB7189 /* Base */,
 				6C2CB14A25435D4F00CB7189 /* Root */,
 				6C2CB1702543670800CB7189 /* History */,
@@ -449,6 +462,27 @@
 			path = HistoryCellWithStackView;
 			sourceTree = "<group>";
 		};
+		6C9BAE902545279300F81F34 /* ResponseHandler */ = {
+			isa = PBXGroup;
+			children = (
+				6C9BAE91254527A600F81F34 /* JsonResponseHandler.swift */,
+				6C9BAE95254527EC00F81F34 /* ErrorResponseHandler.swift */,
+			);
+			path = ResponseHandler;
+			sourceTree = "<group>";
+		};
+		6C9BAE9B2545596400F81F34 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				6C9BAE9C2545598600F81F34 /* EndpointViewController.swift */,
+				6C9BAEA02545599400F81F34 /* EndpointPresenter.swift */,
+				6C9BAEA3254559A700F81F34 /* EndpointConfigurator.swift */,
+				6C9BAEA6254559B300F81F34 /* EndpointRouter.swift */,
+				6C9BAEA9254559C800F81F34 /* Endpoint.storyboard */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
 		6CAF49A12543EEC50030409A /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +509,7 @@
 		6CEBE16025444EB000E1B878 /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				6C9BAE902545279300F81F34 /* ResponseHandler */,
 				6CEBE1DF2544C9ED00E1B878 /* ApiEntities */,
 				6CEBE16125444EB700E1B878 /* ApiGateways */,
 				6CEBE16525444FF800E1B878 /* Requests.swift */,
@@ -496,7 +531,6 @@
 		6CEBE1DF2544C9ED00E1B878 /* ApiEntities */ = {
 			isa = PBXGroup;
 			children = (
-				6CEBE1E02544C9FC00E1B878 /* PhotoApiEntity.swift */,
 			);
 			path = ApiEntities;
 			sourceTree = "<group>";
@@ -584,6 +618,7 @@
 				6C2CB16225435DC300CB7189 /* Root.storyboard in Resources */,
 				6C2CB0D4254344C100CB7189 /* LaunchScreen.storyboard in Resources */,
 				6C2CB2672543745F00CB7189 /* Graphik-Semibold.ttf in Resources */,
+				6C9BAEAA254559C800F81F34 /* Endpoint.storyboard in Resources */,
 				6C2CB23E254371FA00CB7189 /* HistoryCell.xib in Resources */,
 				6C2CB2642543745F00CB7189 /* Graphik-LightItalic.ttf in Resources */,
 				6C2CB17F254367A000CB7189 /* History.storyboard in Resources */,
@@ -681,12 +716,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9BAE92254527A600F81F34 /* JsonResponseHandler.swift in Sources */,
 				6C2CB2872543832100CB7189 /* BaseView.swift in Sources */,
 				6C2CB2A62543870200CB7189 /* EditProfileConfigurator.swift in Sources */,
 				6C2CB1082543577900CB7189 /* ResultsViewController.swift in Sources */,
 				6C2CB0FA25434D3100CB7189 /* CameraConfigurator.swift in Sources */,
 				6C2CB0C8254344BF00CB7189 /* AppDelegate.swift in Sources */,
 				6C2CB2A3254386E800CB7189 /* EditProfilePresenter.swift in Sources */,
+				6C9BAEA12545599400F81F34 /* EndpointPresenter.swift in Sources */,
 				6CAF49BC254406D10030409A /* TabBar + visibility.swift in Sources */,
 				6CEBE16F254451B900E1B878 /* ApiEndpoint.swift in Sources */,
 				6C2CB2A0254386DA00CB7189 /* EditProfileViewController.swift in Sources */,
@@ -696,14 +733,15 @@
 				6C2CB0E125434A6300CB7189 /* ProfileViewController.swift in Sources */,
 				6CEBE16C2544514E00E1B878 /* Config.swift in Sources */,
 				6CEBE169254450B500E1B878 /* ExtentedApiRequest.swift in Sources */,
+				6C9BAE9D2545598600F81F34 /* EndpointViewController.swift in Sources */,
 				6C2CB28B2543837200CB7189 /* BaseRouter.swift in Sources */,
 				6C2CB112254357B800CB7189 /* ResultsRouter.swift in Sources */,
-				6CEBE1E12544C9FC00E1B878 /* PhotoApiEntity.swift in Sources */,
 				6C2CB15425435D9300CB7189 /* RootViewController.swift in Sources */,
 				6C2CB18E25436B4500CB7189 /* DI.swift in Sources */,
 				6C2CB0F725434D2500CB7189 /* CameraPresenter.swift in Sources */,
 				6C2CB18725436AC600CB7189 /* RootViewEnum.swift in Sources */,
 				6CEBE172254453F000E1B878 /* ApiBaseGateway.swift in Sources */,
+				6C9BAEA4254559A700F81F34 /* EndpointConfigurator.swift in Sources */,
 				6C2CB2B3254390E100CB7189 /* CustomTabBar.swift in Sources */,
 				6C2CB2A92543870D00CB7189 /* EditProfileRouter.swift in Sources */,
 				6C2CB0E525434A7100CB7189 /* ProfilePresenter.swift in Sources */,
@@ -717,6 +755,7 @@
 				6C606FED2543A62B0011AF77 /* HistoryCellWithStackView.swift in Sources */,
 				6CEBE15D25444EA700E1B878 /* ImageGateway.swift in Sources */,
 				6C2CB15725435DA100CB7189 /* RootConfigurator.swift in Sources */,
+				6C9BAE96254527EC00F81F34 /* ErrorResponseHandler.swift in Sources */,
 				6CEBE1FB25450E1E00E1B878 /* ReadyConfigurator.swift in Sources */,
 				6CEBE13A25441C6300E1B878 /* CreatedImageEntity.swift in Sources */,
 				6C2CB1762543673000CB7189 /* HistoryPresenter.swift in Sources */,
@@ -726,6 +765,7 @@
 				6C2CB1722543672300CB7189 /* HistoryViewController.swift in Sources */,
 				6CEBE1F425450E0600E1B878 /* ReadyViewController.swift in Sources */,
 				6C2CB10F254357A000CB7189 /* ResultsConfigurator.swift in Sources */,
+				6C9BAEA7254559B300F81F34 /* EndpointRouter.swift in Sources */,
 				6C2CB1792543673D00CB7189 /* HistoryConfigurator.swift in Sources */,
 				6C2CB26E25437A4300CB7189 /* DesignableViews.swift in Sources */,
 				6C2CB0EB25434CA800CB7189 /* ProfileRouter.swift in Sources */,

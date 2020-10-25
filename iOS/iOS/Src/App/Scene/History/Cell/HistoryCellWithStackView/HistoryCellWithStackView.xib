@@ -131,13 +131,13 @@
     </objects>
     <designables>
         <designable name="FwS-Wk-Yr5">
-            <size key="intrinsicContentSize" width="101" height="28"/>
+            <size key="intrinsicContentSize" width="101" height="25"/>
         </designable>
         <designable name="qfv-ff-5iO">
-            <size key="intrinsicContentSize" width="92" height="28"/>
+            <size key="intrinsicContentSize" width="94" height="25"/>
         </designable>
         <designable name="wON-RT-y7P">
-            <size key="intrinsicContentSize" width="83" height="28"/>
+            <size key="intrinsicContentSize" width="83" height="25"/>
         </designable>
     </designables>
     <resources>

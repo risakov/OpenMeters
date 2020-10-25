@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileRouter {
+class EditProfileRouter: BaseRouter {
     
     weak var view: UIViewController!
 

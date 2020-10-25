@@ -12,7 +12,7 @@ class ReadyConfigurator {
     func configure(view: ReadyViewController) {
         let router = ReadyRouter(view)
         let presenter = ReadyPresenterImp(view, router)
-        view.presenter = presenter as? ReadyPresenter
+        view.presenter = presenter
     }
 
     static func open(navigationController: UINavigationController) {

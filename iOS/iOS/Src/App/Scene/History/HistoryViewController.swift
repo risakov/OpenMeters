@@ -20,7 +20,6 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerCells()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -19,7 +19,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: R.font.graphikRegular.fontName, size: 17)!]
+    }
 }
 
 extension ProfileViewController: ProfileView {

@@ -12,7 +12,7 @@ import RxNetworkApiClient
 
 
 protocol CameraPresenter {
-    func getThumbnailForSingleAsset(_ imageAsset: PHAsset)
+    func getThumbnailForSingleAsset(_ imageAsset: PHAsset) -> UIImage?
     func getThumbnailForAssets(assets: [PHAsset])
     func sendSingleImage(_ imageData: Data)
     func sendImages(_ imagesData: [Data])
@@ -36,29 +36,17 @@ class CameraPresenterImp: CameraPresenter {
         self.imageGateway = imageGateway
     }
     
+    
     internal func getThumbnailForAssets(assets: [PHAsset]) {
         var arrayOfImagesData = [Data]()
         for asset in assets {
-            PHImageManager.default().requestAVAsset(forVideo: asset,
-                                                    options: nil) { (asset, audioMix, info) in
-                 if let asset = asset as? AVURLAsset,
-                    let data = NSData(contentsOf: asset.url) as Data? {
-                        arrayOfImagesData.append(data)
-                }
-            }
+            arrayOfImagesData.append(asset.image.pngData() ?? Data())
         }
         self.sendImages(arrayOfImagesData)
     }
     
-    internal func getThumbnailForSingleAsset(_ imageAsset: PHAsset) {
-
-        PHImageManager.default().requestAVAsset(forVideo: imageAsset,
-                                                options: nil) { (asset, audioMix, info) in
-             if let asset = asset as? AVURLAsset,
-                let data = NSData(contentsOf: asset.url) as Data? {
-                    self.sendSingleImage(data)
-                 }
-              }
+    internal func getThumbnailForSingleAsset(_ imageAsset: PHAsset) -> UIImage?{
+            return nil
     }
     
     func sendSingleImage(_ imageData: Data) {

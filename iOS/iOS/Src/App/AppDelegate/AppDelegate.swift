@@ -20,18 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setWindowAndOpenRootScreen(window: UIWindow?) {
         self.window = window
-        self.openRootScreen()
+        self.openEndpointScreen()
     }
-    
-    func openRootScreen() {
-        if let window = self.window, window.rootViewController == nil
-            || !(window.rootViewController?.restorationIdentifier == "firstNavigationViewController") {
+    func openEndpointScreen() {
+        if let window = self.window, window.rootViewController == nil{
             UIView.transition(with: window, duration: 0, options: .transitionCrossDissolve, animations: {
-                let vc = R.storyboard.root.rootVC()!
+                let vc = R.storyboard.endpoint.endpointVC()!
                 window.rootViewController = vc
             })
         }
     }
+    
 
     // MARK: UISceneSession Lifecycle
 

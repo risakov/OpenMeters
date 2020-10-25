@@ -75,7 +75,7 @@ public class ApiClientImp: ApiClient {
                         if !isHandled {
                             let errorEntity = ResponseErrorEntity(response)
                             errorEntity.errors.append(
-                                    "Внутренняя ошибка приложения: не найдет обработчик ответа от сервера")
+                                    "Не находит обработчик ответа от сервера")
                             observer(.error(errorEntity))
                         }
                     }

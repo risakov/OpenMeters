@@ -8,24 +8,54 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Regular.ttf">
+            <string>Graphik-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Профиль-->
         <scene sceneID="xsE-z4-dwK">
             <objects>
                 <viewController storyboardIdentifier="profileVC" id="LZf-iG-Fac" customClass="ProfileViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Lp-6s-Yap">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="inDevelop" translatesAutoresizingMaskIntoConstraints="NO" id="9QP-OZ-vcu">
+                                <rect key="frame" x="144.5" y="389" width="125" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="G8V-aL-W1h"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Раздел находится в разработке" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7C4-2g-e9h">
+                                <rect key="frame" x="103.5" y="545" width="207" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="207" id="TIH-OK-99h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="pFm-Sm-NpY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7C4-2g-e9h" firstAttribute="top" secondItem="9QP-OZ-vcu" secondAttribute="bottom" constant="28" id="4Tk-dt-Szl"/>
+                            <constraint firstItem="7C4-2g-e9h" firstAttribute="centerX" secondItem="pFm-Sm-NpY" secondAttribute="centerX" id="UYC-8d-42D"/>
+                            <constraint firstItem="9QP-OZ-vcu" firstAttribute="centerX" secondItem="pFm-Sm-NpY" secondAttribute="centerX" id="Zdb-9e-wAN"/>
+                            <constraint firstItem="9QP-OZ-vcu" firstAttribute="centerY" secondItem="pFm-Sm-NpY" secondAttribute="centerY" id="nxK-Zu-qvb"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Профиль" id="0F2-5h-xRu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fz-bN-KvT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="258" y="134"/>
+            <point key="canvasLocation" x="257.97101449275362" y="133.92857142857142"/>
         </scene>
     </scenes>
     <resources>
+        <image name="inDevelop" width="125" height="125"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

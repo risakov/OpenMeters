@@ -44,9 +44,9 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func onImagesToPickButtonTap(_ sender: Any) {
         let imagePicker = ImagePickerController()
-        imagePicker.settings.selection.max = 5
+        imagePicker.settings.selection.max = 15
         imagePicker.settings.theme.selectionStyle = .numbered
-        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image, .video]
+        imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
         imagePicker.settings.selection.unselectOnReachingMax = true
         
         self.presentImagePicker(imagePicker, select: { (asset) in
@@ -59,6 +59,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate {
             print("Finished with selections: \(assets)")
             self.presenter.getThumbnailForAssets(assets: assets)
         }, completion: {
+            
         })
     }
     

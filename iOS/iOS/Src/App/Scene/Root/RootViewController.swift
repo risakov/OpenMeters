@@ -19,7 +19,6 @@ class RootViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        RootConfiguratorImp().configure(view: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {

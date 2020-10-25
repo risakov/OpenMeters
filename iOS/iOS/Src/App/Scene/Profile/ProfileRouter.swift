@@ -5,10 +5,10 @@
 //  Created by Роман on 23.10.2020.
 //
 
-import Foundation
+import UIKit
 
-class ProfileRouter {
-    private weak var view: ProfileViewController!
+class ProfileRouter: BaseRouter {
+    weak var view: UIViewController!
 
 
     init(_ view: ProfileViewController) {

@@ -11,7 +11,7 @@ protocol ReadyPresenter {
     func openHistoryScene()
 }
 
-class ReadyPresenterImp {
+class ReadyPresenterImp: ReadyPresenter {
     
     private weak var view: ReadyView!
     private let router: ReadyRouter

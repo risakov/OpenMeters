@@ -1,7 +1,99 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <customFonts key="customFonts">
+        <array key="Graphik-Regular.ttf">
+            <string>Graphik-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="DWb-T8-TQq">
+            <objects>
+                <viewController id="uNx-KX-zlV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vZX-gb-Jm6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meter" translatesAutoresizingMaskIntoConstraints="NO" id="MAZ-Aa-0S3">
+                                <rect key="frame" x="0.0" y="-16" width="414" height="393"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="JmW-M8-a8f"/>
+                                    <constraint firstAttribute="height" constant="393" id="Mdl-hD-8En"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="76543" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-vt-mFy">
+                                <rect key="frame" x="43" y="397" width="328" height="56"/>
+                                <color key="backgroundColor" name="grayInput"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="d2B-Y5-3J2"/>
+                                    <constraint firstAttribute="height" constant="56" id="kXl-dl-pnC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5678909876" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="22r-k9-y78">
+                                <rect key="frame" x="43" y="473" width="328" height="56"/>
+                                <color key="backgroundColor" name="grayInput"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="aSg-nb-54o"/>
+                                    <constraint firstAttribute="width" constant="328" id="nke-VS-e3C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leg-8U-N70">
+                                <rect key="frame" x="43" y="734" width="328" height="54"/>
+                                <color key="backgroundColor" name="blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="RdN-ph-DSY"/>
+                                    <constraint firstAttribute="width" constant="328" id="q9v-qk-kEz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="17"/>
+                                <state key="normal" title="Подтвердить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jbZ-Xu-hLt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="22r-k9-y78" firstAttribute="centerX" secondItem="Fan-vt-mFy" secondAttribute="centerX" id="04X-tu-8kX"/>
+                            <constraint firstItem="MAZ-Aa-0S3" firstAttribute="centerX" secondItem="jbZ-Xu-hLt" secondAttribute="centerX" id="Agl-6y-BxE"/>
+                            <constraint firstItem="Fan-vt-mFy" firstAttribute="centerX" secondItem="jbZ-Xu-hLt" secondAttribute="centerX" id="H1W-Tn-Uwn"/>
+                            <constraint firstItem="Leg-8U-N70" firstAttribute="centerX" secondItem="jbZ-Xu-hLt" secondAttribute="centerX" id="LTQ-Mt-hmN"/>
+                            <constraint firstItem="MAZ-Aa-0S3" firstAttribute="leading" secondItem="jbZ-Xu-hLt" secondAttribute="leading" id="MqL-e1-f9i"/>
+                            <constraint firstItem="MAZ-Aa-0S3" firstAttribute="trailing" secondItem="jbZ-Xu-hLt" secondAttribute="trailing" id="YDa-g9-or8"/>
+                            <constraint firstItem="jbZ-Xu-hLt" firstAttribute="bottom" secondItem="Leg-8U-N70" secondAttribute="bottom" constant="74" id="efD-G2-ih8"/>
+                            <constraint firstItem="MAZ-Aa-0S3" firstAttribute="top" secondItem="jbZ-Xu-hLt" secondAttribute="top" constant="-60" id="utM-uT-NtV"/>
+                            <constraint firstItem="Fan-vt-mFy" firstAttribute="top" secondItem="MAZ-Aa-0S3" secondAttribute="bottom" constant="20" id="yyg-sa-qvY"/>
+                            <constraint firstItem="22r-k9-y78" firstAttribute="top" secondItem="Fan-vt-mFy" secondAttribute="bottom" constant="20" id="z9A-S6-mny"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JPS-YG-zs9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-304.34782608695656" y="125.89285714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="meter" width="360" height="340"/>
+        <namedColor name="blue">
+            <color red="0.0080000003799796104" green="0.72899997234344482" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grayInput">
+            <color red="0.94900000095367432" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
