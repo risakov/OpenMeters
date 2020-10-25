@@ -4,7 +4,7 @@ import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import ru.webant.domain.models.IndicatorType
-import ru.webant.domain.models.IndicatorHistory
+import ru.webant.domain.models.IndicatorValue
 import ru.webant.openmeters.base.BaseView
 
 interface IndicatorHistoryView : BaseView {
@@ -13,8 +13,11 @@ interface IndicatorHistoryView : BaseView {
     fun addIndicatorTypeAdapterItems(indicatorTypes: ArrayList<IndicatorType>)
 
     @StateStrategyType(OneExecutionStateStrategy::class)
-    fun addIndicatorValuesAdapterItems(indicatorHistories: ArrayList<IndicatorHistory>)
+    fun addIndicatorValuesAdapterItems(indicatorValues: ArrayList<IndicatorValue>)
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun updateIndicatorTypeAdapter()
+
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun updateIndicatorValueAdapter()
 }

@@ -6,7 +6,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_indicator_history.*
 import kotlinx.android.synthetic.main.toolbar.view.*
-import ru.webant.domain.models.IndicatorHistory
+import ru.webant.domain.models.IndicatorValue
 import ru.webant.domain.models.IndicatorType
 import ru.webant.openmeters.App
 import ru.webant.openmeters.R
@@ -43,8 +43,8 @@ class IndicatorHistoryFragment : BaseFragment(), IndicatorHistoryView {
         setUpListeners()
     }
 
-    override fun addIndicatorValuesAdapterItems(indicatorHistories: ArrayList<IndicatorHistory>) {
-        indicatorHistoryAdapter.setItems(indicatorHistories)
+    override fun addIndicatorValuesAdapterItems(indicatorValues: ArrayList<IndicatorValue>) {
+        indicatorHistoryAdapter.setItems(indicatorValues)
     }
 
     override fun addIndicatorTypeAdapterItems(indicatorTypes: ArrayList<IndicatorType>) {
@@ -53,6 +53,10 @@ class IndicatorHistoryFragment : BaseFragment(), IndicatorHistoryView {
 
     override fun updateIndicatorTypeAdapter() {
         indicatorTypeAdapter.notifyDataSetChanged()
+    }
+
+    override fun updateIndicatorValueAdapter() {
+        indicatorHistoryAdapter.notifyDataSetChanged()
     }
 
     private fun setUpListeners() {

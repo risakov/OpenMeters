@@ -3,13 +3,13 @@ package ru.webant.openmeters.scenes.history.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.webant.domain.models.IndicatorHistory
+import ru.webant.domain.models.IndicatorValue
 import ru.webant.openmeters.R
 import ru.webant.openmeters.scenes.history.adapter.holders.IndicatorHistoryViewHolder
 
 class IndicatorHistoryAdapter : RecyclerView.Adapter<IndicatorHistoryViewHolder>() {
 
-    private val indicatorValues = ArrayList<IndicatorHistory>()
+    private var indicatorValues = ArrayList<IndicatorValue>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IndicatorHistoryViewHolder {
         return IndicatorHistoryViewHolder(
@@ -25,8 +25,8 @@ class IndicatorHistoryAdapter : RecyclerView.Adapter<IndicatorHistoryViewHolder>
         holder.bind(indicatorValues[position])
     }
 
-    fun setItems(indicatorHistory: ArrayList<IndicatorHistory>) {
-        this.indicatorValues.addAll(indicatorHistory)
+    fun setItems(indicatorValue: ArrayList<IndicatorValue>) {
+        this.indicatorValues = indicatorValue
         notifyDataSetChanged()
     }
 }

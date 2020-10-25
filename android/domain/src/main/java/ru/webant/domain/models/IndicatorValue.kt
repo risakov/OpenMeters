@@ -1,5 +1,5 @@
 package ru.webant.domain.models
 
-data class IndicatorHistory(
+data class IndicatorValue(
     val id: Int
 )
