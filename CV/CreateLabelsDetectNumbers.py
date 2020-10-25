@@ -4,7 +4,7 @@ from tkinter.filedialog import askopenfilename
 import keyboard
 import csv
 import random
-
+import os
 class Coords:
     def __init__(self, x1, y1, x2, y2):
         self.x1 = x1
@@ -17,15 +17,18 @@ class LabelsForImage(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
         self.canvas = tk.Canvas(self, width=512, height=512, cursor="cross")
+        self.files = os.listdir("./Meters/")
    
         keyboard.add_hotkey('Ctrl + r', self.new_image)
         keyboard.add_hotkey('Ctrl + q', self.end)
+        keyboard.add_hotkey('Ctrl + x', self.next_image)
 
         self.canvas.bind("<ButtonPress-1>", self.on_button_press)
         self.canvas.bind("<B1-Motion>", self.on_move_press)
         self.canvas.bind("<ButtonRelease-1>", self.on_button_release)
         self.canvas.pack(side="top", fill="both", expand=True)
         self.rect = None
+        self.image_id = 0
 
         self.rects = []
         self.res_good = []
@@ -48,28 +51,29 @@ class LabelsForImage(tk.Tk):
 
     def new_image(self):
         (width, height) = self.im.size
-        file = self.filename.replace("C:/Users/Alisher/Desktop/OpenHackCV/CV/Meters/", "")
-        info = {"filename":file,
+        file = self.filename.replace("C:/Users/Alisher/Desktop/OpenHackCV/CV/Meters/", "n")
+        info = {"image_id":self.image_id, "filename":file,
             "width":width, "height":height,
             "class":"numbers",
-            "xmin" : self.x2, "ymin":self.y2, "xmax":self.x1, "ymax":self.y1}
+            "xmin" : self.x1, "ymin":self.y1, "xmax":self.x2, "ymax":self.y2}
+        self.image_id += 1
         if random.random() > 0.2:
             self.train.append(info)
-            self.im.save(self.path_train + file)
+            self.im.save(self.path_train +"n" +  file)
         else:
             self.im.save(self.path_valid + file)
             self.valid.append(info)
-
-        self.id += 1
         self._draw_image()
         print('ok')
 
     def save_csv(self, filename, data):
-        columns=["filename", "width", "height", "class", "xmin", "ymin", "xmax", "ymax"]
+        columns=["image_id", "filename", "width", "height", "class", "xmin", "ymin", "xmax", "ymax"]
         with open(filename, "w", newline="") as file:
             writer = csv.DictWriter(file, fieldnames=columns)
             writer.writeheader()
             writer.writerows(data)
+    def next_image(self):
+        self._draw_image()
 
     def end(self):
         self.save_csv("train.csv", self.train)
@@ -78,8 +82,10 @@ class LabelsForImage(tk.Tk):
 
     def _draw_image(self):
         self.imrect = None
-        self.filename = self._get_filename()
-        self.im = Image.open(self.filename)
+        self.filename = self.files[self.id]
+        self.id += 1
+        self.im = Image.open("./Meters/" + self.filename)
+        self.im = self.im.resize((400, 400), Image.ANTIALIAS)
         self.tk_im = ImageTk.PhotoImage(self.im)
         self.imrect = self.canvas.create_image(0, 0, anchor="nw", image=self.tk_im)
     

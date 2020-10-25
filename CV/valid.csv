@@ -1,1 +1,15 @@
-filename,width,height,class,xmin,ymin,xmax,ymax
+image_id,filename,width,height,class,xmin,ymin,xmax,ymax
+11,n110.png,400,400,numbers,136,189,293,206
+19,n122.png,400,400,numbers,56,165,220,180
+21,n125.png,400,400,numbers,83,107,263,144
+22,n126.png,400,400,numbers,91,230,307,268
+23,n127.png,400,400,numbers,80,170,315,219
+26,n130.png,400,400,numbers,120,228,320,265
+27,n131.png,400,400,numbers,158,144,265,176
+30,n134.png,400,400,numbers,62,165,287,183
+41,n147.png,400,400,numbers,85,189,210,207
+62,n170.png,400,400,numbers,71,201,243,234
+63,n171.png,400,400,numbers,92,153,321,193
+72,n18.png,400,400,numbers,104,105,249,136
+81,n189.png,400,400,numbers,63,138,198,173
+89,n196.png,400,400,numbers,101,97,276,138

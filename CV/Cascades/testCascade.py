@@ -13,6 +13,16 @@ def get_filename():
                     ('BMP pictures', '*.bmp'),
                     ('PNG pictures','*.png'),
                     ('JPEG pictures','*.jpg')])
+im = cv.imread(get_filename())
+img = cv.cvtColor(im, cv.IMREAD_GRAYSCALE)
+numbers = cascade.detectMultiScale(img, 1.1, 3)
+
+for (x,y,w,h) in numbers:
+    plates_rec = cv.rectangle(img, (x,y), (x+w, y+h), (0,255,0), 1)        
+
+cv.imshow("im", img)
+cv.waitKey(0)
+'''
 for i in range(10, 100):
     img = cv.imread(dir_good + str(i) + ".png")
     img = cv.cvtColor(img, cv.IMREAD_GRAYSCALE)
@@ -24,7 +34,6 @@ for i in range(10, 100):
     cv.imwrite('.\\results\\' + str(i)+'.bmp', img)
     cv.waitKey(0)
 
-'''
 def detect_numbers(img):
     numbers = img
     rect = cascade.detectMultiScale(numbers,scaleFactor=1.2,minNeighbors=5)
