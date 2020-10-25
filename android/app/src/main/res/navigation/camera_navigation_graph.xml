@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/camera_navigation"
+    app:startDestination="@id/cameraFragment">
+
+    <fragment
+        android:id="@+id/processingFragment"
+        android:name="ru.webant.openmeters.scenes.camera.processing.ProcessingFragment"
+        android:label="ProcessingFragment">
+        <argument
+            android:name="filePaths"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/openResultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/camera_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/allReadyFragment"
+        android:name="ru.webant.openmeters.scenes.camera.all_ready.AllReadyFragment"
+        android:label="AllReadyFragment" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="ru.webant.openmeters.scenes.camera.CameraFragment"
+        android:label="CameraFragment">
+        <action
+            android:id="@+id/openProcessingFragment"
+            app:destination="@id/processingFragment"
+            app:popUpTo="@id/camera_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="ru.webant.openmeters.scenes.camera.result.ResultFragment"
+        android:label="ResultFragment" >
+        <argument
+            android:name="indicatorResults"
+            app:argType="ru.webant.openmeters.models.ParcelableIndicatorResponseEntity[]" />
+        <action
+            android:id="@+id/openAllReadyFragment"
+            app:destination="@id/allReadyFragment"
+            app:popUpTo="@id/camera_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
